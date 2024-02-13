@@ -28,6 +28,10 @@
 	<link href="{{asset('backend_asset/assets/vendor/bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css')}}" rel="stylesheet">
     <link href="{{asset('backend_asset/assets/css/style.css')}}" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&amp;family=Roboto:wght@100;300;400;500;700;900&amp;display=swap" rel="stylesheet">
+
+    {{-- custom links --}}
+
+
 </head>
 <body>
 
@@ -794,7 +798,7 @@
                         </a>
                     </li>
 
-                    <li><a href="{{route('category')}}" class="ai-icon" aria-expanded="false">
+                    <li><a href="{{route('category.index')}}" class="ai-icon" aria-expanded="false">
                         <i class="flaticon-381-controls-3"></i>
                         <span class="nav-text">Category</span>
                         </a>
@@ -1005,6 +1009,11 @@
 
 	<!-- Dashboard 1 -->
 	<script src="{{asset('backend_asset/assets/js/dashboard/dashboard-1.js')}}"></script>
+
+    {{-- custom links --}}
+
+
+
 	<script>
 		$(function () {
 			$('#datetimepicker1').datetimepicker({
@@ -1012,5 +1021,6 @@
 			});
 		});
 	</script>
+    @yield('script')
 </body>
 </html>

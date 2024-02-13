@@ -11,7 +11,8 @@ class CategoryController extends Controller
 {
 
     function category(){
-        return view('backend.category.category');
+        $categories = Category::orderBy('id','desc')->get();
+        return view('backend.category.category',compact('categories'));
     }
     function categoryCreate(){
         return view('backend.category.categoryCreate');
@@ -33,6 +34,12 @@ class CategoryController extends Controller
         $category->seo_tags         = $request->seo_tag;
         $category->save();
 
-        dd($category);
+        return redirect(route('category'));
     }
+
+    public function categoryDelete($id){
+        echo $id;
+    }
+
+
 }
