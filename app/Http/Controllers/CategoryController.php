@@ -10,9 +10,8 @@ use Illuminate\Http\Request;
 class CategoryController extends Controller
 {
 
-    function category(){
-        $categories = Category::orderBy('id','desc')->get();
-        return view('backend.category.category',compact('categories'));
+    function index(){
+        return view('backend.category.category');
     }
     function categoryCreate(){
         return view('backend.category.categoryCreate');

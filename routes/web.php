@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Backend\Category;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\ConfigController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
@@ -38,4 +39,8 @@ Route::get('/readblog',[FrontendController::class, 'readblog'])->name('readblog'
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 //category
-Route::resource('/category', Category::class);
+// Route::resource('/category', Category::class);
+Route::get('/category', [CategoryController::class,'index'])->name('category');
+
+//config
+Route::get('/config',[ConfigController::class, 'index'])->name('config');

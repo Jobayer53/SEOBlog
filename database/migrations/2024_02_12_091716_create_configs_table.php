@@ -14,9 +14,9 @@ return new class extends Migration
         Schema::create('configs', function (Blueprint $table) {
             $table->id();
             $table->enum('name', ['home', 'about', 'contact', 'privacy','term']);
-            $table->string('varchar');
-            $table->string('seo_description');
-            $table->string('seo_tags');
+            $table->string('seo_title')->nullable();
+            $table->string('seo_description')->nullable();
+            $table->string('seo_tags')->nullable();
             $table->timestamps();
         });
     }

@@ -31,7 +31,7 @@
 
     {{-- custom links --}}
 
-
+    @livewireStyles
 </head>
 <body>
 
@@ -798,9 +798,14 @@
                         </a>
                     </li>
 
-                    <li><a href="{{route('category.index')}}" class="ai-icon" aria-expanded="false">
+                    <li><a href="{{route('category')}}" class="ai-icon" aria-expanded="false">
                         <i class="flaticon-381-controls-3"></i>
                         <span class="nav-text">Category</span>
+                        </a>
+                    </li>
+                    <li><a href="{{route('config')}}" class="ai-icon" aria-expanded="false">
+                        <i class="flaticon-381-controls-3"></i>
+                        <span class="nav-text">Config</span>
                         </a>
                     </li>
                     <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
@@ -1013,7 +1018,7 @@
     {{-- custom links --}}
 
 
-
+ @livewireScripts
 	<script>
 		$(function () {
 			$('#datetimepicker1').datetimepicker({
@@ -1022,5 +1027,6 @@
 		});
 	</script>
     @yield('script')
+
 </body>
 </html>
