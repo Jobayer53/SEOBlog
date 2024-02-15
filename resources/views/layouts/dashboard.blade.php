@@ -31,6 +31,17 @@
 
     {{-- custom links --}}
 
+
+
+    {{-- custon style --}}
+    <style>
+        .selected {
+            color: #FF0000; /* Red color for selected icons */
+        }
+    </style>
+
+
+
     @livewireStyles
 </head>
 <body>
@@ -808,6 +819,21 @@
                         <span class="nav-text">Config</span>
                         </a>
                     </li>
+                    <li><a href="{{route('news')}}" class="ai-icon" aria-expanded="false">
+                        <i class="flaticon-381-controls-3"></i>
+                        <span class="nav-text">News</span>
+                        </a>
+                    </li>
+                    <li><a href="{{route('social.link')}}" class="ai-icon" aria-expanded="false">
+                        <i class="flaticon-381-controls-3"></i>
+                        <span class="nav-text">Social Link</span>
+                        </a>
+                    </li>
+                    <li><a href="{{route('blogs')}}" class="ai-icon" aria-expanded="false">
+                        <i class="flaticon-381-controls-3"></i>
+                        <span class="nav-text">Blogs</span>
+                        </a>
+                    </li>
                     <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
 							<i class="flaticon-381-networking"></i>
 							<span class="nav-text">Dashboard 2</span>
@@ -1016,6 +1042,7 @@
 	<script src="{{asset('backend_asset/assets/js/dashboard/dashboard-1.js')}}"></script>
 
     {{-- custom links --}}
+
 
 
  @livewireScripts

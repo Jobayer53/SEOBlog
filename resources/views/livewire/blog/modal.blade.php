@@ -5,34 +5,34 @@
     <div class="modal-dialog modal-lg" >
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="createModal">Create Category</h5>
+          <h5 class="modal-title" id="createModal">Create Blog</h5>
           <button type="button" class="btn-close" wire:click="close" aria-label="Close"></button>
         </div>
         <div class="modal-body">
             <form wire:submit.prevent="store" >
                 @csrf
                 <div class="form-group">
-                    <select name="parent_category" wire:model="parent_category" class="form-control default-select">
+
+                    <select name="category_id" wire:model="category_id" class="form-control default-select">
                         @if ($categories->count('id') == 0)
                         <option value="" >NO DATA TO SHOW</option>
                         @else
                         <option value="" >SELECT CATEGORY</option>
                             @foreach ($categories as $data )
-
                                 <option value="{{$data->id}}"> {{$data->name}} </option>
                             @endforeach
-
                         @endif
-
-
                     </select>
+
+                    @error('category_id')
+                    <strong class="text text-danger"> {{$message}} </strong>
+                    @enderror
                 </div>
                 <div class="form-group">
-                    <label for="" class="form-label">Name</label>
-                    <input type="text" class="form-control input-default " id="name" name="name" wire:model="name">
-                    @error('name')
+                    <label for="" class="form-label">Title</label>
+                    <input type="text" class="form-control input-default " wire:model="title">
+                    @error('title')
                     <strong class="text text-danger"> {{$message}} </strong>
-
                     @enderror
                 </div>
 
@@ -49,8 +49,11 @@
                     <input type="text" class="form-control input-default " id="seo_tags" name="seo_tags" wire:model="seo_tags" >
                 </div>
                 <div class="form-group">
-                    <label for="" class="form-label">Image</label>
-                    <input type="file" class="form-control input-default " id="image" name="image" wire:model="image" >
+                    <label for="" class="form-label">Features Image</label>
+                    <input type="file" class="form-control input-default " id="image" name="image" wire:model="features_image" >
+                    @error('features_image')
+                    <strong class="text text-danger"> {{$message}} </strong>
+                    @enderror
                 </div>
                 <div class="form-group text-center">
                    <button  class="btn btn-info btn-sm">Create</button>
@@ -69,35 +72,33 @@
     <div class="modal-dialog modal-lg" >
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="editModal">Update Category</h5>
+          <h5 class="modal-title" id="editModal">Update Blog</h5>
           <button type="button" class="btn-close" wire:click="close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
             <form wire:submit.prevent="update" >
                 @csrf
                 <div class="form-group">
-                    <select name="parent_category" wire:model="parent_category" class="form-control default-select">
+                    <select name="category_id" wire:model="category_id" class="form-control default-select">
                         @if ($categories->count('id') == 0)
                         <option value="" >NO DATA TO SHOW</option>
                         @else
-                                @if (!$select)
-                                <option value=""> SELECT CATEGORY {{ $select}}</option>
-                                @endif
-
+                        
                             @foreach ($categories as $data )
                                 <option value="{{$data->id}}"> {{$data->name}} </option>
                             @endforeach
                         @endif
                     </select>
-                    @error('parent_category')
+                    @error('category_id')
                     <strong class="text text-danger"> {{$message}} </strong>
                     @enderror
                 </div>
+
                 <div class="form-group">
-                    <label for="" class="form-label">Name</label>
-                    <input type="text" class="form-control input-default " id="name" name="name" wire:model="name">
-                    <input type="hidden"  wire:model="category_id">
-                    @error('name')
+                    <label for="" class="form-label">Title</label>
+                    <input type="text" class="form-control input-default " wire:model="title">
+                    <input type="hidden"  wire:model="blog_id">
+                    @error('title')
                     <strong class="text text-danger"> {{$message}} </strong>
                     @enderror
                 </div>
@@ -115,8 +116,11 @@
                     <input type="text" class="form-control input-default " id="seo_tags" name="seo_tags" wire:model="seo_tags" >
                 </div>
                 <div class="form-group">
-                    <label for="" class="form-label">Image</label>
-                    <input type="file" class="form-control input-default " id="image" name="image" wire:model="image" >
+                    <label for="" class="form-label">Features Image</label>
+                    <input type="file" class="form-control input-default " id="image" name="image" wire:model="features_image" >
+                    @error('features_image')
+                    <strong class="text text-danger"> {{$message}} </strong>
+                    @enderror
                 </div>
                 <div class="form-group text-center">
                    <button  class="btn btn-info btn-sm">Update</button>
@@ -127,7 +131,7 @@
 
       </div>
     </div>
-  </div>
+</div>
 <!-- delete Modal -->
 <div wire:ignore.self class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModal" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered role="document">
@@ -146,7 +150,7 @@
         </div>
       </div>
     </div>
-  </div>
+</div>
 
 
 

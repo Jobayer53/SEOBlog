@@ -5,36 +5,32 @@
     <div class="modal-dialog modal-lg" >
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="createModal">Create Category</h5>
+          <h5 class="modal-title" id="createModal">Create News</h5>
           <button type="button" class="btn-close" wire:click="close" aria-label="Close"></button>
         </div>
         <div class="modal-body">
             <form wire:submit.prevent="store" >
                 @csrf
+
                 <div class="form-group">
-                    <select name="parent_category" wire:model="parent_category" class="form-control default-select">
-                        @if ($categories->count('id') == 0)
-                        <option value="" >NO DATA TO SHOW</option>
-                        @else
-                        <option value="" >SELECT CATEGORY</option>
-                            @foreach ($categories as $data )
-
-                                <option value="{{$data->id}}"> {{$data->name}} </option>
-                            @endforeach
-
-                        @endif
-
-
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="" class="form-label">Name</label>
-                    <input type="text" class="form-control input-default " id="name" name="name" wire:model="name">
-                    @error('name')
+                    <label for="" class="form-label">Title</label>
+                    <input type="text" class="form-control input-default " wire:model="title">
+                    @error('title')
                     <strong class="text text-danger"> {{$message}} </strong>
 
                     @enderror
                 </div>
+
+
+                <div  class="form-group">
+
+                        <label for="" class="form-label">Content</label>
+                        <textarea  id="summernote" name="content" wire:model="content"></textarea>
+
+                </div>
+                @error('content')
+                        <strong class="text text-danger"> {{$message}} </strong>
+                @enderror
 
                 <div class="form-group">
                     <label for="" class="form-label">Seo Title</label>
@@ -69,38 +65,30 @@
     <div class="modal-dialog modal-lg" >
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="editModal">Update Category</h5>
+          <h5 class="modal-title" id="editModal">Update News</h5>
           <button type="button" class="btn-close" wire:click="close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
             <form wire:submit.prevent="update" >
                 @csrf
                 <div class="form-group">
-                    <select name="parent_category" wire:model="parent_category" class="form-control default-select">
-                        @if ($categories->count('id') == 0)
-                        <option value="" >NO DATA TO SHOW</option>
-                        @else
-                                @if (!$select)
-                                <option value=""> SELECT CATEGORY {{ $select}}</option>
-                                @endif
+                    <label for="" class="form-label">Title</label>
+                    <input type="text" class="form-control input-default " wire:model="title">
+                    <input type="hidden" wire:model="news_id">
 
-                            @foreach ($categories as $data )
-                                <option value="{{$data->id}}"> {{$data->name}} </option>
-                            @endforeach
-                        @endif
-                    </select>
-                    @error('parent_category')
+                    @error('title')
                     <strong class="text text-danger"> {{$message}} </strong>
                     @enderror
                 </div>
+
+
                 <div class="form-group">
-                    <label for="" class="form-label">Name</label>
-                    <input type="text" class="form-control input-default " id="name" name="name" wire:model="name">
-                    <input type="hidden"  wire:model="category_id">
-                    @error('name')
-                    <strong class="text text-danger"> {{$message}} </strong>
-                    @enderror
+                    <label for="" class="form-label">Content</label>
+                    <textarea  id="summernote" name="content" wire:model="content"></textarea>
                 </div>
+                @error('content')
+                        <strong class="text text-danger"> {{$message}} </strong>
+                @enderror
 
                 <div class="form-group">
                     <label for="" class="form-label">Seo Title</label>

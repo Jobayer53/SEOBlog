@@ -7,7 +7,7 @@ use Livewire\Component;
 
 class Config extends Component
 {
-    public $name, $seo_title, $seo_description, $seo_tags, $config_id, $delete_id, $error = false;
+    public $name, $seo_title, $seo_description, $seo_tags, $config_id, $delete_id, $error = false,$select;
 
 
 
@@ -31,6 +31,7 @@ class Config extends Component
             $config->save();
             $this->error = false;
             $this->reset();
+           
             $this->dispatch('close-modal');
         }else{
             $this->error = true;
@@ -58,6 +59,7 @@ class Config extends Component
             $config->seo_title        = $this->seo_title;
             $config->seo_description  = $this->seo_description;
             $config->seo_tags         = $this->seo_tags;
+            $this->reset();
             $config->save();
             $this->dispatch('close-modal');
         }else{
@@ -97,6 +99,7 @@ class Config extends Component
 
     public function close(){
         $this->reset();
+        $this->resetValidation();
         $this->dispatch('close-modal');
     }
 

@@ -11,7 +11,8 @@ use Livewire\Features\SupportFileUploads\WithFileUploads;
 class Category extends Component
 {
     use WithFileUploads;
-    public $name, $seo_title, $seo_description, $seo_tags, $parent_category,$image, $category_id, $delete_id;
+    public $name, $seo_title, $seo_description, $seo_tags, $parent_category,$image, $category_id, $delete_id,$select;
+
     public function render()
     {
         $categories = ModelsCategory::orderBy('id','desc')->get();
@@ -24,7 +25,7 @@ class Category extends Component
         Photo::upload($this->image,'upload/category','CAT');
 
         $category = new ModelsCategory();
-        $category->parent_category  = $this->parent_category;
+        $category->parent_category  = $this->parent_category?$this->parent_category:null;
         $category->name             = $this->name;
         $category->image            = Photo::$name;
         $category->slugs            = Str::slug($this->name);
@@ -32,7 +33,7 @@ class Category extends Component
         $category->seo_description  = $this->seo_description;
         $category->seo_tags         = $this->seo_tags;
         $category->save();
-
+        $this->select = false;
         $this->reset();
         $this->dispatch('close-modal');
 
@@ -40,8 +41,10 @@ class Category extends Component
 
     public function edit($id){
         $category = ModelsCategory::find($id);
+        $this->select = $category->parent_category;
+
         $this->parent_category  = $category->parent_category ;
-        $this->name             =  $category->name ;
+        $this->name             = $category->name ;
         $this->seo_title        = $category->seo_title ;
         $this->seo_description  = $category->seo_description;
         $this->seo_tags         = $category->seo_tags ;
@@ -52,6 +55,7 @@ class Category extends Component
 
         $this->validate([
             'name'=> 'required',
+
         ]);
         $category = ModelsCategory::find($this->category_id);
 
@@ -65,13 +69,15 @@ class Category extends Component
                 $category->image = Photo::$name;
             }
         }
-        $category->parent_category  = $this->parent_category;
+        $category->parent_category  = $this->parent_category?$this->parent_category:null;
         $category->name             = $this->name;
         $category->slugs            = Str::slug($this->name);
         $category->seo_title        = $this->seo_title;
         $category->seo_description  = $this->seo_description;
         $category->seo_tags         = $this->seo_tags;
         $category->save();
+        $this->reset();
+        $this->select = false;
         $this->dispatch('close-modal');
     }
     public function delete_assing($id){
@@ -94,6 +100,7 @@ if($this->delete_id){
 
     public function close(){
         $this->reset();
+        $this->resetValidation();
         $this->dispatch('close-modal');
     }
 }
