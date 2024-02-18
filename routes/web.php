@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Backend\Category;
 use App\Http\Controllers\BlogContentController;
+use App\Http\Controllers\BlogController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ConfigController;
 use Illuminate\Support\Facades\Auth;
@@ -11,6 +12,7 @@ use App\Http\Controllers\FrontendController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\SocialLinkController;
+use App\Models\Blog;
 
 /*
 |--------------------------------------------------------------------------
@@ -49,7 +51,14 @@ Route::get('/category', [CategoryController::class,'index'])->name('category');
 Route::get('/config',[ConfigController::class, 'index'])->name('config');
 //news
 Route::get('/news', [NewsController::class, 'index'])->name('news');
+Route::get('/news/create', [NewsController::class, 'create'])->name('news.create');
+Route::post('/news/store', [NewsController::class, 'store'])->name('news.store');
+Route::get('/news/edit/{id}', [NewsController::class, 'edit'])->name('news.edit');
+Route::post('/news/update', [NewsController::class, 'update'])->name('news.update');
+
 //social link
 Route::get('/social/link', [SocialLinkController::class, 'index'])->name('social.link');
 //blogs
-Route::get('/blogs', [BlogContentController::class, 'index'])->name('blogs');
+Route::get('/blogs', [BlogController::class, 'index'])->name('blogs');
+//blog content
+Route::resource('/blog_content', BlogContentController::class, );

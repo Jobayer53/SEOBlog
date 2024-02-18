@@ -5,12 +5,13 @@
     <div class="container-fluid">
     <div class="row">
         <div class="col-lg-8 m-auto">
-            <button data-bs-toggle="modal" data-bs-target="#createModal" type="button" class="btn btn-rounded btn-info mb-3">
-                <span class="btn-icon-left text-info ">
-                    <i class="fa fa-plus color-info"></i>
-                </span>
-                Add
-            </button>
+            <a href="{{route('news.create')}}">
+                <button  type="button" class="btn btn-rounded btn-info mb-3">
+                    <span class="btn-icon-left text-info ">
+                        <i class="fa fa-plus color-info"></i>
+                    </span>
+                    Add
+                </button></a>
             <div class="card">
                 <div class="card-header">
                     <h4 class="card-title">News List</h4>
@@ -23,7 +24,7 @@
                                     <th style="width:80px;"><strong>#</strong></th>
                                     <th><strong>IMAGE</strong></th>
                                     <th><strong>TITLE</strong></th>
-                                    <th><strong>CONTENT</strong></th>
+
                                     <th>Action</th>
                                 </tr>
                             </thead>
@@ -51,10 +52,10 @@
 
                                     </td>
                                     <td> {{$data->title}} </td>
-                                    <td> {{$data->content}} </td>
+                                    {{-- <td class="text text-danger" style="cursor: pointer;">  CLICK HERE </td> --}}
                                     <td>
                                         <div class="d-flex">
-                                            <button wire:click="edit({{$data->id}})" class="btn btn-primary shadow btn-xs sharp me-1"  data-bs-toggle="modal" data-bs-target="#editModal"><i class="fa fa-pencil"></i></button>
+                                            <a href="{{route('news.edit',$data->id)}}"   class="btn btn-primary shadow btn-xs sharp me-1" ><i class="fa fa-pencil"></i></a>
                                             <button  class="btn btn-danger shadow btn-xs sharp " wire:click="delete_assing({{$data->id}})"  data-bs-toggle="modal" data-bs-target="#deleteModal"  ><i class="fa fa-trash"></i> </button>
                                         </div>
                                     </td>
@@ -69,6 +70,63 @@
     </div>
 </div>
 
+@section('script')
+<script>
+  document.addEventListener('close-modal', event => {
 
+      $('#createModal').modal('hide');
+      $('#deleteModal').modal('hide');
+      $('#editModal').modal('hide');
+
+  })
+</script>
+
+  <script>
+$(document).ready(function() {
+    var summernoteInstance;
+
+    $('#createModal').on('shown.bs.modal', function () {
+        // Initialize Summernote
+        summernoteInstance = $('#summernote').summernote({
+            callbacks: {
+                onChange: function (contents) {
+                    @this.set('content', contents);
+                },
+                onImageUpload: function(files) {
+                    // Upload image using Livewire
+                    @this.uploadImage(files[0]);
+                }
+            }
+        });
+    });
+
+    $('#createModal').on('hidden.bs.modal', function () {
+        // Clear Summernote instance reference
+        summernoteInstance = null;
+        $('#summernote').val('');
+    });
+});
+
+
+
+
+    $(document).ready(function() {
+        $('#editModal').on('shown.bs.modal', function () {
+            $('#editsummernote').summernote({
+                callbacks: {
+                    onChange: function (contents) {
+                        @this.set('content', contents);
+                    }
+                }
+            });
+        });
+
+        $('#editModal').on('hidden.bs.modal', function () {
+            $('#editsummernote').summernote('destroy');
+            $('#editsummernote').val('');
+        });
+    });
+</script>
+@endsection
 
 </div>
