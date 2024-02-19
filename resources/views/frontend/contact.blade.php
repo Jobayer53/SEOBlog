@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Contact</title>
         <link href="{{asset('frontend_asset/assets/css/output.css')}}" rel="stylesheet" />
-        <link href="{{ asset('frontend_asset/assets/css/style.css')}}" rel="stylesheet" />
+        <link href="{{asset('frontend_asset/assets/css/style.css')}}" rel="stylesheet" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link
@@ -19,16 +19,22 @@
         />
     </head>
     <body>
-        <header class="shadow-md fixed z-50 w-full bg-OFFWHITE text-black">
-            <div class="container px-2 mx-auto flex justify-between py-5">
-                <div class="font-semibold text-3xl">LOGO</div>
-                <div class="lg:hidden">
+        <header class="shadow-md fixed z-50 w-full text-black">
+            <div class="container px-2 mx-auto flex justify-between py-3">
+                <div class="lg:w-[30%]">
+                    <img
+                        class="w-[300px]"
+                        src="{{asset('frontend_asset/assets/Green Thoughts, Clean Energ.png')}}"
+                    />
+                </div>
+                <div class="lg:hidden w-[70%] flex justify-end items-center">
                     <i
-                        class="fa-solid fa-bars cursor-pointer text-2xl flex items-center navClick"
+                        class="fa-solid fa-bars cursor-pointer text-2xl navClick"
                     ></i>
                 </div>
+                <!-- Pc -->
                 <nav class="lg:flex hidden lg:items-center lg:justify-end">
-                    <ul class="flex font-OS gap-x-8">
+                    <ul class="flex gap-x-8 text-lg">
                         <li>
                             <a
                                 class="listitem cursor-pointer transition duration-300 ease-in-out"
@@ -77,6 +83,7 @@
                         <li>
                             <a
                                 class="listitem cursor-pointer transition duration-300 ease-in-out"
+                                href="{{route('news_show')}}"
                             >
                                 News
                             </a>
@@ -103,10 +110,16 @@
                         </li>
                     </ul>
                 </nav>
+                <!-- mobile -->
                 <nav
-                    class="absolute hidden w-full bg-OFFWHITE top-16 left-0 p-5 navBar"
+                    class="absolute hidden w-full top-14 sm:top-16 left-0 p-5 navBar"
                 >
-                    <ul class="flex flex-col font-OS gap-y-5 overflow-y-scroll">
+                    <ul class="flex flex-col gap-y-5">
+                        <li>
+                            <a href="{{route('index')}}" class="cursor-pointer">
+                                Home
+                            </a>
+                        </li>
                         <li class="navsubmanudivsm">
                             <a
                                 class="cursor-pointer transition duration-300 ease-in-out inline-block"
@@ -145,7 +158,7 @@
                             </span>
                         </li>
                         <li>
-                            <a class="cursor-pointer"> News </a>
+                            <a href="{{route('news_show')}}" class="cursor-pointer"> News </a>
                         </li>
                         <li>
                             <a href="{{route('about')}}" class="cursor-pointer">
@@ -168,13 +181,11 @@
 
         <main>
             <section>
-                <div class="pt-32 pb-16 container mx-auto px-10 bg-OFFWHITE">
-                    <h2 class="text-4xl mb-7 font-semibold text-center">
+                <div class="pt-32 pb-16 container mx-auto sm:px-10">
+                    <h2 class="text-4xl lg:mb-7 font-semibold text-center">
                         Get In Touch With Us
                     </h2>
-                    <div
-                        class=" px-5 py-16"
-                    >
+                    <div class="px-5 xl:py-16 py-8">
                         <div class="my-7">
                             <p>Name *</p>
                             <input required class="w-full border p-4 mt-2" />
@@ -196,7 +207,7 @@
                         </div>
                         <div>
                             <a
-                                class="uppercase font-ru border cursor-pointer font-medium px-10 py-3 button bg-white"
+                                class="uppercase font-ru border cursor-pointer font-medium px-10 py-3 button"
                                 ><span class="hoverspan"></span>Submit</a
                             >
                         </div>
@@ -205,14 +216,17 @@
             </section>
         </main>
 
-
-
-        <footer class="bg-OFFWHITE py-20">
+        <footer class="xl:pt-20">
             <div
-                class="container mx-auto px-2 flex smd:max-md:flex-wrap smd:max-md:gap-y-7 md:gap-x-7 smd:max-sm:justify-between font-OS"
+                class="container mx-auto px-2 flex smd:max-md:flex-wrap smd:max-md:gap-y-7 md:gap-x-7 smd:max-sm:justify-between mb-10"
             >
                 <div class="md:w-[40%] smd:max-md:w-full lg:pr-8">
-                    <div class="font-semibold text-3xl">LOGO</div>
+                    <div>
+                        <img
+                            class="w-[300px]"
+                            src="./assets/Green Thoughts, Clean Energ.png"
+                        />
+                    </div>
                     <p class="my-7 text-justify">
                         We provide valuable insights, tips, and resources for
                         those interested in living an eco-friendly lifestyle. We
@@ -286,19 +300,12 @@
                     </div>
                 </div>
             </div>
-            <div class="border-t pt-16 mt-16">
+            <div class="border-t py-10">
                 <div
-                    class="container mx-auto smd:max-sm:text-xs px-2 flex justify-between font-OS"
+                    class="container mx-auto smd:max-sm:text-xs px-2 flex justify-between"
                 >
                     <div>
-                        <p>
-                            Copyright © 2024
-                            <a
-                                class="text-LIGHTBLUE font-medium"
-                                href="https://synexdigital.com/"
-                                >Synex Digital</a
-                            >
-                        </p>
+                        <p>Copyright © 2024 Planet & Power</p>
                     </div>
                     <div>
                         Powered by

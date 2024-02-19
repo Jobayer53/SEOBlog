@@ -4,9 +4,11 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Blog</title>
+        <title>News</title>
         <link href="{{asset('frontend_asset/assets/css/output.css')}}" rel="stylesheet" />
         <link href="{{asset('frontend_asset/assets/css/style.css')}}" rel="stylesheet" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link
@@ -251,7 +253,7 @@
                                 <h2
                                     class="md:my-5 my-3 lg:text-2xl text-xl font-medium hover:text-LIGHTBLUE cursor-pointer"
                                 >
-                                    <a href="readblog.html">
+                                    <a href="readnesws.html">
                                         Population of UK’s tallest bird hits
                                         record-breaking high
                                     </a>

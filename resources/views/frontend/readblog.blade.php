@@ -4,9 +4,9 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Document</title>
+        <title>Read Blog</title>
         <link href="{{asset('frontend_asset/assets/css/output.css')}}" rel="stylesheet" />
-        <link href="{{ asset('frontend_asset/assets/css/style.css')}}" rel="stylesheet" />
+        <link href="{{asset('frontend_asset/assets/css/style.css')}}" rel="stylesheet" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link
@@ -19,16 +19,22 @@
         />
     </head>
     <body>
-        <header class="shadow-md fixed z-50 w-full bg-OFFWHITE text-black">
-            <div class="container px-2 mx-auto flex justify-between py-5">
-                <div class="font-semibold text-3xl">LOGO</div>
-                <div class="lg:hidden">
+        <header class="shadow-md fixed z-50 w-full text-black">
+            <div class="container px-2 mx-auto flex justify-between py-3">
+                <div class="lg:w-[30%]">
+                    <img
+                        class="w-[300px]"
+                        src="{{asset('frontend_asset/assets/Green Thoughts, Clean Energ.png')}}"
+                    />
+                </div>
+                <div class="lg:hidden w-[70%] flex justify-end items-center">
                     <i
-                        class="fa-solid fa-bars cursor-pointer text-2xl flex items-center navClick"
+                        class="fa-solid fa-bars cursor-pointer text-2xl navClick"
                     ></i>
                 </div>
+                <!-- Pc -->
                 <nav class="lg:flex hidden lg:items-center lg:justify-end">
-                    <ul class="flex font-OS gap-x-8">
+                    <ul class="flex gap-x-8 text-lg">
                         <li>
                             <a
                                 class="listitem cursor-pointer transition duration-300 ease-in-out"
@@ -77,6 +83,7 @@
                         <li>
                             <a
                                 class="listitem cursor-pointer transition duration-300 ease-in-out"
+                                href="{{route('news_show')}}"
                             >
                                 News
                             </a>
@@ -103,10 +110,16 @@
                         </li>
                     </ul>
                 </nav>
+                <!-- mobile -->
                 <nav
-                    class="absolute hidden w-full bg-OFFWHITE top-16 left-0 p-5 navBar"
+                    class="absolute hidden w-full top-14 sm:top-16 left-0 p-5 navBar"
                 >
-                    <ul class="flex flex-col font-OS gap-y-5 overflow-y-scroll">
+                    <ul class="flex flex-col gap-y-5">
+                        <li>
+                            <a href="{{route('index')}}" class="cursor-pointer">
+                                Home
+                            </a>
+                        </li>
                         <li class="navsubmanudivsm">
                             <a
                                 class="cursor-pointer transition duration-300 ease-in-out inline-block"
@@ -145,7 +158,7 @@
                             </span>
                         </li>
                         <li>
-                            <a class="cursor-pointer"> News </a>
+                            <a href="{{route('news_show')}}" class="cursor-pointer"> News </a>
                         </li>
                         <li>
                             <a href="{{route('about')}}" class="cursor-pointer">
@@ -167,10 +180,8 @@
         </header>
 
         <main>
-            <section class="pt-24 pb-7">
-                <div
-                    class="container mx-auto py-3 px-10 bg-OFFWHITE text-LIGHTBLUE"
-                >
+            <section class="pt-32">
+                <div class="container mx-auto py-3 xl:px-10 px-2 text-LIGHTBLUE">
                     <a class="hover:underline" href="index.html">Home </a>
                     <span>
                         > Butterfly egg chasers defy freezing cold to count a
@@ -179,8 +190,8 @@
                 </div>
             </section>
             <section>
-                <div class="container mx-auto p-10 bg-OFFWHITE">
-                    <ul class="flex gap-1 flex-wrap text-LIGHTBLUE mb-5">
+                <div class="container mx-auto xl:p-10 py:10 px-2">
+                    <ul class="flex lg:gap-1 gap-x-1 flex-wrap text-LIGHTBLUE mb-5">
                         <a
                             class="hover:underline inline-block cursor-pointer hover:text-LIGHTBLUE"
                         >
@@ -233,8 +244,10 @@
                             >Wildlife</a
                         >
                     </ul>
-                    <h2 class="font-bold text-5xl">Table Of Contents</h2>
-                    <p class="mt-5 mb-7 text-lg">
+                    <h2 class="xl:text-5xl lg:text-4xl md:text-3xl text-2xl font-semibold mb-16 uppercase mt-10">
+                        Table Of Contents
+                    </h2>
+                    <p class="mt-5 mb-7 lg:text-lg">
                         130+ DIY Projects Broken Down By Time & Skill Level
                     </p>
                     <div class="text-LIGHTBLUE font-medium text-lg">
@@ -275,19 +288,18 @@
             </section>
 
             <section id="one">
-                <div class="container bg-OFFWHITE mx-auto pt-[76px] pb-16">
+                <div class="container mx-auto pt-[76px] text-justify px-2 pb-16">
                     <div
-                        class="w-full mx-auto h-[80px] relative bg-LIGHTYELLOW flex justify-center items-center border_shape font-semibold text-3xl text-black"
+                        class="w-full mx-auto h-[80px] relative bg-LIGHTYELLOW flex justify-center items-center border_shape font-semibold xl:text-3xl md:text-2xl sm:text-xl text-lg text-black"
                     >
-                        <div class="border_shape_left"></div>
-                        <div class="border_shape_right"></div>
-                        <h2>More About My Business Coaching Service</h2>
-                    </div>
-                    <div class="mt-10 px-10">
-                        <h2 class="font-semibold mt-7 text-4xl mb-7">
-                            Rainwater Collection Barrel
+                        <div class="border_shape_left hidden xl:block"></div>
+                        <div class="border_shape_right hidden xl:block"></div>
+                        <h2 class="bg-transparent font-semibold mx-5">
+                            More About My Business Coaching Service
                         </h2>
-                        <p class="text-lg mt-5">
+                    </div>
+                    <div class="mt-16 xl:px-10 ">
+                        <p class="text-lg">
                             Harvesting rainwater is an excellent way to conserve
                             water and reduce your
                             <a class="text-LIGHTYELLOW cursor-pointer underline"
@@ -320,19 +332,18 @@
                 </div>
             </section>
             <section id="two">
-                <div class="container bg-OFFWHITE mx-auto pt-[76px] pb-16">
+                <div class="container mx-auto pt-[76px] text-justify px-2 pb-16">
                     <div
-                        class="w-full mx-auto h-[80px] relative bg-LIGHTYELLOW flex justify-center items-center border_shape font-semibold text-3xl text-black"
+                        class="w-full mx-auto h-[80px] relative bg-LIGHTYELLOW flex justify-center items-center border_shape font-semibold xl:text-3xl md:text-2xl sm:text-xl text-lg text-black"
                     >
-                        <div class="border_shape_left"></div>
-                        <div class="border_shape_right"></div>
-                        <h2>More About My Business Coaching Service</h2>
-                    </div>
-                    <div class="mt-10 px-10">
-                        <h2 class="font-semibold mt-7 text-4xl mb-7">
-                            Rainwater Collection Barrel
+                        <div class="border_shape_left hidden xl:block"></div>
+                        <div class="border_shape_right hidden xl:block"></div>
+                        <h2 class="bg-transparent font-semibold mx-5">
+                            More About My Business Coaching Service
                         </h2>
-                        <p class="text-lg mt-5">
+                    </div>
+                    <div class="mt-16 xl:px-10 ">
+                        <p class="text-lg">
                             Harvesting rainwater is an excellent way to conserve
                             water and reduce your
                             <a class="text-LIGHTYELLOW cursor-pointer underline"
@@ -365,19 +376,18 @@
                 </div>
             </section>
             <section id="three">
-                <div class="container bg-OFFWHITE mx-auto pt-[76px] pb-16">
+                <div class="container mx-auto pt-[76px] text-justify px-2 pb-16">
                     <div
-                        class="w-full mx-auto h-[80px] relative bg-LIGHTYELLOW flex justify-center items-center border_shape font-semibold text-3xl text-black"
+                        class="w-full mx-auto h-[80px] relative bg-LIGHTYELLOW flex justify-center items-center border_shape font-semibold xl:text-3xl md:text-2xl sm:text-xl text-lg text-black"
                     >
-                        <div class="border_shape_left"></div>
-                        <div class="border_shape_right"></div>
-                        <h2>More About My Business Coaching Service</h2>
-                    </div>
-                    <div class="mt-10 px-10">
-                        <h2 class="font-semibold mt-7 text-4xl mb-7">
-                            Rainwater Collection Barrel
+                        <div class="border_shape_left hidden xl:block"></div>
+                        <div class="border_shape_right hidden xl:block"></div>
+                        <h2 class="bg-transparent font-semibold mx-5">
+                            More About My Business Coaching Service
                         </h2>
-                        <p class="text-lg mt-5">
+                    </div>
+                    <div class="mt-16 xl:px-10 ">
+                        <p class="text-lg">
                             Harvesting rainwater is an excellent way to conserve
                             water and reduce your
                             <a class="text-LIGHTYELLOW cursor-pointer underline"
@@ -410,19 +420,18 @@
                 </div>
             </section>
             <section id="four">
-                <div class="container bg-OFFWHITE mx-auto pt-[76px] pb-16">
+                <div class="container mx-auto pt-[76px] text-justify px-2 pb-16">
                     <div
-                        class="w-full mx-auto h-[80px] relative bg-LIGHTYELLOW flex justify-center items-center border_shape font-semibold text-3xl text-black"
+                        class="w-full mx-auto h-[80px] relative bg-LIGHTYELLOW flex justify-center items-center border_shape font-semibold xl:text-3xl md:text-2xl sm:text-xl text-lg text-black"
                     >
-                        <div class="border_shape_left"></div>
-                        <div class="border_shape_right"></div>
-                        <h2>More About My Business Coaching Service</h2>
-                    </div>
-                    <div class="mt-10 px-10">
-                        <h2 class="font-semibold mt-7 text-4xl mb-7">
-                            Rainwater Collection Barrel
+                        <div class="border_shape_left hidden xl:block"></div>
+                        <div class="border_shape_right hidden xl:block"></div>
+                        <h2 class="bg-transparent font-semibold mx-5">
+                            More About My Business Coaching Service
                         </h2>
-                        <p class="text-lg mt-5">
+                    </div>
+                    <div class="mt-16 xl:px-10 ">
+                        <p class="text-lg">
                             Harvesting rainwater is an excellent way to conserve
                             water and reduce your
                             <a class="text-LIGHTYELLOW cursor-pointer underline"
@@ -455,19 +464,18 @@
                 </div>
             </section>
             <section id="five">
-                <div class="container bg-OFFWHITE mx-auto pt-[76px] pb-16">
+                <div class="container mx-auto pt-[76px] text-justify px-2 pb-16">
                     <div
-                        class="w-full mx-auto h-[80px] relative bg-LIGHTYELLOW flex justify-center items-center border_shape font-semibold text-3xl text-black"
+                        class="w-full mx-auto h-[80px] relative bg-LIGHTYELLOW flex justify-center items-center border_shape font-semibold xl:text-3xl md:text-2xl sm:text-xl text-lg text-black"
                     >
-                        <div class="border_shape_left"></div>
-                        <div class="border_shape_right"></div>
-                        <h2>More About My Business Coaching Service</h2>
-                    </div>
-                    <div class="mt-10 px-10">
-                        <h2 class="font-semibold mt-7 text-4xl mb-7">
-                            Rainwater Collection Barrel
+                        <div class="border_shape_left hidden xl:block"></div>
+                        <div class="border_shape_right hidden xl:block"></div>
+                        <h2 class="bg-transparent font-semibold mx-5">
+                            More About My Business Coaching Service
                         </h2>
-                        <p class="text-lg mt-5">
+                    </div>
+                    <div class="mt-16 xl:px-10 ">
+                        <p class="text-lg">
                             Harvesting rainwater is an excellent way to conserve
                             water and reduce your
                             <a class="text-LIGHTYELLOW cursor-pointer underline"
@@ -500,19 +508,18 @@
                 </div>
             </section>
             <section id="six">
-                <div class="container bg-OFFWHITE mx-auto pt-[76px] pb-16">
+                <div class="container mx-auto pt-[76px] text-justify px-2 pb-16">
                     <div
-                        class="w-full mx-auto h-[80px] relative bg-LIGHTYELLOW flex justify-center items-center border_shape font-semibold text-3xl text-black"
+                        class="w-full mx-auto h-[80px] relative bg-LIGHTYELLOW flex justify-center items-center border_shape font-semibold xl:text-3xl md:text-2xl sm:text-xl text-lg text-black"
                     >
-                        <div class="border_shape_left"></div>
-                        <div class="border_shape_right"></div>
-                        <h2>More About My Business Coaching Service</h2>
-                    </div>
-                    <div class="mt-10 px-10">
-                        <h2 class="font-semibold mt-7 text-4xl mb-7">
-                            Rainwater Collection Barrel
+                        <div class="border_shape_left hidden xl:block"></div>
+                        <div class="border_shape_right hidden xl:block"></div>
+                        <h2 class="bg-transparent font-semibold mx-5">
+                            More About My Business Coaching Service
                         </h2>
-                        <p class="text-lg mt-5">
+                    </div>
+                    <div class="mt-16 xl:px-10 ">
+                        <p class="text-lg">
                             Harvesting rainwater is an excellent way to conserve
                             water and reduce your
                             <a class="text-LIGHTYELLOW cursor-pointer underline"
@@ -546,15 +553,15 @@
             </section>
 
             <section>
-                <div class="container bg-OFFWHITE mx-auto px-10">
+                <div class="container mx-auto xl:px-10 px-2 mb-10">
                     <div class="border-t-2 mx-auto pt-10 max-w-[300px]"></div>
-                    <p class="font-medium">
+                    <p class="font-medium text-justify text-lg">
                         Main image: Berkshire, Buckinghamshire & Oxfordshire
                         Wildlife Trust’s hairstreak butterfly egg count at
                         Leaches Farm Nature Reserve near Bicester. Picture:
                         Hayley Beck
                     </p>
-                    <div class="mt-5 flex gap-x-4">
+                    <div class="mt-7 flex gap-x-4 justify-center">
                         <a class="cursor-pointer">
                             <i
                                 class="fa-brands fa-facebook text-4xl text-[#316FF6]"
@@ -584,14 +591,14 @@
             </section>
 
             <section>
-                <div class="container mx-auto px-10 pb-16 bg-OFFWHITE">
+                <div class="container mx-auto xl:px-10 px-2 pb-16">
                     <h6
                         class="text-center font-semibold text-2xl mb-8 border-b pb-7"
                     >
                         You may also like
                     </h6>
-                    <div class="flex justify-between flex-wrap gap-y-4">
-                        <div class="w-[48%] shadow-md flex" id="hover_img">
+                    <div class="flex justify-between flex-wrap gap-5">
+                        <div class="lg:w-[48%] shadow-md flex" id="hover_img">
                             <figure>
                                 <img
                                     class="w-[200px] h-[150px] object-cover]"
@@ -604,7 +611,7 @@
                                 record-breaking high</a
                             >
                         </div>
-                        <div class="w-[48%] shadow-md flex" id="hover_img">
+                        <div class="lg:w-[48%] shadow-md flex" id="hover_img">
                             <figure>
                                 <img
                                     class="w-[200px] h-[150px] object-cover]"
@@ -617,7 +624,7 @@
                                 record-breaking high</a
                             >
                         </div>
-                        <div class="w-[48%] shadow-md flex" id="hover_img">
+                        <div class="lg:w-[48%] shadow-md flex" id="hover_img">
                             <figure>
                                 <img
                                     class="w-[200px] h-[150px] object-cover]"
@@ -630,7 +637,7 @@
                                 record-breaking high</a
                             >
                         </div>
-                        <div class="w-[48%] shadow-md flex" id="hover_img">
+                        <div class="lg:w-[48%] shadow-md flex" id="hover_img">
                             <figure>
                                 <img
                                     class="w-[200px] h-[150px] object-cover]"
@@ -643,7 +650,7 @@
                                 record-breaking high</a
                             >
                         </div>
-                        <div class="w-[48%] shadow-md flex" id="hover_img">
+                        <div class="lg:w-[48%] shadow-md flex" id="hover_img">
                             <figure>
                                 <img
                                     class="w-[200px] h-[150px] object-cover]"
@@ -656,7 +663,7 @@
                                 record-breaking high</a
                             >
                         </div>
-                        <div class="w-[48%] shadow-md flex" id="hover_img">
+                        <div class="lg:w-[48%] shadow-md flex" id="hover_img">
                             <figure>
                                 <img
                                     class="w-[200px] h-[150px] object-cover]"
@@ -672,130 +679,23 @@
                     </div>
                 </div>
             </section>
-
-            <!-- <section>
-                <div class="container mx-auto px-10 pb-16 bg-OFFWHITE">
-                    <h2 class="font-bold mt-7 text-5xl mb-7">
-                        THE Sustainable Living Blog
-                    </h2>
-                    <p class="text-lg mt-5">
-                        Harvesting rainwater is an excellent way to conserve
-                        water and reduce your
-                        <a class="text-LIGHTYELLOW cursor-pointer underline"
-                            >environmental impact</a
-                        >
-                        . All you need is a large barrel, a downspout diverter,
-                        and a faucet. Install the diverter on your downspout,
-                        connect it to the barrel, and attach the faucet for easy
-                        water access.
-                    </p>
-                    <h2 class="font-semibold mt-7 text-4xl mb-10">
-                        Latest Urban Sustainability Articles
-                    </h2>
-                    <div class="flex justify-between">
-                        <div
-                            class="w-[24%] cursor-pointer bg-white flex flex-col gap-y-5"
-                            id="hover_img"
-                        >
-                            <figure>
-                                <img src="./assets/img1.jpg" />
-                            </figure>
-                            <h3
-                                class="text-LIGHTBLUE text-2xl mx-2 font-semibold"
-                            >
-                                The Rise of the IoT Smart City: How it’s
-                                Transforming Urban Living
-                            </h3>
-                            <p class="text-lg mx-2">
-                                The Future is Now: IoT Smart City What is IoT?
-                                The Internet of Things, commonly referred to as
-                                IoT, has been around
-                            </p>
-                            <a class="text-lg underline mx-2 mb-5"
-                                >Read More »</a
-                            >
-                        </div>
-                        <div
-                            class="w-[24%] cursor-pointer bg-white flex flex-col gap-y-5"
-                            id="hover_img"
-                        >
-                            <figure>
-                                <img class="" src="./assets/img1.jpg" />
-                            </figure>
-                            <h3
-                                class="text-LIGHTBLUE text-2xl mx-2 font-semibold"
-                            >
-                                The Rise of the IoT Smart City: How it’s
-                                Transforming Urban Living
-                            </h3>
-                            <p class="text-lg mx-2">
-                                The Future is Now: IoT Smart City What is IoT?
-                                The Internet of Things, commonly referred to as
-                                IoT, has been around
-                            </p>
-                            <a class="text-lg underline mx-2 mb-5"
-                                >Read More »</a
-                            >
-                        </div>
-                        <div
-                            class="w-[24%] cursor-pointer bg-white flex flex-col gap-y-5"
-                            id="hover_img"
-                        >
-                            <figure>
-                                <img class="" src="./assets/img1.jpg" />
-                            </figure>
-                            <h3
-                                class="text-LIGHTBLUE text-2xl mx-2 font-semibold"
-                            >
-                                The Rise of the IoT Smart City: How it’s
-                                Transforming Urban Living
-                            </h3>
-                            <p class="text-lg mx-2">
-                                The Future is Now: IoT Smart City What is IoT?
-                                The Internet of Things, commonly referred to as
-                                IoT, has been around
-                            </p>
-                            <a class="text-lg underline mx-2 mb-5"
-                                >Read More »</a
-                            >
-                        </div>
-                        <div
-                            class="w-[24%] cursor-pointer bg-white flex flex-col gap-y-5"
-                            id="hover_img"
-                        >
-                            <figure>
-                                <img class="" src="./assets/img1.jpg" />
-                            </figure>
-                            <h3
-                                class="text-LIGHTBLUE text-2xl mx-2 font-semibold"
-                            >
-                                The Rise of the IoT Smart City: How it’s
-                                Transforming Urban Living
-                            </h3>
-                            <p class="text-lg mx-2">
-                                The Future is Now: IoT Smart City What is IoT?
-                                The Internet of Things, commonly referred to as
-                                IoT, has been around
-                            </p>
-                            <a class="text-lg underline mx-2 mb-5"
-                                >Read More »</a
-                            >
-                        </div>
-                    </div>
-                </div>
-            </section> -->
         </main>
 
         <a href="#" class="to-top shadow-md">
             <i class="fas fa-chevron-up text-LIGHTBLUE"></i>
         </a>
 
-        <footer class="bg-OFFWHITE py-20">
+        <footer class="xl:pt-20">
             <div
-                class="container mx-auto px-2 flex smd:max-md:flex-wrap smd:max-md:gap-y-7 md:gap-x-7 smd:max-sm:justify-between font-OS"
+                class="container mx-auto px-2 flex smd:max-md:flex-wrap smd:max-md:gap-y-7 md:gap-x-7 smd:max-sm:justify-between mb-10"
             >
                 <div class="md:w-[40%] smd:max-md:w-full lg:pr-8">
-                    <div class="font-semibold text-3xl">LOGO</div>
+                    <div>
+                        <img
+                            class="w-[300px]"
+                            src="./assets/Green Thoughts, Clean Energ.png"
+                        />
+                    </div>
                     <p class="my-7 text-justify">
                         We provide valuable insights, tips, and resources for
                         those interested in living an eco-friendly lifestyle. We
@@ -869,19 +769,12 @@
                     </div>
                 </div>
             </div>
-            <div class="border-t pt-16 mt-16">
+            <div class="border-t py-10">
                 <div
-                    class="container mx-auto smd:max-sm:text-xs px-2 flex justify-between font-OS"
+                    class="container mx-auto smd:max-sm:text-xs px-2 flex justify-between"
                 >
                     <div>
-                        <p>
-                            Copyright © 2024
-                            <a
-                                class="text-LIGHTBLUE font-medium"
-                                href="https://synexdigital.com/"
-                                >Synex Digital</a
-                            >
-                        </p>
+                        <p>Copyright © 2024 Planet & Power</p>
                     </div>
                     <div>
                         Powered by
@@ -911,17 +804,6 @@
                     toTop.classList.remove("active");
                 }
             });
-
-            // document.querySelectorAll("a[href^='#']").forEach((item) => {
-            //     item.addEventListener("click", function (e) {
-            //         e.preventDefault();
-            //         document
-            //             .querySelector(this.getAttribute("href"))
-            //             .scrollIntoView({
-            //                 bahavior: "smooth",
-            //             });
-            //     });
-            // });
         </script>
     </body>
 </html>

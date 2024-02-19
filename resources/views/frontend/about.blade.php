@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>About</title>
         <link href="{{asset('frontend_asset/assets/css/output.css')}}" rel="stylesheet" />
-        <link href="{{ asset('frontend_asset/assets/css/style.css')}}" rel="stylesheet" />
+        <link href="{{asset('frontend_asset/assets/css/style.css')}}" rel="stylesheet" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link
@@ -19,16 +19,22 @@
         />
     </head>
     <body>
-        <header class="shadow-md fixed z-50 w-full bg-OFFWHITE text-black">
-            <div class="container px-2 mx-auto flex justify-between py-5">
-                <div class="font-semibold text-3xl">LOGO</div>
-                <div class="lg:hidden">
+        <header class="shadow-md fixed z-50 w-full text-black">
+            <div class="container px-2 mx-auto flex justify-between py-3">
+                <div class="lg:w-[30%]">
+                    <img
+                        class="w-[300px]"
+                        src="{{asset('frontend_asset/assets/Green Thoughts, Clean Energ.png')}}"
+                    />
+                </div>
+                <div class="lg:hidden w-[70%] flex justify-end items-center">
                     <i
-                        class="fa-solid fa-bars cursor-pointer text-2xl flex items-center navClick"
+                        class="fa-solid fa-bars cursor-pointer text-2xl navClick"
                     ></i>
                 </div>
+                <!-- Pc -->
                 <nav class="lg:flex hidden lg:items-center lg:justify-end">
-                    <ul class="flex font-OS gap-x-8">
+                    <ul class="flex gap-x-8 text-lg">
                         <li>
                             <a
                                 class="listitem cursor-pointer transition duration-300 ease-in-out"
@@ -77,6 +83,7 @@
                         <li>
                             <a
                                 class="listitem cursor-pointer transition duration-300 ease-in-out"
+                                href="{{route('news_show')}}"
                             >
                                 News
                             </a>
@@ -103,10 +110,16 @@
                         </li>
                     </ul>
                 </nav>
+                <!-- mobile -->
                 <nav
-                    class="absolute hidden w-full bg-OFFWHITE top-16 left-0 p-5 navBar"
+                    class="absolute hidden w-full top-14 sm:top-16 left-0 p-5 navBar"
                 >
-                    <ul class="flex flex-col font-OS gap-y-5 overflow-y-scroll">
+                    <ul class="flex flex-col gap-y-5">
+                        <li>
+                            <a href="{{route('index')}}" class="cursor-pointer">
+                                Home
+                            </a>
+                        </li>
                         <li class="navsubmanudivsm">
                             <a
                                 class="cursor-pointer transition duration-300 ease-in-out inline-block"
@@ -145,7 +158,7 @@
                             </span>
                         </li>
                         <li>
-                            <a class="cursor-pointer"> News </a>
+                            <a href="{{route('news_show')}}" class="cursor-pointer"> News </a>
                         </li>
                         <li>
                             <a href="{{route('about')}}" class="cursor-pointer">
@@ -168,80 +181,86 @@
 
         <main>
             <section>
-                <div class="pt-24 pb-16 container mx-auto px-10 bg-OFFWHITE">
-                    <h2 class="text-4xl mb-7">About Us</h2>
-                    <img width="100%" src="./assets/about.webp" />
+                <div class="pt-32 pb-16 container mx-auto px-2 text-justify">
+                    <h2
+                        class="xl:text-5xl lg:text-4xl md:text-3xl text-2xl font-semibold mb-16 uppercase text-center"
+                    >
+                        About Planet and Power
+                    </h2>
+                    <img
+                        width="100%"
+                        src="./assets/About Author featured image.png"
+                    />
                     <article class="text-lg mt-14">
                         <p>
-                            Eco Living Vibes was founded with a simple mission
-                            in mind: to help people live more sustainably and in
-                            harmony with nature. We believe that every small
-                            step we take towards a greener lifestyle can make a
-                            huge difference in preserving our planet for future
-                            generations.
+                            Hello, Welcome to our resourceful and data-driven
+                            website dedicated to all things green energy,
+                            sustainability, environment, climate change, and
+                            environmental news. We understand the importance of
+                            staying informed about the pressing issues our
+                            planet faces today, and we are here to provide you
+                            with the most up-to-date and relevant information.
                         </p>
                         <p class="my-10">
-                            Our team is made up of passionate environmentalists,
-                            <a class="text-LIGHTYELLOW cursor-pointer underline"
-                                >sustainability</a
-                            >
-                            experts, and writers who are committed to sharing
-                            their knowledge and expertise with the world. Our
-                            aim is to empower and inspire our readers to adopt
-                            eco-friendly habits and practices in their everyday
-                            lives.
+                            Our website is a go-to source for those who are
+                            passionate about making a positive impact on our
+                            planet. Whether you are an individual looking for
+                            ways to live a more sustainable lifestyle or a
+                            business seeking innovative solutions in the green
+                            energy sector, we have you covered.
                         </p>
                         <p>
-                            We believe in a holistic approach to sustainable
-                            living. We cover a wide range of topics related to
-                            eco-living, including off-grid living,
-                            <a class="text-LIGHTYELLOW cursor-pointer underline"
-                                >sustainable urban living, sustainable living
-                                ideas</a
-                            >
-                            , zero-waste living,
-                            <a class="text-LIGHTYELLOW cursor-pointer underline"
-                                >sustainable fashion</a
-                            >, and more. We provide valuable insights, tips, and
-                            resources to help our readers live a greener and
-                            more fulfilling life.
+                            We pride ourselves on curating accurate and
+                            insightful content that delves deep into topics such
+                            as renewable energy sources, eco-friendly practices,
+                            carbon footprint reduction strategies, and much
+                            more. Our team of dedicated researchers ensures that
+                            every piece of information presented on our platform
+                            is backed by reliable data and trustworthy sources.
                         </p>
                         <p class="my-10">
-                            But we don’t just stop at blog posts. We also offer
-                            courses and products that are designed to help our
-                            readers adopt a more sustainable lifestyle. Our
-                            courses cover a variety of topics, including
-                            eco-friendly home design, sustainable gardening, and
-                            zero-waste living. And our products range from
-                            eco-friendly cleaning supplies to sustainable
-                            fashion and accessories.
+                            Climate change is an urgent global issue that
+                            requires immediate attention. By providing
+                            comprehensive coverage of climate-related news and
+                            developments around the world, we aim to keep you
+                            well informed about the challenges we face as a
+                            society. Additionally, we strive to highlight
+                            success stories and groundbreaking initiatives that
+                            inspire positive change.
                         </p>
                         <p>
-                            At Eco Living Vibes, we’re committed to creating a
-                            community of like-minded individuals who share our
-                            vision of a more sustainable future. We believe that
-                            together, we can make a difference and create a
-                            better world for ourselves and for future
-                            generations.
+                            Whether you are seeking guidance on how to make your
+                            home more energy-efficient or searching for an
+                            in-depth analysis of current environmental policies,
+                            our website offers a wealth of resources at your
+                            fingertips. Together, let's work towards creating a
+                            greener future for generations to come.
+                        </p>
+                        <p class="mt-10">
+                            Explore our website today and join us in taking
+                            meaningful steps toward preserving our planet's
+                            health and power.
                         </p>
                         <p class="mt-10 font-medium">
-                            Thank you for joining us on this journey towards a
-                            greener and more sustainable future. Browse our
-                            blog, sign up for our courses, or shop our products
-                            today to start your own journey towards a more
-                            eco-friendly lifestyle.
+                            Thank you for being here, and I look forward to
+                            sharing this journey with you.
                         </p>
                     </article>
                 </div>
             </section>
         </main>
 
-        <footer class="bg-OFFWHITE py-20">
+        <footer class="xl:pt-20">
             <div
-                class="container mx-auto px-2 flex smd:max-md:flex-wrap smd:max-md:gap-y-7 md:gap-x-7 smd:max-sm:justify-between font-OS"
+                class="container mx-auto px-2 flex smd:max-md:flex-wrap smd:max-md:gap-y-7 md:gap-x-7 smd:max-sm:justify-between mb-10"
             >
                 <div class="md:w-[40%] smd:max-md:w-full lg:pr-8">
-                    <div class="font-semibold text-3xl">LOGO</div>
+                    <div>
+                        <img
+                            class="w-[300px]"
+                            src="./assets/Green Thoughts, Clean Energ.png"
+                        />
+                    </div>
                     <p class="my-7 text-justify">
                         We provide valuable insights, tips, and resources for
                         those interested in living an eco-friendly lifestyle. We
@@ -315,19 +334,12 @@
                     </div>
                 </div>
             </div>
-            <div class="border-t pt-16 mt-16">
+            <div class="border-t py-10">
                 <div
-                    class="container mx-auto smd:max-sm:text-xs px-2 flex justify-between font-OS"
+                    class="container mx-auto smd:max-sm:text-xs px-2 flex justify-between"
                 >
                     <div>
-                        <p>
-                            Copyright © 2024
-                            <a
-                                class="text-LIGHTBLUE font-medium"
-                                href="https://synexdigital.com/"
-                                >Synex Digital</a
-                            >
-                        </p>
+                        <p>Copyright © 2024 Planet & Power</p>
                     </div>
                     <div>
                         Powered by

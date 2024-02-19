@@ -33,6 +33,7 @@ Auth::routes();
 
 // Frontend View
 Route::get('/',[FrontendController::class, 'index'])->name('index');
+Route::get('/news/show',[FrontendController::class, 'blog'])->name('news_show');
 Route::get('/blog',[FrontendController::class, 'blog'])->name('blog');
 Route::get('/about',[FrontendController::class, 'about'])->name('about');
 Route::get('/contact',[FrontendController::class, 'contact'])->name('contact');
