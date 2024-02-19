@@ -56,7 +56,7 @@
                                     <td> {{$data->title}} </td>
                                     <td>
                                         <div class="d-flex">
-                                            <a href="{{route('blog_content.show',$data->id)}}" class="btn btn-primary shadow btn-xs sharp me-1" ><i class="fa fa-eye"></i></a>
+                                            <a href="{{route('blog.content',$data->id)}}" class="btn btn-primary shadow btn-xs sharp me-1" ><i class="fa fa-eye"></i></a>
                                             <button wire:click="edit({{$data->id}})" class="btn btn-primary shadow btn-xs sharp me-1"  data-bs-toggle="modal" data-bs-target="#editModal"><i class="fa fa-pencil"></i></button>
                                             <button  class="btn btn-danger shadow btn-xs sharp " wire:click="delete_assing({{$data->id}})"  data-bs-toggle="modal" data-bs-target="#deleteModal"  ><i class="fa fa-trash"></i> </button>
                                         </div>

@@ -12,4 +12,7 @@ class Blog extends Model
     public function categoryData(){
         return $this->belongsTo(Category::class, 'category_id');
     }
+    public function blogContentData(){
+        return $this->hasMany(blogContent::class, 'blog_id');
+    }
 }

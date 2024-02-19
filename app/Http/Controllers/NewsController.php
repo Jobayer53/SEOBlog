@@ -32,7 +32,7 @@ class NewsController extends Controller
         $news->seo_tags         = $request->seo_tags;
         $news->save();
 
-        return redirect(route('news'));
+        return redirect(route('news'))->with('added','Added successfully');
     }
 
     public function edit($id){
@@ -61,7 +61,7 @@ class NewsController extends Controller
         $news->seo_description  = $request->seo_description;
         $news->seo_tags         = $request->seo_tags;
         $news->save();
-        return redirect(route('news'));
+        return redirect(route('news'))->with('updated','Updated Successfully');
 
     }
 

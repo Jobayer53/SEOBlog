@@ -8,5 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class BlogContent extends Model
 {
     use HasFactory;
-    
+    public function blogsData(){
+        return $this->belongsTo(Blog::class, 'blog_id');
+    }
 }

@@ -1,7 +1,18 @@
 @extends('layouts.dashboard')
 @section('content')
 <div class="container-fluid">
-
+    <div  class="page-titles ">
+        <h4>Blog </h4>
+        <ol class="breadcrumb">
+            <li class=""><a href="{{route('home')}}">Dashboard </a></li>
+            <li style="margin:0px 5px 0px 2px!important">/</li>
+            <li class=""><a href="{{route('blogs')}}"> Blogs</a></li>
+            <li style="margin:0px 5px 0px 2px!important">/</li>
+            <li class=""><a href="{{route('blog.content',$blogs->id)}}"> Blog Content</a></li>
+            <li style="margin:0px 5px 0px 2px!important">/</li>
+            <li class="active"><a href="#">Create Blog Content</a></li>
+        </ol>
+    </div>
     <!-- row -->
     <div class="row">
         <div class="col-xl-8 col-lg-8 m-auto">
@@ -15,7 +26,12 @@
                             @csrf
 
 
+                            <div class="form-group">
+                                <label for="" class="form-label">Blog Title</label>
+                                <input type="text" class="form-control input-default " value="{{ $blogs->title }}" readonly>
+                                <input type="hidden"  value="{{ $blogs->id }}" name="blog_id" >
 
+                            </div>
                             <div class="form-group">
                                 <label for="" class="form-label">Blog Content Title</label>
                                 <input type="text" class="form-control input-default " name="contentTitle">
@@ -23,11 +39,7 @@
                                 <strong class="text text-danger"> {{$message}} </strong>
                                 @enderror
                             </div>
-                            <div class="form-group">
-                                <label for="" class="form-label">Blog Title</label>
-                                <input type="text" class="form-control input-default " value="" readonly>
 
-                            </div>
 
                             <div  class="form-group">
                                 <label for="" class="form-label">Content</label>

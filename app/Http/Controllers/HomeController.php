@@ -23,6 +23,10 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('backend.index');
+        if (!session()->has('alert_shown')) {
+            session()->put('alert_shown', true);
+            return view('backend.index', ['showAlert' => true]);
+        }
+        return view('backend.index', ['showAlert' => false]);
     }
 }

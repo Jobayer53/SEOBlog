@@ -7,6 +7,7 @@ use Livewire\Component;
 use App\Models\Category;
 use Illuminate\Support\Str;
 use App\Models\Blog as ModelsBlog;
+use App\Models\BlogContent;
 use Livewire\Features\SupportFileUploads\WithFileUploads;
 
 class Blog extends Component
@@ -95,9 +96,20 @@ public function delete(){
     if($this->delete_id){
 
         $blogs = ModelsBlog::find($this->delete_id);
-        Photo::delete('upload/blog',$blogs->features_image);
-        $blogs->delete();
-    $this->dispatch('close-modal');
+
+        foreach($blogs->blogContentData as $data){
+            if($data->video){
+                $file_path = public_path('upload/blog-content/'.$data->video);
+                unlink($file_path);
+            }
+            if($data->image){
+                Photo::delete('upload/blog-content',$data->image);
+            }
+            $data->delete();
+        }
+            Photo::delete('upload/blog',$blogs->features_image);
+            $blogs->delete();
+            $this->dispatch('close-modal');
     }
 
 }

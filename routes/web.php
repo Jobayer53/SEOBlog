@@ -12,7 +12,7 @@ use App\Http\Controllers\FrontendController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\SocialLinkController;
-use App\Models\Blog;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -41,7 +41,7 @@ Route::get('/readblog',[FrontendController::class, 'readblog'])->name('readblog'
 
 // Dashboard View
 // Route::get('/dashboard', [DashboardController::class,'index'])->name('dashboard');
-Route::get('/home', [HomeController::class, 'index'])->name('home');
+Route::get('/admin', [HomeController::class, 'index'])->name('home');
 
 //category
 // Route::resource('/category', Category::class);
@@ -62,3 +62,8 @@ Route::get('/social/link', [SocialLinkController::class, 'index'])->name('social
 Route::get('/blogs', [BlogController::class, 'index'])->name('blogs');
 //blog content
 Route::resource('/blog_content', BlogContentController::class, );
+
+Route::get('/blog/contents/{id}',[BlogContentController::class, 'index'])->name('blog.content');
+Route::get('/blog/contents/create/{id}',[BlogContentController::class, 'create'])->name('blog.content.create');
+Route::post('/blog/contents/update',[BlogContentController::class, 'update'])->name('blog.content.update');
+Route::post('/blog/contents/delete',[BlogContentController::class, 'delete'])->name('blog.content.delete');

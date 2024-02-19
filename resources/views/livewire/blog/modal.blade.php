@@ -83,7 +83,7 @@
                         @if ($categories->count('id') == 0)
                         <option value="" >NO DATA TO SHOW</option>
                         @else
-                        
+
                             @foreach ($categories as $data )
                                 <option value="{{$data->id}}"> {{$data->name}} </option>
                             @endforeach
@@ -137,7 +137,7 @@
     <div class="modal-dialog modal-dialog-centered role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="deleteModal">ARE YOU SURE?</h5>
+          <h5>Deleting this blog will result in the deletion of all associated blog content! Are you sure?</h5>
         </div>
 
         <div class="modal-footer text-center">

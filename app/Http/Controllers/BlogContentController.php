@@ -7,6 +7,7 @@ use App\Models\Blog;
 use App\Models\BlogContent;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use Laravel\Ui\Presets\React;
 
 class BlogContentController extends Controller
 {
@@ -14,18 +15,19 @@ class BlogContentController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index($id)
     {
-        $blogs = Blog::all();
-       return view('backend.blog-content.blogList',compact('blogs'));
+        $blogs =  Blog::find($id);
+        $blogContents = BlogContent::where('blog_id',$id)->orderBy('id','desc')->get();
+        return view('backend.blog-content.blogContent',compact('blogContents','blogs'));
     }
 
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create($id)
     {
-        $blogs = Blog::all();
+         $blogs = Blog::find($id);
         return view('backend.blog-content.create',compact('blogs'));
     }
 
@@ -35,11 +37,11 @@ class BlogContentController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'blog_id' => 'required|',
+
             'contentTitle' => 'required',
             'content' => 'required',
         ],[
-            'blog_id' => 'Blog Title Required',
+
             'contentTitle' => 'Content Title Required',
         ]);
 
@@ -59,9 +61,9 @@ class BlogContentController extends Controller
         $blogContent->content         =$request->content;
         $blogContent->image           =Photo::$name;
         $blogContent->video           =$videoName;
-        $blogContent->video_link      =$request->video_link;
+        $blogContent->video_link      =$request->videoLink;
         $blogContent->save();
-        return redirect(route('blog_content.index'));
+        return redirect(route('blog.content',$request->blog_id))->with('added', 'Added Successfully');
 
 
 
@@ -73,9 +75,8 @@ class BlogContentController extends Controller
      */
     public function show(string $id)
     {
-       
-        $blogContents = BlogContent::where('blog_id', $id)->get();
-        return view('backend.blog-content.blogContent',compact('blogContents'));
+
+
     }
 
     /**
@@ -83,15 +84,67 @@ class BlogContentController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $blogContents = BlogContent::find($id);
+        return view('backend.blog-content.edit',compact('blogContents'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request)
     {
-        //
+        $request->validate([
+
+            'contentTitle' => 'required',
+            'content' => 'required',
+        ],[
+
+            'contentTitle' => 'Content Title Required',
+        ]);
+
+        $blogContent = BlogContent::find($request->content_id);
+        if ($request->image) {
+            if($blogContent->image == null){
+                Photo::upload($request->image,'upload/blog-content','BLOG_CONTENT');
+                $blogContent->image = Photo::$name;
+            }else{
+                Photo::delete('upload/blog-content',$blogContent->image);
+                Photo::upload($request->image,'upload/blog-content','BLOG_CONTENT');
+                $blogContent->image = Photo::$name;
+            }
+        }
+        $videoName=null;
+        if ($request->file('video')) {
+            if($blogContent->video == null){
+
+                $video = $request->file('video');
+                $extention = $video->getClientOriginalExtension();
+                $videoName = 'VID_'.(rand(0,99999)).'_'.$request->contentTitle.'.'.$extention;
+                $video->storeAs('upload/blog-content', $videoName, 'public');
+            }else{
+                $file_path = public_path('upload/blog-content'.$blogContent->video);
+                unlink($file_path);
+                $video = $request->file('video');
+                $extention = $video->getClientOriginalExtension();
+                $videoName = 'VID_'.(rand(0,99999)).'_'.$request->contentTitle.'.'.$extention;
+                $video->storeAs('upload/blog-content', $videoName, 'public');
+
+            }
+        }
+
+
+
+
+
+
+
+        $blogContent->title           =$request->contentTitle;
+        $blogContent->content         =$request->content;
+        $blogContent->video           =$videoName;
+        $blogContent->video_link      =$request->video_link;
+        $blogContent->save();
+      return redirect(route('blog.content',$request->blog_id))->with('updated' ,'Updated Successfully');
+
     }
 
     /**
@@ -100,5 +153,18 @@ class BlogContentController extends Controller
     public function destroy(string $id)
     {
         //
+    }
+    public function delete(Request $request)
+    {
+        $blogContent =  BlogContent::find($request->delete_id);
+        if($blogContent->video){
+            $file_path = public_path('upload/blog-content/'.$blogContent->video);
+            unlink($file_path);
+        }
+        if($blogContent->image){
+            Photo::delete('upload/blog-content',$blogContent->image);
+        }
+        $blogContent->delete();
+        return back();
     }
 }
