@@ -1,809 +1,173 @@
-
-<!doctype html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Read Blog</title>
-        <link href="{{asset('frontend_asset/assets/css/output.css')}}" rel="stylesheet" />
-        <link href="{{asset('frontend_asset/assets/css/style.css')}}" rel="stylesheet" />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link
-            href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700;800;900&display=swap"
-            rel="stylesheet"
-        />
-        <link
-            rel="stylesheet"
-            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
-        />
-    </head>
-    <body>
-        <header class="shadow-md fixed z-50 w-full text-black">
-            <div class="container px-2 mx-auto flex justify-between py-3">
-                <div class="lg:w-[30%]">
-                    <img
-                        class="w-[300px]"
-                        src="{{asset('frontend_asset/assets/Green Thoughts, Clean Energ.png')}}"
-                    />
-                </div>
-                <div class="lg:hidden w-[70%] flex justify-end items-center">
-                    <i
-                        class="fa-solid fa-bars cursor-pointer text-2xl navClick"
-                    ></i>
-                </div>
-                <!-- Pc -->
-                <nav class="lg:flex hidden lg:items-center lg:justify-end">
-                    <ul class="flex gap-x-8 text-lg">
-                        <li>
-                            <a
-                                class="listitem cursor-pointer transition duration-300 ease-in-out"
-                                href="{{route('index')}}"
-                            >
-                                Home
-                            </a>
-                        </li>
-                        <li class="navsubmanudiv">
-                            <a
-                                class="listitem cursor-pointer transition duration-300 ease-in-out pb-5"
-                                href="{{route('blog')}}"
-                            >
-                                Blog
-                            </a>
-                            <span class="navsubmanu">
-                                <ul class="flex flex-col gap-y-4 text-sm">
-                                    <li
-                                        class="hover:bg-[#d7d7d7] px-1 py-2 rounded cursor-pointer"
-                                    >
-                                        Soler panel cost
-                                    </li>
-                                    <li
-                                        class="hover:bg-[#d7d7d7] px-1 py-2 rounded cursor-pointer"
-                                    >
-                                        Soler panel cost
-                                    </li>
-                                    <li
-                                        class="hover:bg-[#d7d7d7] px-1 py-2 rounded cursor-pointer"
-                                    >
-                                        Soler panel cost
-                                    </li>
-                                    <li
-                                        class="hover:bg-[#d7d7d7] px-1 py-2 rounded cursor-pointer"
-                                    >
-                                        Soler panel cost
-                                    </li>
-                                    <li
-                                        class="hover:bg-[#d7d7d7] px-1 py-2 rounded cursor-pointer"
-                                    >
-                                        Soler panel cost
-                                    </li>
-                                </ul>
-                            </span>
-                        </li>
-                        <li>
-                            <a
-                                class="listitem cursor-pointer transition duration-300 ease-in-out"
-                                href="{{route('news_show')}}"
-                            >
-                                News
-                            </a>
-                        </li>
-                        <li>
-                            <a
-                                class="listitem cursor-pointer transition duration-300 ease-in-out"
-                                href="{{route('about')}}"
-                            >
-                                About
-                            </a>
-                        </li>
-                        <li>
-                            <a
-                                href="{{route('contact')}}"
-                                class="listitem cursor-pointer transition duration-300 ease-in-out"
-                            >
-                                Contact
-                            </a>
-                        </li>
-
-                        <li>
-                            <i class="fa-solid fa-magnifying-glass w-5"></i>
-                        </li>
-                    </ul>
-                </nav>
-                <!-- mobile -->
-                <nav
-                    class="absolute hidden w-full top-14 sm:top-16 left-0 p-5 navBar"
-                >
-                    <ul class="flex flex-col gap-y-5">
-                        <li>
-                            <a href="{{route('index')}}" class="cursor-pointer">
-                                Home
-                            </a>
-                        </li>
-                        <li class="navsubmanudivsm">
-                            <a
-                                class="cursor-pointer transition duration-300 ease-in-out inline-block"
-                                href="{{route('blog')}}"
-                            >
-                                Blog
-                            </a>
-                            <span class="navsubmanusm">
-                                <ul class="flex flex-col gap-y-4 text-sm">
-                                    <li
-                                        class="hover:bg-[#d7d7d7] px-1 py-2 rounded cursor-pointer"
-                                    >
-                                        Soler panel cost
-                                    </li>
-                                    <li
-                                        class="hover:bg-[#d7d7d7] px-1 py-2 rounded cursor-pointer"
-                                    >
-                                        Soler panel cost
-                                    </li>
-                                    <li
-                                        class="hover:bg-[#d7d7d7] px-1 py-2 rounded cursor-pointer"
-                                    >
-                                        Soler panel cost
-                                    </li>
-                                    <li
-                                        class="hover:bg-[#d7d7d7] px-1 py-2 rounded cursor-pointer"
-                                    >
-                                        Soler panel cost
-                                    </li>
-                                    <li
-                                        class="hover:bg-[#d7d7d7] px-1 py-2 rounded cursor-pointer"
-                                    >
-                                        Soler panel cost
-                                    </li>
-                                </ul>
-                            </span>
-                        </li>
-                        <li>
-                            <a href="{{route('news_show')}}" class="cursor-pointer"> News </a>
-                        </li>
-                        <li>
-                            <a href="{{route('about')}}" class="cursor-pointer">
-                                About
-                            </a>
-                        </li>
-                        <li>
-                            <a href="{{route('contact')}}" class="cursor-pointer">
-                                Contact
-                            </a>
-                        </li>
-
-                        <li>
-                            <i class="fa-solid fa-magnifying-glass w-5"></i>
-                        </li>
-                    </ul>
-                </nav>
-            </div>
-        </header>
-
-        <main>
-            <section class="pt-32">
-                <div class="container mx-auto py-3 xl:px-10 px-2 text-LIGHTBLUE">
-                    <a class="hover:underline" href="index.html">Home </a>
-                    <span>
-                        > Butterfly egg chasers defy freezing cold to count a
-                        winning streak</span
-                    >
-                </div>
-            </section>
-            <section>
-                <div class="container mx-auto xl:p-10 py:10 px-2">
-                    <ul class="flex lg:gap-1 gap-x-1 flex-wrap text-LIGHTBLUE mb-5">
-                        <a
-                            class="hover:underline inline-block cursor-pointer hover:text-LIGHTBLUE"
-                        >
-                            Biodiversity
-                        </a>
-                        <span> . </span>
-                        <a
-                            class="hover:underline inline-block cursor-pointer hover:text-LIGHTBLUE"
-                        >
-                            Climate Change
-                        </a>
-                        <span> . </span>
-                        <a
-                            class="hover:underline inline-block cursor-pointer hover:text-LIGHTBLUE"
-                            >Conservation</a
-                        >
-                        <span> . </span>
-                        <a
-                            class="hover:underline inline-block cursor-pointer hover:text-LIGHTBLUE"
-                            >Ecology</a
-                        >
-                        <span> . </span>
-                        <a
-                            class="hover:underline inline-block cursor-pointer hover:text-LIGHTBLUE"
-                            >Environment</a
-                        >
-                        <span> . </span>
-                        <a
-                            class="hover:underline inline-block cursor-pointer hover:text-LIGHTBLUE"
-                            >Nature</a
-                        >
-                        <span> . </span>
-                        <a
-                            class="hover:underline inline-block cursor-pointer hover:text-LIGHTBLUE"
-                            >News Round-up</a
-                        >
-                        <span> . </span>
-                        <a
-                            class="hover:underline inline-block cursor-pointer hover:text-LIGHTBLUE"
-                            >Re-wilding
-                        </a>
-                        <span> . </span>
-                        <a
-                            class="hover:underline inline-block cursor-pointer hover:text-LIGHTBLUE"
-                            >Surveys</a
-                        >
-                        <span> . </span>
-                        <a
-                            class="hover:underline inline-block cursor-pointer hover:text-LIGHTBLUE"
-                            >Wildlife</a
-                        >
-                    </ul>
-                    <h2 class="xl:text-5xl lg:text-4xl md:text-3xl text-2xl font-semibold mb-16 uppercase mt-10">
-                        Table Of Contents
-                    </h2>
-                    <p class="mt-5 mb-7 lg:text-lg">
-                        130+ DIY Projects Broken Down By Time & Skill Level
-                    </p>
-                    <div class="text-LIGHTBLUE font-medium text-lg">
-                        <a href="#one" class="underline hover:text-[#2c7da9]"
-                            >One Day Projects: EASY
-                        </a>
-                        <br />
-                        <a href="#two" class="underline hover:text-[#2c7da9]"
-                            >One Day Projects: EASY
-                        </a>
-                        <br />
-                        <a href="#three" class="underline hover:text-[#2c7da9]"
-                            >One Day Projects: EASY
-                        </a>
-                        <br />
-                        <a href="#four" class="underline hover:text-[#2c7da9]"
-                            >One Day Projects: EASY
-                        </a>
-                        <br />
-                        <a href="#five" class="underline hover:text-[#2c7da9]"
-                            >One Day Projects: EASY
-                        </a>
-                        <br />
-                        <a href="#six" class="underline hover:text-[#2c7da9]"
-                            >One Day Projects: EASY
-                        </a>
-                        <br />
-                        <a class="underline hover:text-[#2c7da9]"
-                            >One Day Projects: EASY
-                        </a>
-                        <br />
-                        <a class="underline hover:text-[#2c7da9]"
-                            >One Day Projects: EASY
-                        </a>
-                        <br />
-                    </div>
-                </div>
-            </section>
-
-            <section id="one">
-                <div class="container mx-auto pt-[76px] text-justify px-2 pb-16">
-                    <div
-                        class="w-full mx-auto h-[80px] relative bg-LIGHTYELLOW flex justify-center items-center border_shape font-semibold xl:text-3xl md:text-2xl sm:text-xl text-lg text-black"
-                    >
-                        <div class="border_shape_left hidden xl:block"></div>
-                        <div class="border_shape_right hidden xl:block"></div>
-                        <h2 class="bg-transparent font-semibold mx-5">
-                            More About My Business Coaching Service
-                        </h2>
-                    </div>
-                    <div class="mt-16 xl:px-10 ">
-                        <p class="text-lg">
-                            Harvesting rainwater is an excellent way to conserve
-                            water and reduce your
-                            <a class="text-LIGHTYELLOW cursor-pointer underline"
-                                >environmental impact</a
-                            >
-                            . All you need is a large barrel, a downspout
-                            diverter, and a faucet. Install the diverter on your
-                            downspout, connect it to the barrel, and attach the
-                            faucet for easy water access.
-                        </p>
-                        <p class="text-lg mt-5">
-                            For more information on how to make a cheap water
-                            collection system we highly recommend reading
-                            <a class="text-LIGHTYELLOW cursor-pointer underline"
-                                >The Self-Sufficient Backyard</a
-                            >
-                            . From this comprehensive guide you will find out
-                            how to make the simplest water collection system and
-                            how you can easily implement it on
-                        </p>
-                        <p class="text-lg">
-                            My name is Alex Genadinik. I am a serial
-                            entrepreneur and the creator of the Problemio mobile
-                            apps for business which are some of the top business
-                            apps on iPhone and Android. I am also a 3-time
-                            bestselling author on Amazon, and a prolific online
-                            teacher with 100,000+ students and over 100 courses.
-                        </p>
-                    </div>
-                </div>
-            </section>
-            <section id="two">
-                <div class="container mx-auto pt-[76px] text-justify px-2 pb-16">
-                    <div
-                        class="w-full mx-auto h-[80px] relative bg-LIGHTYELLOW flex justify-center items-center border_shape font-semibold xl:text-3xl md:text-2xl sm:text-xl text-lg text-black"
-                    >
-                        <div class="border_shape_left hidden xl:block"></div>
-                        <div class="border_shape_right hidden xl:block"></div>
-                        <h2 class="bg-transparent font-semibold mx-5">
-                            More About My Business Coaching Service
-                        </h2>
-                    </div>
-                    <div class="mt-16 xl:px-10 ">
-                        <p class="text-lg">
-                            Harvesting rainwater is an excellent way to conserve
-                            water and reduce your
-                            <a class="text-LIGHTYELLOW cursor-pointer underline"
-                                >environmental impact</a
-                            >
-                            . All you need is a large barrel, a downspout
-                            diverter, and a faucet. Install the diverter on your
-                            downspout, connect it to the barrel, and attach the
-                            faucet for easy water access.
-                        </p>
-                        <p class="text-lg mt-5">
-                            For more information on how to make a cheap water
-                            collection system we highly recommend reading
-                            <a class="text-LIGHTYELLOW cursor-pointer underline"
-                                >The Self-Sufficient Backyard</a
-                            >
-                            . From this comprehensive guide you will find out
-                            how to make the simplest water collection system and
-                            how you can easily implement it on
-                        </p>
-                        <p class="text-lg">
-                            My name is Alex Genadinik. I am a serial
-                            entrepreneur and the creator of the Problemio mobile
-                            apps for business which are some of the top business
-                            apps on iPhone and Android. I am also a 3-time
-                            bestselling author on Amazon, and a prolific online
-                            teacher with 100,000+ students and over 100 courses.
-                        </p>
-                    </div>
-                </div>
-            </section>
-            <section id="three">
-                <div class="container mx-auto pt-[76px] text-justify px-2 pb-16">
-                    <div
-                        class="w-full mx-auto h-[80px] relative bg-LIGHTYELLOW flex justify-center items-center border_shape font-semibold xl:text-3xl md:text-2xl sm:text-xl text-lg text-black"
-                    >
-                        <div class="border_shape_left hidden xl:block"></div>
-                        <div class="border_shape_right hidden xl:block"></div>
-                        <h2 class="bg-transparent font-semibold mx-5">
-                            More About My Business Coaching Service
-                        </h2>
-                    </div>
-                    <div class="mt-16 xl:px-10 ">
-                        <p class="text-lg">
-                            Harvesting rainwater is an excellent way to conserve
-                            water and reduce your
-                            <a class="text-LIGHTYELLOW cursor-pointer underline"
-                                >environmental impact</a
-                            >
-                            . All you need is a large barrel, a downspout
-                            diverter, and a faucet. Install the diverter on your
-                            downspout, connect it to the barrel, and attach the
-                            faucet for easy water access.
-                        </p>
-                        <p class="text-lg mt-5">
-                            For more information on how to make a cheap water
-                            collection system we highly recommend reading
-                            <a class="text-LIGHTYELLOW cursor-pointer underline"
-                                >The Self-Sufficient Backyard</a
-                            >
-                            . From this comprehensive guide you will find out
-                            how to make the simplest water collection system and
-                            how you can easily implement it on
-                        </p>
-                        <p class="text-lg">
-                            My name is Alex Genadinik. I am a serial
-                            entrepreneur and the creator of the Problemio mobile
-                            apps for business which are some of the top business
-                            apps on iPhone and Android. I am also a 3-time
-                            bestselling author on Amazon, and a prolific online
-                            teacher with 100,000+ students and over 100 courses.
-                        </p>
-                    </div>
-                </div>
-            </section>
-            <section id="four">
-                <div class="container mx-auto pt-[76px] text-justify px-2 pb-16">
-                    <div
-                        class="w-full mx-auto h-[80px] relative bg-LIGHTYELLOW flex justify-center items-center border_shape font-semibold xl:text-3xl md:text-2xl sm:text-xl text-lg text-black"
-                    >
-                        <div class="border_shape_left hidden xl:block"></div>
-                        <div class="border_shape_right hidden xl:block"></div>
-                        <h2 class="bg-transparent font-semibold mx-5">
-                            More About My Business Coaching Service
-                        </h2>
-                    </div>
-                    <div class="mt-16 xl:px-10 ">
-                        <p class="text-lg">
-                            Harvesting rainwater is an excellent way to conserve
-                            water and reduce your
-                            <a class="text-LIGHTYELLOW cursor-pointer underline"
-                                >environmental impact</a
-                            >
-                            . All you need is a large barrel, a downspout
-                            diverter, and a faucet. Install the diverter on your
-                            downspout, connect it to the barrel, and attach the
-                            faucet for easy water access.
-                        </p>
-                        <p class="text-lg mt-5">
-                            For more information on how to make a cheap water
-                            collection system we highly recommend reading
-                            <a class="text-LIGHTYELLOW cursor-pointer underline"
-                                >The Self-Sufficient Backyard</a
-                            >
-                            . From this comprehensive guide you will find out
-                            how to make the simplest water collection system and
-                            how you can easily implement it on
-                        </p>
-                        <p class="text-lg">
-                            My name is Alex Genadinik. I am a serial
-                            entrepreneur and the creator of the Problemio mobile
-                            apps for business which are some of the top business
-                            apps on iPhone and Android. I am also a 3-time
-                            bestselling author on Amazon, and a prolific online
-                            teacher with 100,000+ students and over 100 courses.
-                        </p>
-                    </div>
-                </div>
-            </section>
-            <section id="five">
-                <div class="container mx-auto pt-[76px] text-justify px-2 pb-16">
-                    <div
-                        class="w-full mx-auto h-[80px] relative bg-LIGHTYELLOW flex justify-center items-center border_shape font-semibold xl:text-3xl md:text-2xl sm:text-xl text-lg text-black"
-                    >
-                        <div class="border_shape_left hidden xl:block"></div>
-                        <div class="border_shape_right hidden xl:block"></div>
-                        <h2 class="bg-transparent font-semibold mx-5">
-                            More About My Business Coaching Service
-                        </h2>
-                    </div>
-                    <div class="mt-16 xl:px-10 ">
-                        <p class="text-lg">
-                            Harvesting rainwater is an excellent way to conserve
-                            water and reduce your
-                            <a class="text-LIGHTYELLOW cursor-pointer underline"
-                                >environmental impact</a
-                            >
-                            . All you need is a large barrel, a downspout
-                            diverter, and a faucet. Install the diverter on your
-                            downspout, connect it to the barrel, and attach the
-                            faucet for easy water access.
-                        </p>
-                        <p class="text-lg mt-5">
-                            For more information on how to make a cheap water
-                            collection system we highly recommend reading
-                            <a class="text-LIGHTYELLOW cursor-pointer underline"
-                                >The Self-Sufficient Backyard</a
-                            >
-                            . From this comprehensive guide you will find out
-                            how to make the simplest water collection system and
-                            how you can easily implement it on
-                        </p>
-                        <p class="text-lg">
-                            My name is Alex Genadinik. I am a serial
-                            entrepreneur and the creator of the Problemio mobile
-                            apps for business which are some of the top business
-                            apps on iPhone and Android. I am also a 3-time
-                            bestselling author on Amazon, and a prolific online
-                            teacher with 100,000+ students and over 100 courses.
-                        </p>
-                    </div>
-                </div>
-            </section>
-            <section id="six">
-                <div class="container mx-auto pt-[76px] text-justify px-2 pb-16">
-                    <div
-                        class="w-full mx-auto h-[80px] relative bg-LIGHTYELLOW flex justify-center items-center border_shape font-semibold xl:text-3xl md:text-2xl sm:text-xl text-lg text-black"
-                    >
-                        <div class="border_shape_left hidden xl:block"></div>
-                        <div class="border_shape_right hidden xl:block"></div>
-                        <h2 class="bg-transparent font-semibold mx-5">
-                            More About My Business Coaching Service
-                        </h2>
-                    </div>
-                    <div class="mt-16 xl:px-10 ">
-                        <p class="text-lg">
-                            Harvesting rainwater is an excellent way to conserve
-                            water and reduce your
-                            <a class="text-LIGHTYELLOW cursor-pointer underline"
-                                >environmental impact</a
-                            >
-                            . All you need is a large barrel, a downspout
-                            diverter, and a faucet. Install the diverter on your
-                            downspout, connect it to the barrel, and attach the
-                            faucet for easy water access.
-                        </p>
-                        <p class="text-lg mt-5">
-                            For more information on how to make a cheap water
-                            collection system we highly recommend reading
-                            <a class="text-LIGHTYELLOW cursor-pointer underline"
-                                >The Self-Sufficient Backyard</a
-                            >
-                            . From this comprehensive guide you will find out
-                            how to make the simplest water collection system and
-                            how you can easily implement it on
-                        </p>
-                        <p class="text-lg">
-                            My name is Alex Genadinik. I am a serial
-                            entrepreneur and the creator of the Problemio mobile
-                            apps for business which are some of the top business
-                            apps on iPhone and Android. I am also a 3-time
-                            bestselling author on Amazon, and a prolific online
-                            teacher with 100,000+ students and over 100 courses.
-                        </p>
-                    </div>
-                </div>
-            </section>
-
-            <section>
-                <div class="container mx-auto xl:px-10 px-2 mb-10">
-                    <div class="border-t-2 mx-auto pt-10 max-w-[300px]"></div>
-                    <p class="font-medium text-justify text-lg">
-                        Main image: Berkshire, Buckinghamshire & Oxfordshire
-                        Wildlife Trust’s hairstreak butterfly egg count at
-                        Leaches Farm Nature Reserve near Bicester. Picture:
-                        Hayley Beck
-                    </p>
-                    <div class="mt-7 flex gap-x-4 justify-center">
-                        <a class="cursor-pointer">
-                            <i
-                                class="fa-brands fa-facebook text-4xl text-[#316FF6]"
-                            >
-                            </i>
-                        </a>
-                        <a class="cursor-pointer">
-                            <img class="w-8" src="./assets/x-twitter.svg" />
-                        </a>
-                        <a class="cursor-pointer"
-                            ><i
-                                class="fa-brands fa-linkedin text-4xl text-[#0077B5]"
-                            ></i
-                        ></a>
-                        <a class="cursor-pointer"
-                            ><i
-                                class="fa-brands fa-pinterest text-4xl text-[#E60023]"
-                            ></i
-                        ></a>
-                        <a class="cursor-pointer"
-                            ><i
-                                class="fa-brands fa-reddit-alien text-4xl text-[#FF5700]"
-                            ></i
-                        ></a>
-                    </div>
-                </div>
-            </section>
-
-            <section>
-                <div class="container mx-auto xl:px-10 px-2 pb-16">
-                    <h6
-                        class="text-center font-semibold text-2xl mb-8 border-b pb-7"
-                    >
-                        You may also like
-                    </h6>
-                    <div class="flex justify-between flex-wrap gap-5">
-                        <div class="lg:w-[48%] shadow-md flex" id="hover_img">
-                            <figure>
-                                <img
-                                    class="w-[200px] h-[150px] object-cover]"
-                                    src="./assets/blogimg.jpg"
-                                />
-                            </figure>
-                            <a
-                                class="cursor-pointer ml-2 font-medium hover:text-LIGHTBLUE"
-                                >Population of UK’s tallest bird hits
-                                record-breaking high</a
-                            >
-                        </div>
-                        <div class="lg:w-[48%] shadow-md flex" id="hover_img">
-                            <figure>
-                                <img
-                                    class="w-[200px] h-[150px] object-cover]"
-                                    src="./assets/blogimg.jpg"
-                                />
-                            </figure>
-                            <a
-                                class="cursor-pointer ml-2 font-medium hover:text-LIGHTBLUE"
-                                >Population of UK’s tallest bird hits
-                                record-breaking high</a
-                            >
-                        </div>
-                        <div class="lg:w-[48%] shadow-md flex" id="hover_img">
-                            <figure>
-                                <img
-                                    class="w-[200px] h-[150px] object-cover]"
-                                    src="./assets/blogimg.jpg"
-                                />
-                            </figure>
-                            <a
-                                class="cursor-pointer ml-2 font-medium hover:text-LIGHTBLUE"
-                                >Population of UK’s tallest bird hits
-                                record-breaking high</a
-                            >
-                        </div>
-                        <div class="lg:w-[48%] shadow-md flex" id="hover_img">
-                            <figure>
-                                <img
-                                    class="w-[200px] h-[150px] object-cover]"
-                                    src="./assets/blogimg.jpg"
-                                />
-                            </figure>
-                            <a
-                                class="cursor-pointer ml-2 font-medium hover:text-LIGHTBLUE"
-                                >Population of UK’s tallest bird hits
-                                record-breaking high</a
-                            >
-                        </div>
-                        <div class="lg:w-[48%] shadow-md flex" id="hover_img">
-                            <figure>
-                                <img
-                                    class="w-[200px] h-[150px] object-cover]"
-                                    src="./assets/blogimg.jpg"
-                                />
-                            </figure>
-                            <a
-                                class="cursor-pointer ml-2 font-medium hover:text-LIGHTBLUE"
-                                >Population of UK’s tallest bird hits
-                                record-breaking high</a
-                            >
-                        </div>
-                        <div class="lg:w-[48%] shadow-md flex" id="hover_img">
-                            <figure>
-                                <img
-                                    class="w-[200px] h-[150px] object-cover]"
-                                    src="./assets/blogimg.jpg"
-                                />
-                            </figure>
-                            <a
-                                class="cursor-pointer ml-2 font-medium hover:text-LIGHTBLUE"
-                                >Population of UK’s tallest bird hits
-                                record-breaking high</a
-                            >
-                        </div>
-                    </div>
-                </div>
-            </section>
-        </main>
-
-        <a href="#" class="to-top shadow-md">
-            <i class="fas fa-chevron-up text-LIGHTBLUE"></i>
-        </a>
-
-        <footer class="xl:pt-20">
+@extends('layouts.frontend')
+@section('main')
+<main>
+    @if($blogContents->count('id') == 0)
+    <section style="height:80vh; y" class=" flex flex-col justify-center items-center">
+        <div class="container mx-auto pt-[76px] text-justify px-2 pb-16">
             <div
-                class="container mx-auto px-2 flex smd:max-md:flex-wrap smd:max-md:gap-y-7 md:gap-x-7 smd:max-sm:justify-between mb-10"
+                class="w-full mx-auto h-[80px] relative bg-LIGHTYELLOW flex justify-center items-center border_shape font-semibold xl:text-3xl md:text-2xl sm:text-xl text-lg text-black"
             >
-                <div class="md:w-[40%] smd:max-md:w-full lg:pr-8">
-                    <div>
-                        <img
-                            class="w-[300px]"
-                            src="./assets/Green Thoughts, Clean Energ.png"
-                        />
-                    </div>
-                    <p class="my-7 text-justify">
-                        We provide valuable insights, tips, and resources for
-                        those interested in living an eco-friendly lifestyle. We
-                        aim to promote a more sustainable and fulfilling life in
-                        harmony with nature.
-                    </p>
-                    <div class="flex gap-x-5 text-3xl text-LIGHTBLUE">
-                        <i class="fa-brands fa-facebook"></i>
-                        <i class="fa-brands fa-instagram"></i>
-                        <i class="fa-brands fa-youtube"></i>
-                        <i class="fa-brands fa-twitter"></i>
-                        <i class="fa-brands fa-pinterest"></i>
-                    </div>
-                </div>
-                <div class="w-[20%] smd:max-md:w-[30%]">
-                    <h6 class="font-semibold text-xl lg:text-3xl">About</h6>
-                    <div class="mt-7">
-                        <ul class="flex flex-col gap-y-3">
-                            <li>
-                                <a>Our Story</a>
-                            </li>
-                            <li>
-                                <a>Sustainable Living Ideas</a>
-                            </li>
-                            <li>
-                                <a>Sustainable Living Off Grid</a>
-                            </li>
-                            <li>
-                                <a>Sustainable Urban Living</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="w-[20%] smd:max-md:w-[30%]">
-                    <h6 class="font-semibold text-xl lg:text-3xl">
-                        Other Info
-                    </h6>
-                    <div class="mt-7">
-                        <ul class="flex flex-col gap-y-3">
-                            <li>
-                                <a href="privacypolicy.html">Privacy Policy</a>
-                            </li>
-                            <li>
-                                <a>Terms & Conditions</a>
-                            </li>
-                            <li>
-                                <a>Disclaimer</a>
-                            </li>
-                            <li>
-                                <a>Opt-out preferences</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="w-[20%] smd:max-md:w-[30%]">
-                    <h6 class="font-semibold text-xl lg:text-3xl">
-                        Customer Service
-                    </h6>
-                    <div class="mt-7">
-                        <ul class="flex flex-col gap-y-3">
-                            <li>
-                                <a>Contact</a>
-                            </li>
-                            <li>
-                                <a>FAQ’s</a>
-                            </li>
-                            <li>
-                                <a>Guest Blogging Guidelines</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
+                <div class="border_shape_left hidden xl:block"></div>
+                <div class="border_shape_right hidden xl:block"></div>
+                <h2 class="bg-transparent font-semibold mx-5">
+                   NO DATA TO SHOW
+                </h2>
             </div>
-            <div class="border-t py-10">
-                <div
-                    class="container mx-auto smd:max-sm:text-xs px-2 flex justify-between"
-                >
-                    <div>
-                        <p>Copyright © 2024 Planet & Power</p>
-                    </div>
-                    <div>
-                        Powered by
-                        <a
-                            class="text-LIGHTBLUE font-medium"
-                            href="https://synexdigital.com/"
-                            >Synex Digital</a
+            </div>
+    </section>
+    @else
+    <section class="pt-32">
+        <div class="container mx-auto py-3 xl:px-10 px-2 text-LIGHTBLUE">
+            <a class="hover:underline" href="{{route('index')}}">Home </a>
+            <span>
+                > @if ($blogContents->first()->blogsData)
+                {{$blogContents->first()->blogsData->title}}
+
+                @endif</span >
+
+        </div>
+    </section>
+    <section>
+        <div class="container mx-auto xl:p-10 py:10 px-2">
+            <ul class="flex lg:gap-1 gap-x-1 flex-wrap text-LIGHTBLUE mb-5">
+
+
+                @php
+                    $category =$blogContents->first()->blogsData->categoryData;
+                @endphp
+                @if (!empty($category))
+                        @foreach ($category->breadcrumbs() as $index=> $crumb)
+
+                            <a class="hover:underline inline-block cursor-pointer hover:text-LIGHTBLUE" >
+                             {{ $crumb->name }}
+                            </a>
+
+
+                            @if ($index < count($category->breadcrumbs()) - 1)
+                            <span>.</span>
+                        @endif
+                        @endforeach
+                @endif
+
+            </ul>
+            <h2 class="xl:text-5xl lg:text-4xl md:text-3xl text-2xl font-semibold mb-16 uppercase mt-10">
+                Table Of Contents
+            </h2>
+            <p class="mt-5 mb-7 lg:text-lg">
+                130+ DIY Projects Broken Down By Time & Skill Level
+            </p>
+            <div class="text-LIGHTBLUE font-medium text-lg">
+                @foreach ($blogContents as $data)
+                <a href="#{{$data->id}}" class="underline hover:text-[#2c7da9]"
+                    > {{$data->title}}
+                </a>
+                <br />
+                @endforeach
+
+            </div>
+        </div>
+    </section>
+
+
+    @foreach ($blogContents as $data )
+    <section id="{{$data->id}}">
+        <div class="container mx-auto pt-[76px] text-justify px-2 pb-16">
+            <div
+                class="w-full mx-auto h-[80px] relative bg-LIGHTYELLOW flex justify-center items-center border_shape font-semibold xl:text-3xl md:text-2xl sm:text-xl text-lg text-black"
+            >
+                <div class="border_shape_left hidden xl:block"></div>
+                <div class="border_shape_right hidden xl:block"></div>
+                <h2 class="bg-transparent font-semibold mx-5">
+                   {{$data->title}}
+                </h2>
+            </div>
+            <div class="mt-16 xl:px-10 ">
+                @if($data->video)
+                    <video style="width:600px;; " class="m-auto" src="{{asset('upload/blog-content')}}/{{$data->video}}" controls></video> <br>
+                @endif
+                @if ($data->image)
+                    <img style="width:600px;; " class="m-auto" src="{{asset('upload/blog-content')}}/{{$data->image}}" > <br>
+                @endif
+                    <p class="text-lg">
+                    {!! $data->content !!}
+                </p>
+
+            </div>
+        </div>
+    </section>
+    @endforeach
+
+    <section>
+        <div class="container mx-auto xl:px-10 px-2 mb-10">
+            <div class="border-t-2 mx-auto pt-10 max-w-[300px]"></div>
+            <p class="font-medium text-justify text-lg">
+                Main image: Berkshire, Buckinghamshire & Oxfordshire
+                Wildlife Trust’s hairstreak butterfly egg count at
+                Leaches Farm Nature Reserve near Bicester. Picture:
+                Hayley Beck
+            </p>
+            <div class="mt-7 flex gap-x-4 justify-center">
+                <a class="cursor-pointer">
+                    <i
+                        class="fa-brands fa-facebook text-4xl text-[#316FF6]"
+                    >
+                    </i>
+                </a>
+                <a class="cursor-pointer">
+                    <img class="w-8" src="{{asset('frontend_asset/assets/x-twitter.svg')}}" />
+                </a>
+                <a class="cursor-pointer"
+                    ><i
+                        class="fa-brands fa-linkedin text-4xl text-[#0077B5]"
+                    ></i
+                ></a>
+                <a class="cursor-pointer"
+                    ><i
+                        class="fa-brands fa-pinterest text-4xl text-[#E60023]"
+                    ></i
+                ></a>
+                <a class="cursor-pointer"
+                    ><i
+                        class="fa-brands fa-reddit-alien text-4xl text-[#FF5700]"
+                    ></i
+                ></a>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="container mx-auto xl:px-10 px-2 pb-16">
+            <h6
+                class="text-center font-semibold text-2xl mb-8 border-b pb-7"
+            >
+                You may also like
+            </h6>
+            <div class="flex justify-between flex-wrap gap-5">
+
+
+                @if (!empty($category))
+                    @foreach (App\Models\Blog::where('category_id',$category->breadcrumbs()[0]->id)
+                    ->where('id','!=',($blogContents->first()->blogsData)->id)
+                    ->get() as $data )
+                    <div class="lg:w-[48%] shadow-md flex" id="hover_img">
+                        <figure>
+                            <img
+                                style="width:100%; height:150px; "
+                                class=" object-cover"
+                                src="{{asset('upload/blog')}}/{{$data->features_image}}"
+                            />
+                        </figure>
+                        <a href="{{route('readblog',$data->id)}}"
+                            class="cursor-pointer ml-2 font-medium hover:text-LIGHTBLUE"
+                            >{{$data->title}}</a
                         >
                     </div>
-                </div>
+                    @endforeach
+                @endif
             </div>
-        </footer>
+        </div>
+    </section>
+    @endif
+</main>
+@endsection
 
-        <script>
-            let navClick = document.querySelector(".navClick");
-            let navBar = document.querySelector(".navBar");
-            let toTop = document.querySelector(".to-top");
-
-            navClick.addEventListener("click", function () {
-                navBar.classList.toggle("hidden");
-            });
-
-            window.addEventListener("scroll", () => {
-                if (window.pageYOffset > 100) {
-                    toTop.classList.add("active");
-                } else {
-                    toTop.classList.remove("active");
-                }
-            });
-        </script>
-    </body>
-</html>

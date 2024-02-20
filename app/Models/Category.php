@@ -7,9 +7,24 @@ use Illuminate\Database\Eloquent\Model;
 
 class Category extends Model
 {
-    use HasFactory;
+   
 
-    public function parent(){
+    public function parentCategory()
+    {
         return $this->belongsTo(Category::class, 'parent_category');
     }
+
+    public function breadcrumbs()
+    {
+        $breadcrumbs = [];
+        $category = $this;
+        while ($category) {
+            array_unshift($breadcrumbs, $category);
+            $category = $category->parentCategory;
+        }
+        return $breadcrumbs;
+    }
+    // public function blogData(){
+    //     return $this->hasMany(Blog::class, 'category_id');
+    // }
 }

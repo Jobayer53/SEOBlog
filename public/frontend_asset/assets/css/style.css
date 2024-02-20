@@ -101,7 +101,8 @@ body::-webkit-scrollbar-thumb:hover {
     left: -36px;
     width: 36.63px;
     height: 127px;
-    background: url("./assets/left.svg") no-repeat center;
+
+    background: url("../left.svg") no-repeat center;
 }
 .border_shape_right {
     position: absolute;
@@ -109,7 +110,7 @@ body::-webkit-scrollbar-thumb:hover {
     right: -36px;
     width: 36.63px;
     height: 127px;
-    background: url("./assets/right.svg") no-repeat center;
+    background: url("../right.svg") no-repeat center;
 }
 
 #hover_img figure {
