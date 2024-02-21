@@ -11,6 +11,7 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link rel="shortcut icon" href="{{asset('frontend_asset/assets/SiteIconWhite.png')}}" type="image/x-icon">
         <link
             href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700;800;900&display=swap"
             rel="stylesheet"
@@ -19,16 +20,18 @@
             rel="stylesheet"
             href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
         />
-        @vite('resources/css/app.css')
+        <link rel="stylesheet" src="../../css/app.css">
     </head>
     <body>
         <header class="shadow-md fixed z-50 w-full text-black">
             <div class="container px-2 mx-auto flex justify-between py-3">
                 <div class="lg:w-[30%]">
-                    <img
+                    <a href="{{route('index')}}">
+                        <img
                         class="w-[300px]"
                         src="{{asset('frontend_asset/assets/Green Thoughts, Clean Energ.png')}}"
                     />
+                    </a>
                 </div>
                 <div class="lg:hidden w-[70%] flex justify-end items-center">
                     <i
@@ -55,31 +58,16 @@
                             </a>
                             <span class="navsubmanu">
                                 <ul class="flex flex-col gap-y-4 text-sm">
+                                    @foreach (App\Models\Blog::orderBy('id', 'desc') ->take(5) ->get() as $data )
                                     <li
-                                        class="hover:bg-[#d7d7d7] px-1 py-2 rounded cursor-pointer"
-                                    >
-                                        Soler panel cost
+                                    style=" word-wrap:break-word;"
+                                    class="hover:bg-[#d7d7d7] px-1 py-2 rounded cursor-pointer"
+                                >
+                                    {{$data->title}}
                                     </li>
-                                    <li
-                                        class="hover:bg-[#d7d7d7] px-1 py-2 rounded cursor-pointer"
-                                    >
-                                        Soler panel cost
-                                    </li>
-                                    <li
-                                        class="hover:bg-[#d7d7d7] px-1 py-2 rounded cursor-pointer"
-                                    >
-                                        Soler panel cost
-                                    </li>
-                                    <li
-                                        class="hover:bg-[#d7d7d7] px-1 py-2 rounded cursor-pointer"
-                                    >
-                                        Soler panel cost
-                                    </li>
-                                    <li
-                                        class="hover:bg-[#d7d7d7] px-1 py-2 rounded cursor-pointer"
-                                    >
-                                        Soler panel cost
-                                    </li>
+
+                                    @endforeach
+
                                 </ul>
                             </span>
                         </li>
@@ -132,31 +120,15 @@
                             </a>
                             <span class="navsubmanusm">
                                 <ul class="flex flex-col gap-y-4 text-sm">
+                                    @foreach (App\Models\Blog::orderBy('id', 'desc') ->take(5) ->get() as $data )
                                     <li
-                                        class="hover:bg-[#d7d7d7] px-1 py-2 rounded cursor-pointer"
-                                    >
-                                        Soler panel cost
-                                    </li>
-                                    <li
-                                        class="hover:bg-[#d7d7d7] px-1 py-2 rounded cursor-pointer"
-                                    >
-                                        Soler panel cost
-                                    </li>
-                                    <li
-                                        class="hover:bg-[#d7d7d7] px-1 py-2 rounded cursor-pointer"
-                                    >
-                                        Soler panel cost
-                                    </li>
-                                    <li
-                                        class="hover:bg-[#d7d7d7] px-1 py-2 rounded cursor-pointer"
-                                    >
-                                        Soler panel cost
-                                    </li>
-                                    <li
-                                        class="hover:bg-[#d7d7d7] px-1 py-2 rounded cursor-pointer"
-                                    >
-                                        Soler panel cost
-                                    </li>
+                                    class="hover:bg-[#d7d7d7] px-1 py-2 rounded cursor-pointer"
+                                >
+                                    {{$data->title}}
+                                </li>
+
+                                    @endforeach
+
                                 </ul>
                             </span>
                         </li>
@@ -192,7 +164,7 @@
                     <div>
                         <img
                             class="w-[300px]"
-                            src="./assets/Green Thoughts, Clean Energ.png"
+                            src="{{asset('frontend_asset/assets/Green Thoughts, Clean Energ.png')}}"
                         />
                     </div>
                     <p class="my-7 text-justify">
@@ -256,7 +228,7 @@
                     <div class="mt-7">
                         <ul class="flex flex-col gap-y-3">
                             <li>
-                                <a>Contact</a>
+                                <a href="{{route('contact')}}">Contact</a>
                             </li>
                             <li>
                                 <a>FAQ’s</a>

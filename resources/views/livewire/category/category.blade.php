@@ -50,7 +50,7 @@
                                         @endif
 
                                     </td>
-                                    <td> {{$data->parent? $data->parent->name:'Unknown' }} </td>
+                                    <td> {{$data->parentCategory? $data->parentCategory->name:'Unknown' }} </td>
                                     <td> {{$data->name}} </td>
                                     <td>
                                         <div class="d-flex">

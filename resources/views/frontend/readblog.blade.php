@@ -3,7 +3,7 @@
 <main>
     @if($blogContents->count('id') == 0)
     <section style="height:80vh; y" class=" flex flex-col justify-center items-center">
-        <div class="container mx-auto pt-[76px] text-justify px-2 pb-16">
+        <div class="container mx-auto pt-[76px] text-justify px-2 pb-16 ">
             <div
                 class="w-full mx-auto h-[80px] relative bg-LIGHTYELLOW flex justify-center items-center border_shape font-semibold xl:text-3xl md:text-2xl sm:text-xl text-lg text-black"
             >
@@ -17,7 +17,7 @@
     </section>
     @else
     <section class="pt-32">
-        <div class="container mx-auto py-3 xl:px-10 px-2 text-LIGHTBLUE">
+        <div class="container mx-auto py-3 xl:px-10 px-2 text-LIGHTBLUE ">
             <a class="hover:underline" href="{{route('index')}}">Home </a>
             <span>
                 > @if ($blogContents->first()->blogsData)
@@ -28,7 +28,7 @@
         </div>
     </section>
     <section>
-        <div class="container mx-auto xl:p-10 py:10 px-2">
+        <div class="container mx-auto xl:p-10 py:10 px-2 ">
             <ul class="flex lg:gap-1 gap-x-1 flex-wrap text-LIGHTBLUE mb-5">
 
 
@@ -50,13 +50,11 @@
                 @endif
 
             </ul>
-            <h2 class="xl:text-5xl lg:text-4xl md:text-3xl text-2xl font-semibold mb-16 uppercase mt-10">
+            <h2 class="xl:text-5xl lg:text-4xl md:text-3xl text-2xl font-semibold mb-16 uppercase mt-10 text-center ">
                 Table Of Contents
             </h2>
-            <p class="mt-5 mb-7 lg:text-lg">
-                130+ DIY Projects Broken Down By Time & Skill Level
-            </p>
-            <div class="text-LIGHTBLUE font-medium text-lg">
+
+            <div class="text-LIGHTBLUE font-medium text-lg text-center">
                 @foreach ($blogContents as $data)
                 <a href="#{{$data->id}}" class="underline hover:text-[#2c7da9]"
                     > {{$data->title}}
@@ -71,9 +69,9 @@
 
     @foreach ($blogContents as $data )
     <section id="{{$data->id}}">
-        <div class="container mx-auto pt-[76px] text-justify px-2 pb-16">
+        <div class="container mx-auto pt-[76px] text-justify  pb-16 shadow-md  ">
             <div
-                class="w-full mx-auto h-[80px] relative bg-LIGHTYELLOW flex justify-center items-center border_shape font-semibold xl:text-3xl md:text-2xl sm:text-xl text-lg text-black"
+                class="w-full mx-auto h-[80px] relative bg-LIGHTYELLOW flex justify-center items-center border_shape font-semibold xl:text-3xl md:text-2xl sm:text-xl text-lg text-black shadow-md"
             >
                 <div class="border_shape_left hidden xl:block"></div>
                 <div class="border_shape_right hidden xl:block"></div>
@@ -81,14 +79,17 @@
                    {{$data->title}}
                 </h2>
             </div>
-            <div class="mt-16 xl:px-10 ">
-                @if($data->video)
-                    <video style="width:600px;; " class="m-auto" src="{{asset('upload/blog-content')}}/{{$data->video}}" controls></video> <br>
-                @endif
-                @if ($data->image)
-                    <img style="width:600px;; " class="m-auto" src="{{asset('upload/blog-content')}}/{{$data->image}}" > <br>
-                @endif
-                    <p class="text-lg">
+            <div class="mt-16 xl:px-10   ">
+                <div class="w-full flex flex-col items-center content-center">
+                    @if($data->video)
+                        <video style="width:600px;; "  src="{{asset('upload/blog-content')}}/{{$data->video}}" controls></video> <br>
+                    @endif
+                    @if ($data->image)
+                        <img style="width:600px;; "  src="{{asset('upload/blog-content')}}/{{$data->image}}" > <br>
+                    @endif
+                </div>
+
+                    <p class="text-lg  ">
                     {!! $data->content !!}
                 </p>
 
@@ -100,12 +101,7 @@
     <section>
         <div class="container mx-auto xl:px-10 px-2 mb-10">
             <div class="border-t-2 mx-auto pt-10 max-w-[300px]"></div>
-            <p class="font-medium text-justify text-lg">
-                Main image: Berkshire, Buckinghamshire & Oxfordshire
-                Wildlife Trust’s hairstreak butterfly egg count at
-                Leaches Farm Nature Reserve near Bicester. Picture:
-                Hayley Beck
-            </p>
+
             <div class="mt-7 flex gap-x-4 justify-center">
                 <a class="cursor-pointer">
                     <i
@@ -148,6 +144,7 @@
                 @if (!empty($category))
                     @foreach (App\Models\Blog::where('category_id',$category->breadcrumbs()[0]->id)
                     ->where('id','!=',($blogContents->first()->blogsData)->id)
+                    ->take(4)
                     ->get() as $data )
                     <div class="lg:w-[48%] shadow-md flex" id="hover_img">
                         <figure>

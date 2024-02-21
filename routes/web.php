@@ -12,7 +12,7 @@ use App\Http\Controllers\FrontendController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\SocialLinkController;
-
+use App\Livewire\Blog;
 
 /*
 |--------------------------------------------------------------------------
@@ -61,6 +61,7 @@ Route::post('/news/update', [NewsController::class, 'update'])->name('news.updat
 //social link
 Route::get('/social/link', [SocialLinkController::class, 'index'])->name('social.link');
 //blogs
+
 Route::get('/blogs', [BlogController::class, 'index'])->name('blogs');
 //blog content
 Route::resource('/blog_content', BlogContentController::class, );

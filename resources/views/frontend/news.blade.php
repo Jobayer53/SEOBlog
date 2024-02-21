@@ -11,7 +11,7 @@
                     <div class="sm:w-[40%]" id="hover_img">
                         <figure>
                             <img
-                                width="100%"
+                               style=" width:100%;"
                                 src="{{asset('upload/news')}}/{{$data->image}}"
                             />
                         </figure>
@@ -31,7 +31,9 @@
                 @endforeach
 
             </div>
-            <div class="xl:w-[20%] xl:block hidden bg-gray-100"></div>
+            <div class="xl:w-[20%] xl:block hidden " style="background-color: #ffffec;">
+                {{-- bg-gray-100 --}}
+            </div>
         </div>
     </section>
 </main>

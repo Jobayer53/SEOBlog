@@ -18,7 +18,7 @@
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
-                        <table class="table table-responsive-md">
+                        <table id="example3" class="display min-w850  table">
                             <thead>
                                 <tr>
                                     <th style="width:80px;"><strong>#</strong></th>
@@ -81,52 +81,9 @@
   })
 </script>
 
-  <script>
-$(document).ready(function() {
-    var summernoteInstance;
-
-    $('#createModal').on('shown.bs.modal', function () {
-        // Initialize Summernote
-        summernoteInstance = $('#summernote').summernote({
-            callbacks: {
-                onChange: function (contents) {
-                    @this.set('content', contents);
-                },
-                onImageUpload: function(files) {
-                    // Upload image using Livewire
-                    @this.uploadImage(files[0]);
-                }
-            }
-        });
-    });
-
-    $('#createModal').on('hidden.bs.modal', function () {
-        // Clear Summernote instance reference
-        summernoteInstance = null;
-        $('#summernote').val('');
-    });
-});
-
-
-
-
-    $(document).ready(function() {
-        $('#editModal').on('shown.bs.modal', function () {
-            $('#editsummernote').summernote({
-                callbacks: {
-                    onChange: function (contents) {
-                        @this.set('content', contents);
-                    }
-                }
-            });
-        });
-
-        $('#editModal').on('hidden.bs.modal', function () {
-            $('#editsummernote').summernote('destroy');
-            $('#editsummernote').val('');
-        });
-    });
-</script>
 @endsection
 
 </div>
+
+
+

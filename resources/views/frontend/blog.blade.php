@@ -39,6 +39,8 @@
                                     <span>.</span>
                                 @endif
                                 @endforeach
+                        @else
+                            unknown
                         @endif
 
 
@@ -55,7 +57,7 @@
             </div>
                @endforeach
             </div>
-            <div class="xl:w-[20%] xl:block hidden bg-gray-100"></div>
+            <div class="xl:w-[20%] xl:block hidden " style="background-color:#ffffec;"></div>
         </div>
     </section>
 </main>

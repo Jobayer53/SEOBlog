@@ -11,10 +11,25 @@ use Illuminate\Http\Request;
 class FrontendController extends Controller
 {
     public function index(){
-        $categories = Category::all();
-        $news = News::orderBy('id', 'desc')->get();
-        $newsData = News::where('id', '!=',($news->first())->id)->get();
+        //category data
+        $categories = null;
+        $categoryCount = Category::all()->count();
+        if($categoryCount < 6 ){
+            $categories = Category::take(3)->get();
+        }elseif($categoryCount >= 6 && $categoryCount < 9 ){
+             $categories = Category::take(6)->get();
+        }elseif($categoryCount >= 9 ){
+            $categories = Category::take(9)->get();
+        }
+
+        // category data end here
+
+        // $news = News::orderBy('id', 'desc')->get()->first()->id;
         $newsAll = News::orderBy('id', 'desc')->get();
+        $newsData = News::where('id', '!=',($newsAll->first()->id))
+        ->orderBy('id', 'desc')
+        ->take(7)
+        ->get();
 
         return view('frontend.index',compact('categories','newsData','newsAll'));//
     }
@@ -29,9 +44,9 @@ class FrontendController extends Controller
     public function readnews($id){
         $news = News::where('id' , $id)->get()->first();
 
-        $newsData = News::where('id', '!=',$news->id)->get();
-
-        return view('frontend.readnews',compact('news','newsData'));
+        $newsData = News::where('id', '!=',$news->id)->inRandomOrder()->limit(6)->get();
+        $news10 = News::where('id','!=',$news->id)->orderBy('id','desc')->take(10)->get();
+        return view('frontend.readnews',compact('news','newsData','news10'));
     }
     public function about(){
         return view('frontend.about');

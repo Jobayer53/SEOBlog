@@ -5,20 +5,37 @@ namespace App\Livewire;
 use Photo;
 use Livewire\Component;
 use App\Models\Category;
-use Illuminate\Support\Str;
-use App\Models\Blog as ModelsBlog;
 use App\Models\BlogContent;
+use Illuminate\Support\Str;
+use Livewire\WithPagination;
+use Livewire\Attributes\Layout;
+use App\Models\Blog as ModelsBlog;
+use Livewire\WithoutUrlPagination;
 use Livewire\Features\SupportFileUploads\WithFileUploads;
 
 class Blog extends Component
 {
     use WithFileUploads;
+    use WithPagination, WithoutUrlPagination;
     public $title, $seo_title, $seo_description, $seo_tags,$features_image, $category_id,$blog_id, $delete_id;
+
+    public $query;
+    public function search(){
+        $this->resetPage();
+    }
+
 
     public function render()
     {
+
         $categories = Category::all();
-        $blogs = ModelsBlog::orderBy('id','desc')->get();
+        // $blogs = ModelsBlog::orderBy('id','desc')->paginate(10);
+        $blogs = ModelsBlog::where('title', 'like', '%'.$this->query.'%')
+
+        ->paginate(10);
+
+
+
         return view('livewire.blog.blog',[
             'categories' => $categories,
             'blogs' => $blogs,
