@@ -56,7 +56,10 @@
                                     <td>
                                         <div class="d-flex">
                                             <a href="{{route('news.edit',$data->id)}}"   class="btn btn-primary shadow btn-xs sharp me-1" ><i class="fa fa-pencil"></i></a>
-                                            <button  class="btn btn-danger shadow btn-xs sharp " wire:click="delete_assing({{$data->id}})"  data-bs-toggle="modal" data-bs-target="#deleteModal"  ><i class="fa fa-trash"></i> </button>
+                                            <button  class="btn btn-danger shadow btn-xs sharp me-1  " wire:click="delete_assing({{$data->id}})"  data-bs-toggle="modal" data-bs-target="#deleteModal"  ><i class="fa fa-trash"></i> </button>
+                                            <button wire:click="status({{$data->id}})"  class="btn btn-{{$data->status == 0? 'dark':'success   '}} shadow btn-xs sharp me-1" ><i class="fa fa-toggle-{{$data->status == 0? 'off':'on'}}" style='font-size:18px'></i></button>
+
+
                                         </div>
                                     </td>
                                 </tr>

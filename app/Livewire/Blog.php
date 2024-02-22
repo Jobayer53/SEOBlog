@@ -31,7 +31,7 @@ class Blog extends Component
         $categories = Category::all();
         // $blogs = ModelsBlog::orderBy('id','desc')->paginate(10);
         $blogs = ModelsBlog::where('title', 'like', '%'.$this->query.'%')
-
+        ->orderBy('id','desc')
         ->paginate(10);
 
 
@@ -59,6 +59,7 @@ public function store(){
     $blogs->seo_title        = $this->seo_title;
     $blogs->seo_description  = $this->seo_description;
     $blogs->seo_tags         = $this->seo_tags;
+    $blogs->status        = '1';
     $blogs->save();
 
     $this->reset();
@@ -104,7 +105,23 @@ public function update(){
     $this->reset();
     $this->dispatch('close-modal');
 }
+//status change
+public function status($id){
+    $status = ModelsBlog::find($id);
+    if($status->status == 1){
+       $blogContent = BlogContent::where('blog_id',$status->id)->update(['status' => '0',]);
 
+       $status->status='0';
+       $status->save();
+    }
+    else{
+        $status->status='1';
+       $status->save();
+    }
+
+
+
+}
 //delete
 public function delete_assing($id){
     $this->delete_id = $id;

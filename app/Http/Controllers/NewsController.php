@@ -8,6 +8,11 @@ use Illuminate\Http\Request;
 
 class NewsController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function index(){
         return view('backend.news.news');
     }
@@ -30,6 +35,7 @@ class NewsController extends Controller
         $news->seo_title        = $request->seo_title;
         $news->seo_description  = $request->seo_description;
         $news->seo_tags         = $request->seo_tags;
+        $news->status         = '1';
         $news->save();
 
         return redirect(route('news'))->with('added','Added successfully');

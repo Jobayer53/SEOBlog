@@ -12,6 +12,10 @@ use Laravel\Ui\Presets\React;
 class BlogContentController extends Controller
 {
 
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      */
@@ -62,6 +66,7 @@ class BlogContentController extends Controller
         $blogContent->image           =Photo::$name;
         $blogContent->video           =$videoName;
         $blogContent->video_link      =$request->videoLink;
+        $blogContent->status          ='1';
         $blogContent->save();
         return redirect(route('blog.content',$request->blog_id))->with('added', 'Added Successfully');
 
@@ -153,6 +158,13 @@ class BlogContentController extends Controller
     public function destroy(string $id)
     {
         //
+    }
+
+    public function status($id){
+        $status = BlogContent::find($id);
+        $status->status == '0' ?  $status->status='1': $status->status='0';
+        $status->save();
+        return back();
     }
     public function delete(Request $request)
     {

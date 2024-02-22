@@ -2,6 +2,7 @@
 
 namespace App\Livewire;
 
+use App\Models\Blog;
 use Photo;
 use Livewire\Component;
 use Illuminate\Support\Str;
@@ -32,6 +33,7 @@ class Category extends Component
         $category->seo_title        = $this->seo_title;
         $category->seo_description  = $this->seo_description;
         $category->seo_tags         = $this->seo_tags;
+        $category->status         = '1';
         $category->save();
         $this->select = false;
         $this->reset();
@@ -80,6 +82,29 @@ class Category extends Component
         $this->select = false;
         $this->dispatch('close-modal');
     }
+//status
+    public function status($id){
+        $category = ModelsCategory::find($id);
+        if($category->status == 1){
+            if($category->cat_to_blog->count() != 0){
+                // $blogs = Blog::where('category_id',$category->id)->update(['status' => '0', ]);
+                $blogs = Blog::where('category_id',$category->id)->get();
+            foreach($blogs as $blog){
+                dd($blog->blogContentData->id);
+            }
+
+
+            }
+            else{
+                dd('nai');
+            }
+        }
+
+
+
+
+    }
+//delete
     public function delete_assing($id){
         $this->delete_id = $id;
     }

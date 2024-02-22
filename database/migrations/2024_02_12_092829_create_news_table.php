@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('seo_title')->nullable();
             $table->string('seo_description')->nullable();
             $table->string('seo_tags')->nullable();
+            $table->integer('status')->default('0');
             $table->timestamps();
         });
     }

@@ -55,11 +55,13 @@
 
                 @php
                     $blogs =App\Models\Blog::where('category_id', $cat->id)
+                    ->where('status','=','1')
                     ->orderBy('id', 'desc')
                     ->take(5)
                     ->get();
 
                     $latestBlog = App\Models\Blog::where('category_id', $cat->id)
+                    ->where('status','=','1')
                     ->orderBy('id', 'desc')
                     ->first();
 
@@ -70,11 +72,13 @@
                         $image = null; // Or provide a default image
                     }
                 @endphp
-
-                <img
+                 @if ($latestBlog)
+                   <img
                     class="w-full h-[227px] my-5 rounded-lg shadow-md"
-                    src="{{asset('upload/blog')}}/{{$image}}"
-                />
+                    src="{{asset('upload/blog')}}/{{$latestBlog->features_image}}"
+                    />
+                    @endif
+
 
                 @foreach ($blogs as $data )
                 <a href="{{route('readblog',$data->id)}}"
@@ -98,42 +102,51 @@
             >
                 Positive Green News
             </h3>
-            <div class="sm:flex justify-between mt-8">
-                <div class="sm:w-[48%] mb-5 sm:mb-0">
-                    <img
-                        class="rounded-lg w-full h-[341px]"
-                        src="{{asset('upload/news')}}/{{$newsAll->first()->image}}"
-                    />
-                    <a href="{{route('readNews',$newsAll->first()->id)}}"
-                        class="font-medium mt-2 text-xl block cursor-pointer hover:underline transition ease-in-out delay-300"
-                    >
-                    {{$newsAll->first()->title}}
-                </a>
-                    <p class="font-medium">by Planet and Power</p>
-                </div>
-                <div class="sm:w-[48%]">
-                    @if ($newsAll->count('id') == 0)
+            @if ($newsAll->count('id') == 0)
+                <h4
+                class="font-medium text-lg block  transition ease-in-out delay-300"
+                >
+                NO DATA TO SHOW
+                </h4>
+            @else
+                <div class="sm:flex justify-between mt-8">
+                    @if($newsAll->last()->status == '1')
+                        <div class="sm:w-[48%] mb-5 sm:mb-0">
+                            <img
+                                class="rounded-lg w-full h-[341px]"
+                                src="{{asset('upload/news')}}/{{$newsAll->last()->image}}"
+                            />
+                            <a href="{{route('readNews',$newsAll->last()->id)}}"
+                                class="font-medium mt-2 text-xl block cursor-pointer hover:underline transition ease-in-out delay-300"
+                            >
+                            {{$newsAll->last()->title}}
+                        </a>
+                            <p class="font-medium">by Planet and Power</p>
+                        </div>
+                    @else
                         <h4
                         class="font-medium text-lg block  transition ease-in-out delay-300"
-                    >
-                    NO DATA TO SHOW
-                    </h4>
-                    @endif
-                    @foreach ($newsData as $data )
-                    <div class="mb-4">
-                        <a href="{{route('readNews',$data->id)}}"
-                            class="font-medium text-lg block cursor-pointer hover:underline transition ease-in-out delay-300"
                         >
-                           {{$data->title}}
-                        </a>
-                        <p class="font-medium text-[#303030]">
-                            by Planet and Power
-                        </p>
+                        NO DATA TO SHOW
+                        </h4>
+                    @endif
+                    <div class="sm:w-[48%]">
+                        @foreach ($newsData as $data )
+                        <div class="mb-4">
+                            <a href="{{route('readNews',$data->id)}}"
+                                class="font-medium text-lg block cursor-pointer hover:underline transition ease-in-out delay-300"
+                            >
+                            {{$data->title}}
+                            </a>
+                            <p class="font-medium text-[#303030]">
+                                by Planet and Power
+                            </p>
+                        </div>
+                        @endforeach
                     </div>
-                    @endforeach
-
                 </div>
-            </div>
+            @endif
+
         </div>
     </section>
     {{-- news end --}}

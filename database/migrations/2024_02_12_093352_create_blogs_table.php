@@ -17,9 +17,10 @@ return new class extends Migration
             $table->string('features_image');
             $table->string('title');
             $table->string('slugs');
-            $table->string('seo_title');
-            $table->string('seo_description');
-            $table->string('seo_tags');
+            $table->string('seo_title')->nullable();
+            $table->string('seo_description')->nullable();
+            $table->string('seo_tags')->nullable();
+            $table->integer('status')->default('0');
             $table->timestamps();
         });
     }

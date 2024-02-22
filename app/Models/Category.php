@@ -7,11 +7,15 @@ use Illuminate\Database\Eloquent\Model;
 
 class Category extends Model
 {
-   
+
 
     public function parentCategory()
     {
         return $this->belongsTo(Category::class, 'parent_category');
+    }
+    public function cat_to_blog()
+    {
+        return $this->hasMany(blog::class, 'category_id');
     }
 
     public function breadcrumbs()

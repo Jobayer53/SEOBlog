@@ -121,6 +121,7 @@
                                         <div class="d-flex">
                                             <a href="{{ route('blog_content.edit',$data->id) }}" class="btn btn-primary shadow btn-xs sharp me-1" ><i class="fa fa-pencil"></i></a>
                                             <button value="{{$data->id}}"  class="btn btn-danger shadow btn-xs sharp deleteBtn " data-bs-toggle="modal" data-bs-target="#deleteModal"  ><i class="fa fa-trash"></i> </button>
+                                            <a href="{{route('blog.content.status',$data->id)}}"  class="btn btn-{{$data->status == 0? 'dark':'success   '}} shadow btn-xs sharp me-1" ><i class="fa fa-toggle-{{$data->status == 0? 'off':'on'}}" style='font-size:18px'></i></a>
                                         </div>
                                     </td>
                                 </tr>

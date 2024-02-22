@@ -81,6 +81,16 @@ class News extends Component
 
     //     $this->dispatch('close-modal');
     // }
+
+
+//status change
+public function status($id){
+    $status = ModelsNews::find($id);
+    $status->status == '0' ?  $status->status='1': $status->status='0';
+    $status->save();
+
+
+}
 //delete
     public function delete_assing($id){
         $this->delete_id = $id;

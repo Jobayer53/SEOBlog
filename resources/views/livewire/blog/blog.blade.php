@@ -22,12 +22,11 @@
                     <div class="col-10">
                         <form wire:submit="search">
                             <input class="form-control" type="text" wire:model="query" placeholder="Search here">
-
-
                         </form>
                     </div>
                     <div class="col-2">
-<button class="btn btn-info " type="submit">Search posts</button>
+
+                    <button class="btn btn-info " type="submit">Search</button>
                     </div>
                 </div>
 
@@ -47,6 +46,15 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                @if ($blogs->count('id')== 0)
+                                <tr>
+                                    <td colspan="5">
+                                        <p class="text-center">NO DATA TO SHOW</p>
+                                    </td>
+                                </tr>
+
+                                @endif
+
                                 @foreach ($blogs as $key=> $item)
                                 <tr>
                                     <td> {{$loop->iteration}} </td>
@@ -65,7 +73,8 @@
                                         <div class="d-flex">
                                             <a href="{{route('blog.content',$item->id)}}" class="btn btn-primary shadow btn-xs sharp me-1" ><i class="fa fa-eye"></i></a>
                                             <button wire:click="edit({{$item->id}})" class="btn btn-primary shadow btn-xs sharp me-1"  data-bs-toggle="modal" data-bs-target="#editModal"><i class="fa fa-pencil"></i></button>
-                                            <button  class="btn btn-danger shadow btn-xs sharp " wire:click="delete_assing({{$item->id}})"  data-bs-toggle="modal" data-bs-target="#deleteModal"  ><i class="fa fa-trash"></i> </button>
+                                            <button  class="btn btn-danger shadow btn-xs sharp me-1" wire:click="delete_assing({{$item->id}})"  data-bs-toggle="modal" data-bs-target="#deleteModal"  ><i class="fa fa-trash"></i> </button>
+                                            <button wire:click="status({{$item->id}})"  class="btn btn-{{$item->status == 0? 'dark':'success   '}} shadow btn-xs sharp me-1" ><i class="fa fa-toggle-{{$item->status == 0? 'off':'on'}}" style='font-size:18px'></i></button>
                                         </div>
                                     </td>
                                 </tr>

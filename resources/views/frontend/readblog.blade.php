@@ -1,7 +1,7 @@
 @extends('layouts.frontend')
 @section('main')
 <main>
-    @if($blogContents->count('id') == 0)
+    @if(!$blogContents)
     <section style="height:80vh; y" class=" flex flex-col justify-center items-center">
         <div class="container mx-auto pt-[76px] text-justify px-2 pb-16 ">
             <div
@@ -143,6 +143,7 @@
 
                 @if (!empty($category))
                     @foreach (App\Models\Blog::where('category_id',$category->breadcrumbs()[0]->id)
+                    ->where('status','=','1')
                     ->where('id','!=',($blogContents->first()->blogsData)->id)
                     ->take(4)
                     ->get() as $data )

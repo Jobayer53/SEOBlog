@@ -70,3 +70,4 @@ Route::get('/blog/contents/{id}',[BlogContentController::class, 'index'])->name(
 Route::get('/blog/contents/create/{id}',[BlogContentController::class, 'create'])->name('blog.content.create');
 Route::post('/blog/contents/update',[BlogContentController::class, 'update'])->name('blog.content.update');
 Route::post('/blog/contents/delete',[BlogContentController::class, 'delete'])->name('blog.content.delete');
+Route::get('/blog/contents/status/{id}',[BlogContentController::class, 'status'])->name('blog.content.status');

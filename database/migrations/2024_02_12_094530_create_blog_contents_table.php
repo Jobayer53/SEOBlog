@@ -18,6 +18,8 @@ return new class extends Migration
             $table->longText('content');
             $table->string('image')->nullable();
             $table->string('video')->nullable();
+            $table->string('video_link')->nullable();
+            $table->integer('status')->default('0');
             $table->timestamps();
         });
     }
