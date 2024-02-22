@@ -1,7 +1,7 @@
 @extends('layouts.frontend')
 @section('main')
 <main>
-    @if(!$blogContents)
+    @if($blogContents == null)
     <section style="height:80vh; y" class=" flex flex-col justify-center items-center">
         <div class="container mx-auto pt-[76px] text-justify px-2 pb-16 ">
             <div
