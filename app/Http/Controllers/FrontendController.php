@@ -24,16 +24,15 @@ class FrontendController extends Controller
         $categories = null;
         $categoryCount = Category::all()->count();
         if($categoryCount < 6 ){
-            $categories = Category::take(3)->get();
+            $categories = Category::where('status','=','1')->take(3)->get();
         }elseif($categoryCount >= 6 && $categoryCount < 9 ){
-             $categories = Category::take(6)->get();
+             $categories = Category::where('status','=','1')->take(6)->get();
         }elseif($categoryCount >= 9 ){
-            $categories = Category::take(9)->get();
+            $categories = Category::where('status','=','1')->take(9)->get();
         }
 
         // category data end here
 
-        // $news = News::orderBy('id', 'desc')->get()->first()->id;
         $newsAll = News::all();
         if($newsAll->last()){
             $newsData = News::where('status','=','1')
@@ -55,27 +54,24 @@ class FrontendController extends Controller
     }
     //read blogs
     public function readblog($id){
-        $blog = Blog::where('id',$id);
-        SEOMeta::setTitle($blog->seo_title);
-        SEOTools::setDescription($blog->seo_description);
-        SEOMeta::addKeyword($blog->seo_tags);
-        SEOMeta::setCanonical('https://planetandpower.com' . request()->getPathInfo());
+        // $blog = Blog::where('id',$id);
+        // SEOMeta::setTitle($blog->seo_title);
+        // SEOTools::setDescription($blog->seo_description);
+        // SEOMeta::addKeyword($blog->seo_tags);
+        // SEOMeta::setCanonical('https://planetandpower.com' . request()->getPathInfo());
 
-        $check = BlogContent::where('slugs',$id);
-        if($check->blogContentdata ){
-            $blogContents = BlogContent::where('blog_id', $id)->where('status','=','1')->get();
-            $blogs = Blog::where('status','=','1')
-            ->orderBy('id','desc')
-            ->take(6)
-            ->get();
+        $blog = Blog::find($id);
+        $blogContents = null;
+        $blogs = Blog::where('status','=','1')
+                ->orderBy('id','desc')
+                ->take(6)
+                ->get();
 
+        if($blog->blogContentData()->exists()){
+            if(BlogContent::where('blog_id', $id)->where('status','=','1')->count() == !0){
+                $blogContents = $blog->blogContentData()->where('blog_id', $id)->where('status','=','1')->get();
+            }
         }
-        else{
-            $blogContents  =null;
-            $blogs =null;
-        }
-        // $blogContents = BlogContent::where('blog_id', $id)->get();
-        // $blogs = Blog::orderBy('id','desc')->take(6)->get();
         return view('frontend.readblog',compact('blogContents','blogs'));
     }
     //news
@@ -86,6 +82,8 @@ class FrontendController extends Controller
     //read news
     public function readnews($id){
         $check = News::find($id);
+        $news= null;
+        $news10 = null;
         if($check && $check->status == 1){
             $news = News::find($id);
             $news10 = News::where('status','=','1')
@@ -94,14 +92,6 @@ class FrontendController extends Controller
             ->take(10)
             ->get();
         }
-        else{
-            $news= null;
-            $news10 = null;
-        }
-
-
-
-        // $news10 = News::where('id','!=',$news->id)->orderBy('id','desc')->take(10)->get();
         return view('frontend.readnews',compact('news','news10'));
     }
     //about
