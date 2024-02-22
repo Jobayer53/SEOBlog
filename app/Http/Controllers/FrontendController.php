@@ -6,7 +6,8 @@ use App\Models\Blog;
 use App\Models\BlogContent;
 use App\Models\Category;
 use App\Models\News;
-use Illuminate\Http\Request;
+use Artesaos\SEOTools\Facades\SEOMeta;
+use Artesaos\SEOTools\Facades\SEOTools;
 
 class FrontendController extends Controller
 {
@@ -14,6 +15,12 @@ class FrontendController extends Controller
 //index
     public function index(){
         //category data
+        SEOMeta::setTitle('Home');
+        SEOMeta::addMeta('title','rg;eishdyzug');
+        SEOTools::setDescription('We are the Synex Digital Team and are Highly Motivated to Give You The Best and effective on-time Results for Your Online Presence and Traffic Growth.');
+        SEOMeta::addKeyword(['business it solutions', 'service business definition', 'business communication solution']);
+        SEOMeta::setCanonical('https://famillybazar.com' . request()->getPathInfo());
+
         $categories = null;
         $categoryCount = Category::all()->count();
         if($categoryCount < 6 ){
@@ -48,8 +55,14 @@ class FrontendController extends Controller
     }
     //read blogs
     public function readblog($id){
-        $check = BlogContent::find($id);
-        if($check && $check->status == 1){
+        $blog = Blog::where('id',$id);
+        SEOMeta::setTitle($blog->seo_title);
+        SEOTools::setDescription($blog->seo_description);
+        SEOMeta::addKeyword($blog->seo_tags);
+        SEOMeta::setCanonical('https://planetandpower.com' . request()->getPathInfo());
+
+        $check = BlogContent::where('slugs',$id);
+        if($check->blogContentdata ){
             $blogContents = BlogContent::where('blog_id', $id)->where('status','=','1')->get();
             $blogs = Blog::where('status','=','1')
             ->orderBy('id','desc')

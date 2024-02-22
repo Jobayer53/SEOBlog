@@ -85,25 +85,29 @@ class Category extends Component
 //status
     public function status($id){
         $category = ModelsCategory::find($id);
-        if($category->status == 1){
-            if($category->cat_to_blog->count() != 0){
-                // $blogs = Blog::where('category_id',$category->id)->update(['status' => '0', ]);
-                $blogs = Blog::where('category_id',$category->id)->get();
-            foreach($blogs as $blog){
-                dd($blog->blogContentData->id);
+        if ($category->status == 1) {
+            $category->status = 0;
+            $category->save();
+            if($category->cat_to_blog){
+                $category->cat_to_blog()->update(['status' => '0',]);
+                foreach ($category->cat_to_blog as  $value) {
+                $value->blogContentData()->update(['status' => '0']);
+                }
             }
-
-
-            }
-            else{
-                dd('nai');
+        }else {
+            $category->status = 1;
+            $category->save();
+            if($category->cat_to_blog){
+                $category->cat_to_blog()->update(['status' => '1',]);
+                foreach ($category->cat_to_blog as  $value) {
+                $value->blogContentData()->update(['status' => '1']);
+                }
             }
         }
 
 
-
-
     }
+
 //delete
     public function delete_assing($id){
         $this->delete_id = $id;

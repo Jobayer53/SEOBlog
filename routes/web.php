@@ -43,31 +43,24 @@ Route::get('/readblog/{id}',[FrontendController::class, 'readblog'])->name('read
 
 // Dashboard View
 // Route::get('/dashboard', [DashboardController::class,'index'])->name('dashboard');
-Route::get('/admin', [HomeController::class, 'index'])->name('home');
 
-//category
-// Route::resource('/category', Category::class);
-Route::get('/category', [CategoryController::class,'index'])->name('category');
+Route::middleware('auth')->prefix('sd_admin')->group(function (){
+    Route::get('/admin', [HomeController::class, 'index'])->name('home');
+    Route::get('/category', [CategoryController::class,'index'])->name('category');
+    Route::get('/config',[ConfigController::class, 'index'])->name('config');
+    Route::get('/news', [NewsController::class, 'index'])->name('news');
+    Route::get('/news/create', [NewsController::class, 'create'])->name('news.create');
+    Route::post('/news/store', [NewsController::class, 'store'])->name('news.store');
+    Route::get('/news/edit/{id}', [NewsController::class, 'edit'])->name('news.edit');
+    Route::post('/news/update', [NewsController::class, 'update'])->name('news.update');
+    Route::get('/social/link', [SocialLinkController::class, 'index'])->name('social.link');
+    Route::get('/blogs', [BlogController::class, 'index'])->name('blogs');
+    Route::resource('/blog_content', BlogContentController::class, );
+    Route::get('/blog/contents/{id}',[BlogContentController::class, 'index'])->name('blog.content');
+    Route::get('/blog/contents/create/{id}',[BlogContentController::class, 'create'])->name('blog.content.create');
+    Route::post('/blog/contents/update',[BlogContentController::class, 'update'])->name('blog.content.update');
+    Route::post('/blog/contents/delete',[BlogContentController::class, 'delete'])->name('blog.content.delete');
+    Route::get('/blog/contents/status/{id}',[BlogContentController::class, 'status'])->name('blog.content.status');
+});
 
-//config
-Route::get('/config',[ConfigController::class, 'index'])->name('config');
-//news
-Route::get('/news', [NewsController::class, 'index'])->name('news');
-Route::get('/news/create', [NewsController::class, 'create'])->name('news.create');
-Route::post('/news/store', [NewsController::class, 'store'])->name('news.store');
-Route::get('/news/edit/{id}', [NewsController::class, 'edit'])->name('news.edit');
-Route::post('/news/update', [NewsController::class, 'update'])->name('news.update');
 
-//social link
-Route::get('/social/link', [SocialLinkController::class, 'index'])->name('social.link');
-//blogs
-
-Route::get('/blogs', [BlogController::class, 'index'])->name('blogs');
-//blog content
-Route::resource('/blog_content', BlogContentController::class, );
-
-Route::get('/blog/contents/{id}',[BlogContentController::class, 'index'])->name('blog.content');
-Route::get('/blog/contents/create/{id}',[BlogContentController::class, 'create'])->name('blog.content.create');
-Route::post('/blog/contents/update',[BlogContentController::class, 'update'])->name('blog.content.update');
-Route::post('/blog/contents/delete',[BlogContentController::class, 'delete'])->name('blog.content.delete');
-Route::get('/blog/contents/status/{id}',[BlogContentController::class, 'status'])->name('blog.content.status');

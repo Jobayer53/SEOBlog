@@ -11,14 +11,6 @@ use Laravel\Ui\Presets\React;
 
 class BlogContentController extends Controller
 {
-
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
-    /**
-     * Display a listing of the resource.
-     */
     public function index($id)
     {
         $blogs =  Blog::find($id);
