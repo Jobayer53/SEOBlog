@@ -17,18 +17,12 @@
             <div class="card">
                 <div class="card-header">
                     <h4 class="card-title">Blog List</h4>
+                    <form wire:submit="search">
+                        <button class="btn btn-info float-end" type="submit">Search</button>
+                        <input class="form-control float-end mx-2 " style="width: 230px;" type="text" wire:model="query" placeholder="Search here">
+                    </form>
                 </div>
-                <div class="row">
-                    <div class="col-10">
-                        <form wire:submit="search">
-                            <input class="form-control" type="text" wire:model="query" placeholder="Search here">
-                        </form>
-                    </div>
-                    <div class="col-2">
 
-                    <button class="btn btn-info " type="submit">Search</button>
-                    </div>
-                </div>
 
 
 

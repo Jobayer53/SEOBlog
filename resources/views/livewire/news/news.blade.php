@@ -4,7 +4,7 @@
 
     <div class="container-fluid">
     <div class="row">
-        <div class="col-lg-8 m-auto">
+        <div class="col-lg-10 m-auto">
             <a href="{{route('news.create')}}">
                 <button  type="button" class="btn btn-rounded btn-info mb-3">
                     <span class="btn-icon-left text-info ">
@@ -15,10 +15,16 @@
             <div class="card">
                 <div class="card-header">
                     <h4 class="card-title">News List</h4>
+                    <div class="col-10">
+                        <form wire:submit="search">
+                            <button class="btn btn-info float-end " type="submit">Search</button>
+                            <input class="form-control float-end mx-2" type="text" wire:model="query" placeholder="Search here" style="width:230px;">
+                        </form>
+                    </div>
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
-                        <table id="example3" class="display min-w850  table">
+                        <table  class=" table">
                             <thead>
                                 <tr>
                                     <th style="width:80px;"><strong>#</strong></th>
@@ -66,6 +72,7 @@
                                 @endforeach
                             </tbody>
                         </table>
+                        {{ $news->links(data:['scrollTo' => false]) }}
                     </div>
                 </div>
             </div>

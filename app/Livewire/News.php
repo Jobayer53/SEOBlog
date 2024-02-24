@@ -4,16 +4,24 @@ namespace App\Livewire;
 
 use Photo;
 use Livewire\Component;
+use Livewire\WithPagination;
 use App\Models\News as ModelsNews;
 use Livewire\Features\SupportFileUploads\WithFileUploads;
+use Livewire\Features\SupportPagination\WithoutUrlPagination;
 
 class News extends Component
 {
     use WithFileUploads;
+    use WithPagination, WithoutUrlPagination;
     public $title,$content,$seo_title, $seo_description, $seo_tags, $image, $news_id, $delete_id;
+
+    public $query;
+    public function search(){
+        $this->resetPage();
+    }
     public function render()
     {
-        $news = ModelsNews::orderBy('id', 'desc')->get();
+        $news = ModelsNews::where('title', 'like', '%'.$this->query.'%')->orderBy('id', 'desc')->paginate(5);
         return view('livewire.news.news',compact('news'));
     }
 
