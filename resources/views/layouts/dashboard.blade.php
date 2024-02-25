@@ -699,9 +699,7 @@
                         </a>
                     </li>
                     <li><a href="{{route('contact.message')}}" class="ai-icon" aria-expanded="false">
-                        <i  class="" >
-							
-						</i>
+                        <i class="flaticon-381-internet"></i>
                         <span class="nav-text">Contact</span>
                         </a>
                     </li>
@@ -736,7 +734,7 @@
         ***********************************-->
         <div class="footer">
             <div class="copyright">
-                <p>Copyright © Designed &amp; Developed by <a href="http://dexignzone.com/" target="_blank">DexignZone</a> 2024</p>
+                <p>Copyright © Designed &amp; Developed by <a href="https://synexdigital.com/" target="_blank">SynexDigital</a> 2024</p>
             </div>
         </div>
         <!--**********************************

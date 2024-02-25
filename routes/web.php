@@ -43,7 +43,7 @@ Route::get('/contact',[FrontendController::class, 'contact'])->name('contact');
 Route::get('/privacypolicy',[FrontendController::class, 'privacypolicy'])->name('privacypolicy');
 Route::get('/readblog/{id}',[FrontendController::class, 'readblog'])->name('readblog');
 Route::get('/contact/thanks',[FrontendController::class, 'thanks'])->name('thanks');
-Route::post('/contact/message',[FrontendController::class, 'contact_data'])->name('contact.data');
+Route::post('/contact/message/store',[ContactController::class, 'contact_store'])->name('contact.store');
 
 // Dashboard View
 // Route::get('/dashboard', [DashboardController::class,'index'])->name('dashboard');

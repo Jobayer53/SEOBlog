@@ -6,7 +6,7 @@
             <h2 class="text-4xl lg:mb-7 font-semibold text-center">
                 Get In Touch With Us
             </h2>
-            <form action="{{route('contact.data')}}" method="POST">
+            <form action="{{route('contact.store')}}" method="POST">
                 @csrf
                 <div class="px-5 xl:py-16 py-8">
                     <div class="my-7">
