@@ -33,9 +33,9 @@ Auth::routes();
 
 // Frontend View
 Route::get('/',[FrontendController::class, 'index'])->name('index');
-Route::get('/news/show',[FrontendController::class, 'newsShow'])->name('news_show');
+Route::get('/news',[FrontendController::class, 'newsShow'])->name('news_show');
 Route::get('/news/readnews/{id}',[FrontendController::class, 'readnews'])->name('readNews');
-Route::get('/blog',[FrontendController::class, 'blog'])->name('blog');
+Route::get('/blogs',[FrontendController::class, 'blog'])->name('blog');
 Route::get('/about',[FrontendController::class, 'about'])->name('about');
 Route::get('/contact',[FrontendController::class, 'contact'])->name('contact');
 Route::get('/privacypolicy',[FrontendController::class, 'privacypolicy'])->name('privacypolicy');

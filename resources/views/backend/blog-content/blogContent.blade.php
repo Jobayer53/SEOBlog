@@ -89,7 +89,7 @@
             </a>
             <div class="card">
                 <div class="card-header">
-                    <h4 class="card-title">Profile Datatable</h4>
+                    <h4 class="card-title">Blog Contents</h4>
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">

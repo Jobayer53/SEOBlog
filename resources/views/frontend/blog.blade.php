@@ -48,7 +48,7 @@
                     <h2
                         class="md:my-5 my-3 lg:text-2xl text-xl font-medium hover:text-LIGHTBLUE cursor-pointer"
                     >
-                        <a href="{{route('readblog',$blog->id)}}">
+                        <a href="{{route('readblog',$blog->slugs)}}">
                            {{$blog->title}}
                         </a>
                     </h2>

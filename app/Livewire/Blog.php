@@ -45,7 +45,7 @@ class Blog extends Component
 //store
 public function store(){
     $this->validate([
-        'title'=> 'required',
+        'title'=> 'required|unique:blogs,title',
         'features_image'=> 'required',
         'category_id'=> 'required',
     ]);
@@ -109,19 +109,17 @@ public function update(){
 public function status($id){
     $status = ModelsBlog::find($id);
     if($status->status == 1){
-       $blogContent = BlogContent::where('blog_id',$status->id)->update(['status' => '0',]);
-
+        BlogContent::where('blog_id',$status->id)->update(['status' => '0',]);
        $status->status='0';
        $status->save();
     }
     else{
+         BlogContent::where('blog_id',$status->id)->update(['status' => '1',]);
         $status->status='1';
        $status->save();
     }
-
-
-
 }
+
 //delete
 public function delete_assing($id){
     $this->delete_id = $id;
