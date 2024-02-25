@@ -8,6 +8,7 @@
                 autoplay
                 muted
                 loop
+                playsinline
             >
                 <source src="{{asset('frontend_asset/assets/uyhbp.mp4')}}" type="video/mp4" />
             </video>
