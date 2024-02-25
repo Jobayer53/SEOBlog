@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\News;
 use Photo;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class NewsController extends Controller
 {
@@ -18,16 +19,19 @@ class NewsController extends Controller
 
     public function store(Request $request){
         $request->validate([
-            'title' => 'required',
+            'title' => 'required|unique:news,title',
             'content' => 'required',
         ]);
 
         Photo::upload($request->image,'upload/news','NEWS');
-        $news = new News();
 
+
+
+        $news = new News();
         $news->title            = $request->title;
         $news->content          = $request->content;
         $news->image            = Photo::$name;
+        $news->slugs            = Str::slug($request->title, '-');    //Str::slug($request->title, '_');
         $news->seo_title        = $request->seo_title;
         $news->seo_description  = $request->seo_description;
         $news->seo_tags         = $request->seo_tags;
@@ -43,7 +47,7 @@ class NewsController extends Controller
     }
     public function update(Request $request){
         $request->validate([
-            'title' => 'required',
+            'title' => 'required|unique:news,title',
             'content' => 'required',
         ]);
         $news = News::find($request->news_id);
@@ -59,6 +63,7 @@ class NewsController extends Controller
         }
         $news->title            = $request->title;
         $news->content          = $request->content;
+        $news->slugs           = Str::slug($request->title, '_');
         $news->seo_title        = $request->seo_title;
         $news->seo_description  = $request->seo_description;
         $news->seo_tags         = $request->seo_tags;
