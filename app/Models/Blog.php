@@ -4,6 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\BlogContent;
+use App\Models\Category;
 
 class Blog extends Model
 {
@@ -13,6 +15,6 @@ class Blog extends Model
         return $this->belongsTo(Category::class, 'category_id');
     }
     public function blogContentData(){
-        return $this->hasMany(blogContent::class, 'blog_id');
+        return $this->hasMany(BlogContent::class, 'blog_id');
     }
 }

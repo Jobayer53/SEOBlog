@@ -74,7 +74,7 @@ class FrontendController extends Controller
                 ->take(6)
                 ->get();
 
-        if($blog->blogContentData()->exists()){
+        if($blog->blogContentData()){
             if(BlogContent::where('blog_id', $id)->where('status','=','1')->count() == !0){
                 $blogContents = $blog->blogContentData()->where('blog_id', $id)->where('status','=','1')->get();
                 //seo

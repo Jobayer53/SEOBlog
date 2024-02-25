@@ -15,7 +15,7 @@ class Category extends Model
     }
     public function cat_to_blog()
     {
-        return $this->hasMany(blog::class, 'category_id');
+        return $this->hasMany(Blog::class, 'category_id');
     }
 
     public function breadcrumbs()
