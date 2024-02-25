@@ -10,6 +10,7 @@ use App\Models\News;
 use Artesaos\SEOTools\Facades\SEOMeta;
 use Artesaos\SEOTools\Facades\SEOTools;
 use Artesaos\SEOTools\Facades\OpenGraph;
+use Illuminate\Http\Request;
 
 class FrontendController extends Controller
 {
@@ -19,7 +20,7 @@ class FrontendController extends Controller
         $configs = Config::where('name','=','home')->first();
         if($configs){
         SEOMeta::setTitle($configs->seo_title); //web title
-       // SEOMeta::addMeta('title','rg;eishdyzug'); 
+       // SEOMeta::addMeta('title','rg;eishdyzug');
         SEOTools::setDescription($configs->seo_description);
         SEOMeta::addKeyword($configs->seo_tags);
         OpenGraph::setTitle($configs->seo_title);
@@ -56,7 +57,7 @@ class FrontendController extends Controller
     public function blog(){
         //seo
         SEOMeta::setTitle('Blogs'); //web title
-        SEOMeta::addMeta('title','Blogs'); 
+        SEOMeta::addMeta('title','Blogs');
         SEOMeta::setCanonical('https://planetandpower.com' . request()->getPathInfo());
         //seo ends here
         $blogs = Blog::where('status','=','1')->orderBy('id','desc')->get();
@@ -64,7 +65,7 @@ class FrontendController extends Controller
     }
     //read blogs
     public function readblog($slugs){
-       
+
         $id = Blog::where('slugs','=',$slugs)->get()->first()->id;
         $blog = Blog::find($id);
         $blogContents = null;
@@ -78,7 +79,7 @@ class FrontendController extends Controller
                 $blogContents = $blog->blogContentData()->where('blog_id', $id)->where('status','=','1')->get();
                 //seo
                 SEOMeta::setTitle($blog->title); //web title
-                // SEOMeta::addMeta('title','rg;eishdyzug'); 
+                // SEOMeta::addMeta('title','rg;eishdyzug');
                 SEOTools::setDescription($blog->seo_description);
                 SEOMeta::addKeyword($blog->seo_tags);
                 OpenGraph::setTitle($blog->seo_title);
@@ -92,7 +93,7 @@ class FrontendController extends Controller
     public function newsShow(){
         //seo
         SEOMeta::setTitle('News'); //web title
-        SEOMeta::addMeta('title','News'); 
+        SEOMeta::addMeta('title','News');
         SEOMeta::setCanonical('https://planetandpower.com' . request()->getPathInfo());
         //seo ends here
         $news = News::where('status','=','1')->orderBy('id', 'desc')->get();
@@ -100,12 +101,12 @@ class FrontendController extends Controller
     }
     //read news
     public function readnews($id){
-        
+
         $check = News::find($id);
         $news= null;
         $news10 = null;
         if($check && $check->status == 1){
-            
+
             $news = News::find($id);
             $news10 = News::where('status','=','1')
             ->where('id','!=',($news->id))
@@ -114,7 +115,7 @@ class FrontendController extends Controller
             ->get();
             //seo
             SEOMeta::setTitle($news->title); //web title
-            // SEOMeta::addMeta('title','rg;eishdyzug'); 
+            // SEOMeta::addMeta('title','rg;eishdyzug');
             SEOTools::setDescription($news->seo_description);
             SEOMeta::addKeyword($news->seo_tags);
             OpenGraph::setTitle($news->seo_title);
@@ -129,7 +130,7 @@ class FrontendController extends Controller
         $configs = Config::where('name','=','about')->first();
         if($configs){
         SEOMeta::setTitle($configs->seo_title); //web title
-        // SEOMeta::addMeta('title','rg;eishdyzug'); 
+        // SEOMeta::addMeta('title','rg;eishdyzug');
         SEOTools::setDescription($configs->seo_description);
         SEOMeta::addKeyword($configs->seo_tags);
         OpenGraph::setTitle($configs->seo_title);
@@ -145,31 +146,41 @@ class FrontendController extends Controller
         $configs = Config::where('name','=','contact')->first();
         if($configs){
         SEOMeta::setTitle($configs->seo_title); //web title
-        // SEOMeta::addMeta('title','rg;eishdyzug'); 
+        // SEOMeta::addMeta('title','rg;eishdyzug');
         SEOTools::setDescription($configs->seo_description);
         SEOMeta::addKeyword($configs->seo_tags);
         OpenGraph::setTitle($configs->seo_title);
         }
         SEOMeta::setCanonical('https://planetandpower.com' . request()->getPathInfo());
         //seo end here
-                
+
         return view('frontend.contact');
     }
+    //contact thanks page
+    public function thanks(){
+
+        SEOMeta::setTitle('Contact'); //web title
+        SEOMeta::addMeta('title','contact');
+        SEOMeta::setCanonical('https://planetandpower.com' . request()->getPathInfo());
+        return view('frontend.thankyou');
+    }
+
     //privacy policy
     public function privacypolicy(){
         //seo
         $configs = Config::where('name','=','privacy')->first();
         if($configs){
         SEOMeta::setTitle($configs->seo_title); //web title
-        // SEOMeta::addMeta('title','rg;eishdyzug'); 
+        // SEOMeta::addMeta('title','rg;eishdyzug');
         SEOTools::setDescription($configs->seo_description);
         SEOMeta::addKeyword($configs->seo_tags);
         OpenGraph::setTitle($configs->seo_title);
         }
         SEOMeta::setCanonical('https://planetandpower.com' . request()->getPathInfo());
         //seo end here
-                
+
         return view('frontend.privacypolicy');
     }
+
 
 }

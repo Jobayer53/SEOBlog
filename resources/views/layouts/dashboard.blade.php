@@ -698,6 +698,13 @@
                         <span class="nav-text">Blogs</span>
                         </a>
                     </li>
+                    <li><a href="{{route('contact.message')}}" class="ai-icon" aria-expanded="false">
+                        <i  class="">
+							
+						</i>
+                        <span class="nav-text">Contact</span>
+                        </a>
+                    </li>
 
 
 

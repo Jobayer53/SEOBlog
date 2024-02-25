@@ -12,7 +12,9 @@ use App\Http\Controllers\FrontendController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\SocialLinkController;
+use App\Http\Controllers\ContactController;
 use App\Livewire\Blog;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -40,6 +42,8 @@ Route::get('/about',[FrontendController::class, 'about'])->name('about');
 Route::get('/contact',[FrontendController::class, 'contact'])->name('contact');
 Route::get('/privacypolicy',[FrontendController::class, 'privacypolicy'])->name('privacypolicy');
 Route::get('/readblog/{id}',[FrontendController::class, 'readblog'])->name('readblog');
+Route::get('/contact/thanks',[FrontendController::class, 'thanks'])->name('thanks');
+Route::post('/contact/message',[FrontendController::class, 'contact_data'])->name('contact.data');
 
 // Dashboard View
 // Route::get('/dashboard', [DashboardController::class,'index'])->name('dashboard');
@@ -61,6 +65,7 @@ Route::middleware('auth')->prefix('sd_admin')->group(function (){
     Route::post('/blog/contents/update',[BlogContentController::class, 'update'])->name('blog.content.update');
     Route::post('/blog/contents/delete',[BlogContentController::class, 'delete'])->name('blog.content.delete');
     Route::get('/blog/contents/status/{id}',[BlogContentController::class, 'status'])->name('blog.content.status');
+    Route::get('/contact/message',[ContactController::class, 'index'])->name('contact.message');
 });
 
 
