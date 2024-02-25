@@ -40,12 +40,15 @@ class RegisterController extends Controller
         $this->middleware('guest');
     }
 
-    /**
-     * Get a validator for an incoming registration request.
-     *
-     * @param  array  $data
-     * @return \Illuminate\Contracts\Validation\Validator
-     */
+    public function showRegistrationForm()
+    {
+        if (User::count() > 0) {
+            return redirect()->route('login');
+        }
+
+        return view('auth.register');
+    }
+
     protected function validator(array $data)
     {
         return Validator::make($data, [
