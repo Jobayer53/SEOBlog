@@ -81,7 +81,7 @@
 
 
                 @foreach ($blogs as $data )
-                <a href="{{route('readblog',$data->id)}}"
+                <a href="{{route('readblog',$data->slugs)}}"
                 class="xl:font-medium text-xl block cursor-pointer border-b pb-2 hover:text-LIGHTBLUE"
                 >{{$data->title}}</a>
                 @endforeach
