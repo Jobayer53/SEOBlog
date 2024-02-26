@@ -117,7 +117,7 @@
                                 class="rounded-lg w-full h-[341px]"
                                 src="{{asset('upload/news')}}/{{$newsAll->last()->image}}"
                             />
-                            <a href="{{route('readNews',$newsAll->last()->id)}}"
+                            <a href="{{route('readNews',$newsAll->last()->slugs)}}"
                                 class="font-medium mt-2 text-xl block cursor-pointer hover:underline transition ease-in-out delay-300"
                             >
                             {{$newsAll->last()->title}}
@@ -134,7 +134,7 @@
                     <div class="sm:w-[48%]">
                         @foreach ($newsData as $data )
                         <div class="mb-4">
-                            <a href="{{route('readNews',$data->id)}}"
+                            <a href="{{route('readNews',$data->slugs)}}"
                                 class="font-medium text-lg block cursor-pointer hover:underline transition ease-in-out delay-300"
                             >
                             {{$data->title}}

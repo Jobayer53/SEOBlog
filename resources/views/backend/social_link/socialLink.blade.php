@@ -1,7 +1,7 @@
 @extends('layouts.dashboard')
 @section('content')
 
-@livewire('sociallink')
+@livewire('SocialLink')
 
 @endsection
 @section('script')

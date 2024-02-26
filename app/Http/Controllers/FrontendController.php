@@ -100,8 +100,8 @@ class FrontendController extends Controller
         return view('frontend.news', compact('news'));
     }
     //read news
-    public function readnews($id){
-
+    public function readnews($slugs){
+        $id = News::where('slugs','=',$slugs)->get()->first()->id;
         $check = News::find($id);
         $news= null;
         $news10 = null;

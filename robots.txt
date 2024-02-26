@@ -1,0 +1,41 @@
+User-agent: Googlebot
+Disallow: /administrator
+Allow: /
+
+User-agent: Googlebot-Mobile
+Disallow: /administrator
+Allow: /
+
+User-agent: Mediapartners-Google
+Disallow: /administrator
+Allow: /
+
+User-agent: Googlebot-news
+Disallow: /administrator
+Allow: /
+
+User-agent: Googlebot-Image
+Disallow: /administrator
+Allow: /
+
+User-agent: AdsBot-Google
+Disallow: /administrator
+Allow: /
+
+User-agent: AdsBot-Google-Mobile
+Disallow: /administrator
+Allow: /
+
+User-agent: APIs-Google
+Disallow: /administrator
+Allow: /
+
+User-agent: AhrefsBot
+Disallow: /administrator
+Allow: /
+
+User-agent: Slurp
+Disallow: /administrator
+Allow: /
+User-agent: *
+Disallow: /

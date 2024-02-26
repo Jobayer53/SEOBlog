@@ -59,13 +59,16 @@
                             </a>
                             <span class="navsubmanu">
                                 <ul class="flex flex-col gap-y-4 text-sm">
-                                    @foreach (App\Models\Blog::orderBy('id', 'desc') ->take(5) ->get() as $data )
-                                    <li
-                                    style=" word-wrap:break-word;"
-                                    class="hover:bg-[#d7d7d7] px-1 py-2 rounded cursor-pointer"
-                                >
-                                    {{$data->title}}
-                                    </li>
+                                    @foreach (App\Models\Category::where('status','=','1')->orderBy('id', 'desc')->take(5)->get() as $data )
+
+                                    <a href="#">
+                                        <li
+                                        style=" word-wrap:break-word;"
+                                        class="hover:bg-[#d7d7d7] px-1 py-2 rounded cursor-pointer"
+                                        >
+                                            {{$data->name}}
+                                        </li>
+                                    </a>
 
                                     @endforeach
 
@@ -97,9 +100,6 @@
                             </a>
                         </li>
 
-                        <li>
-                            <i class="fa-solid fa-magnifying-glass w-5"></i>
-                        </li>
                     </ul>
                 </nav>
                 <!-- mobile -->
@@ -121,13 +121,16 @@
                             </a>
                             <span class="navsubmanusm">
                                 <ul class="flex flex-col gap-y-4 text-sm">
-                                    @foreach (App\Models\Blog::orderBy('id', 'desc') ->take(5) ->get() as $data )
-                                    <li
-                                    class="hover:bg-[#d7d7d7] px-1 py-2 rounded cursor-pointer"
-                                >
-                                    {{$data->title}}
-                                </li>
+                                    @foreach (App\Models\Category::where('status','=','1')->orderBy('id', 'desc')->take(5)->get() as $data )
 
+                                    <a href="#">
+                                        <li
+                                        style=" word-wrap:break-word;"
+                                        class="hover:bg-[#d7d7d7] px-1 py-2 rounded cursor-pointer"
+                                        >
+                                            {{$data->name}}
+                                        </li>
+                                    </a>
                                     @endforeach
 
                                 </ul>
@@ -147,9 +150,7 @@
                             </a>
                         </li>
 
-                        <li>
-                            <i class="fa-solid fa-magnifying-glass w-5"></i>
-                        </li>
+
                     </ul>
                 </nav>
             </div>
@@ -157,12 +158,12 @@
 
        @yield('main')
 
-        <footer class="xl:pt-20">
+        <footer class="xl:pt-20 ">
             <div
-                class="container mx-auto px-2 flex smd:max-md:flex-wrap smd:max-md:gap-y-7 md:gap-x-7 smd:max-sm:justify-between mb-10"
+                class="container  mx-auto px-2 flex  smd:max-md:flex-wrap smd:max-md:gap-y-7 md:gap-x-7 smd:max-sm:justify-between mb-10 justify-between"
             >
-                <div class="md:w-[40%] smd:max-md:w-full lg:pr-8">
-                    <div>
+                <div class="md:w-[40%] smd:max-md:w-full lg:pr-8 ">
+                    <div >
                         <img
                             class="w-[300px]"
                             src="{{asset('frontend_asset/assets/Green Thoughts, Clean Energ.png')}}"
@@ -175,14 +176,16 @@
                         harmony with nature.
                     </p>
                     <div class="flex gap-x-5 text-3xl text-LIGHTBLUE">
-                        <i class="fa-brands fa-facebook"></i>
-                        <i class="fa-brands fa-instagram"></i>
-                        <i class="fa-brands fa-youtube"></i>
-                        <i class="fa-brands fa-twitter"></i>
-                        <i class="fa-brands fa-pinterest"></i>
+                        @foreach (App\Models\SocialLink::all() as $data )
+                        <a href="{{ $data->link }}" target=”_blank”>
+
+                            <i class="{{ $data->icon }}"></i>
+                        </a>
+                        @endforeach
+
                     </div>
                 </div>
-                <div class="w-[20%] smd:max-md:w-[30%]">
+            {{-- <div class="w-[20%] smd:max-md:w-[30%]">
                     <h6 class="font-semibold text-xl lg:text-3xl">About</h6>
                     <div class="mt-7">
                         <ul class="flex flex-col gap-y-3">
@@ -221,22 +224,24 @@
                             </li>
                         </ul>
                     </div>
-                </div>
-                <div class="w-[20%] smd:max-md:w-[30%]">
+                </div> --}}
+                <div class="w-[20%] smd:max-md:w-[30%]  ">
+
                     <h6 class="font-semibold text-xl lg:text-3xl">
-                        Customer Service
+                        
                     </h6>
                     <div class="mt-7">
                         <ul class="flex flex-col gap-y-3">
                             <li>
+                                <a href="{{route('about')}}" >About Us</a>
+                            </li>
+                            <li class="ml-24">
                                 <a href="{{route('contact')}}">Contact</a>
                             </li>
                             <li>
-                                <a>FAQ’s</a>
+                                <a href="{{route('privacypolicy')}}">Privacy Policy</a>
                             </li>
-                            <li>
-                                <a>Guest Blogging Guidelines</a>
-                            </li>
+
                         </ul>
                     </div>
                 </div>
@@ -259,6 +264,7 @@
                 </div>
             </div>
         </footer>
+
 
         <script>
             let navClick = document.querySelector(".navClick");

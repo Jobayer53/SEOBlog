@@ -32,14 +32,10 @@
 
 
     {{-- custom links --}}
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.20/summernote-bs5.min.css"  />
-
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" ></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" ></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
+
+    @yield('head')
 
 
 
@@ -783,12 +779,8 @@
     <script src="{{asset('backend_asset/assets/js/plugins-init/sweetalert.init.js')}}"></script>
 
     {{-- custom links --}}
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.20/summernote.min.js" ></script>
 
-
-
-
-
+    {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.20/summernote.min.js" ></script> --}}
 
  @livewireScripts
 	<script>
