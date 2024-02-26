@@ -4,7 +4,7 @@
 
 <div class="container-fluid">
     <div class="row">
-        <div class="col-lg-6 col-xl-6 m-auto">
+        <div class="col-lg-8 col-xl-8 m-auto">
             <button data-bs-toggle="modal" data-bs-target="#createModal" type="button" class="btn btn-rounded btn-info mb-3">
                 <span class="btn-icon-left text-info ">
                     <i class="fa fa-plus color-info"></i>
