@@ -90,6 +90,11 @@
                     @if ($data->image)
                         <img style="width:600px;; "  src="{{asset('upload/blog-content')}}/{{$data->image}}" > <br>
                     @endif
+                    @if ($data->video_link)
+                    <iframe width="560" height="315" src="{{ $data->video_link }}" frameborder="0" allowfullscreen></iframe>
+                    @endif
+                    
+
                 </div>
 
                     <p class="text-lg  ">

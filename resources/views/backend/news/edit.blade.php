@@ -55,7 +55,7 @@
                                 <input type="text" class="form-control input-default " id="seo_tags"  name="seo_tags" value="{{$news->seo_tags}}" >
                             </div>
                             <div class="form-group">
-                                <label for="" class="form-label">Image</label>
+                                <label for="" class="form-label">Image</label> <span style="color: #f9a7a7; font-size:10px; " >Best fit (375 x 195)</span>
                                 <input type="file" class="form-control input-default " id="image"  name="image" >
                             </div>
                             <div class="form-group text-center">

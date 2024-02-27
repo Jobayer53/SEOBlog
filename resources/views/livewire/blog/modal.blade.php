@@ -49,7 +49,7 @@
                     <input type="text" class="form-control input-default " id="seo_tags" name="seo_tags" wire:model="seo_tags" >
                 </div>
                 <div class="form-group">
-                    <label for="" class="form-label">Features Image</label>
+                    <label for="" class="form-label">Features Image</label> <span style="color: #f9a7a7; font-size:10px; " >Best fit (768 x 432)</span>
                     <input type="file" class="form-control input-default " id="image" name="image" wire:model="features_image" >
                     @error('features_image')
                     <strong class="text text-danger"> {{$message}} </strong>
@@ -116,7 +116,7 @@
                     <input type="text" class="form-control input-default " id="seo_tags" name="seo_tags" wire:model="seo_tags" >
                 </div>
                 <div class="form-group">
-                    <label for="" class="form-label">Features Image</label>
+                    <label for="" class="form-label">Features Image</label> <span style="color: #f9a7a7; font-size:10px; " >Best fit (768 x 432)</span>
                     <input type="file" class="form-control input-default " id="image" name="image" wire:model="features_image" >
                     @error('features_image')
                     <strong class="text text-danger"> {{$message}} </strong>
