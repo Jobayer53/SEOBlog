@@ -1285,6 +1285,7 @@ video {
   @media not all and (min-width: 768px) {
     .smd\:max-md\:w-\[30\%\] {
       width: 30%;
+      margin-top: 0px !important;
     }
 
     .smd\:max-md\:w-full {

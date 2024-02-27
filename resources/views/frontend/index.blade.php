@@ -48,11 +48,13 @@
         >
            @foreach ($categories as $cat )
             <div class="lg:w-[31%] sm:w-[48%]">
+                <a href="{{route('category.blog',['category'=>$cat->name, 'slug'=>$cat->slugs])}}">
                 <h2
                     class="pb-1 text-2xl xl:text-[32px] font-semibold border-b-[6px] border-b-LIGHTBLUE inline-block"
-                >
-                {{$cat->name}}
-                </h2>
+                >{{$cat->name}}
+
+            </h2>
+        </a>
 
                 @php
                     $blogs =App\Models\Blog::where('category_id', $cat->id)

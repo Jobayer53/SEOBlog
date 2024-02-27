@@ -5,6 +5,7 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         {!! SEO::generate() !!}
+        @yield('style')
         <link href="{{asset('frontend_asset/assets/css/output.css')}}" rel="stylesheet" />
         <link href="{{asset('frontend_asset/assets/css/style.css')}}" rel="stylesheet" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -52,7 +53,7 @@
                         </li>
                         <li class="navsubmanudiv">
                             <a
-                                class="listitem cursor-pointer transition duration-300 ease-in-out pb-5"
+                                class="listitem cursor-pointer transition duration-300 ease-in-out"
                                 href="{{route('blog')}}"
                             >
                                 Blog
@@ -61,7 +62,7 @@
                                 <ul class="flex flex-col gap-y-4 text-sm">
                                     @foreach (App\Models\Category::where('status','=','1')->orderBy('id', 'desc')->take(5)->get() as $data )
 
-                                    <a href="#">
+                                    <a href="{{route('category.blog',['category' =>$data->name, 'slug' => $data->slugs])}}">
                                         <li
                                         style=" word-wrap:break-word;"
                                         class="hover:bg-[#d7d7d7] px-1 py-2 rounded cursor-pointer"
@@ -225,10 +226,10 @@
                         </ul>
                     </div>
                 </div> --}}
-                <div class="w-[20%] smd:max-md:w-[30%]  ">
+                <div class="w-[20%] smd:max-md:w-[30%]   " style="margin-top: 59px;">
 
                     <h6 class="font-semibold text-xl lg:text-3xl">
-                        
+
                     </h6>
                     <div class="mt-7">
                         <ul class="flex flex-col gap-y-3">
@@ -248,7 +249,7 @@
             </div>
             <div class="border-t py-10">
                 <div
-                    class="container mx-auto smd:max-sm:text-xs px-2 flex justify-between"
+                    class="container mx-auto smd:max-sm:text-xs px-2 flex justify-between customcss"
                 >
                     <div>
                         <p>Copyright © 2024 Planet & Power</p>

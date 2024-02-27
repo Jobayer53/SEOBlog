@@ -155,7 +155,7 @@
                                 src="{{asset('upload/blog')}}/{{$data->features_image}}"
                             />
                         </figure>
-                        <a href="{{route('readblog',$data->id)}}"
+                        <a href="{{route('readblog',$data->slugs)}}"
                             class="cursor-pointer ml-2 font-medium hover:text-LIGHTBLUE"
                             >{{$data->title}}</a
                         >

@@ -13,7 +13,8 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\SocialLinkController;
 use App\Http\Controllers\ContactController;
-use App\Livewire\Blog;
+use App\Http\Controllers\SEOController;
+
 
 
 /*
@@ -32,11 +33,13 @@ use App\Livewire\Blog;
 // });
 
 Auth::routes();
-
+//sitemap
+Route::get('/sitemap',[SEOController::class, 'sitemap'])->name('sitemap');
 // Frontend View
 Route::get('/',[FrontendController::class, 'index'])->name('index');
 Route::get('/news',[FrontendController::class, 'newsShow'])->name('news_show');
 Route::get('/news/readnews/{id}',[FrontendController::class, 'readnews'])->name('readNews');
+Route::get('/category/{category}/blogs/{slug}',[FrontendController::class, 'categoryBlogs'])->name('category.blog');
 Route::get('/blogs',[FrontendController::class, 'blog'])->name('blog');
 Route::get('/about',[FrontendController::class, 'about'])->name('about');
 Route::get('/contact',[FrontendController::class, 'contact'])->name('contact');

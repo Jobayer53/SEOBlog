@@ -47,7 +47,7 @@ class NewsController extends Controller
     }
     public function update(Request $request){
         $request->validate([
-            'title' => 'required|unique:news,title',
+            'title' => 'required|unique:news,title,'.$request->news_id,
             'content' => 'required',
         ]);
         $news = News::find($request->news_id);

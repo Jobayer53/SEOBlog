@@ -81,7 +81,7 @@ public function edit($id){
 public function update(){
 
     $this->validate([
-        'title'=> 'required|unique:blogs,title',
+        'title'=> 'required|unique:blogs,title,'.$this->blog_id,
         'category_id'=> 'required',
     ]);
 

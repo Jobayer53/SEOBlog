@@ -1,4 +1,7 @@
 @extends('layouts.frontend')
+@section('style')
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" />
+@endsection
 @section('main')
 <main>
     <section class="pt-32">
@@ -10,15 +13,15 @@
                 </h2>
                 <img style="width:100%;" src="{{asset('upload/news')}}/{{$news->image}}" alt="">
 
-                <p class="text-sm mt-5 md:w-[70%]">
-                {!! $news->content !!}
+                <p >
+                {!!$news->content!!}
                 </p>
             </div>
             <aside class="md:w-[25%]">
                 <p class="text-2xl font-bold mb-8 mt-8 md:mt-0">Latest News</p>
                     @foreach ($news10 as $data )
                     <div class="mb-8">
-                        <a  href="{{route('readNews',$data->id)}}"
+                        <a  href="{{route('readNews',$data->slugs)}}"
                             class="hover:text-LIGHTBLUE hover:underline cursor-pointer text-lg"
                             > {{$data->title}} </a
                         >

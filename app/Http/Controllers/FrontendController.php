@@ -89,6 +89,15 @@ class FrontendController extends Controller
         }
         return view('frontend.readblog',compact('blogContents','blogs'));
     }
+    //category blogs
+    public function categoryBlogs($category, $slug){
+        $category = null;
+        $check = Category::where('slugs',$slug)->get()->first();
+        if($check->status == 1){
+            $category = $check;
+        }
+        return view('frontend.categoryblog', compact('category'));
+    }
     //news
     public function newsShow(){
         //seo

@@ -54,7 +54,8 @@
                                 <input type="text" class="form-control input-default " id="seo_tags"  name="seo_tags" >
                             </div>
                             <div class="form-group">
-                                <label for="" class="form-label">Image</label>
+                                <label for="" class="form-label">Image</label> <span class="text-blue-600/25" >ami</span>
+
                                 <input type="file" class="form-control input-default " id="image"  name="image" >
                             </div>
                             <div class="form-group text-center">
