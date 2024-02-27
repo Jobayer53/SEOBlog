@@ -1,4 +1,7 @@
 @extends('layouts.frontend')
+@section('style')
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" />
+@endsection
 @section('main')
 <main>
     @if($blogContents == null)
