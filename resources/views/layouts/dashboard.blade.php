@@ -122,7 +122,7 @@
                         </div>
                         <ul class="navbar-nav header-right">
                             <li class="nav-item dropdown header-profile" >
-                                <a href="{{route('sitemap')}}" class="btn btn-danger btn-rounded">sitemap</a>
+                                <a href="{{route('sitemap')}}" class="btn btn-danger btn-rounded btn-xs">sitemap</a>
                             </li>
 
                             <li class="nav-item dropdown header-profile">
