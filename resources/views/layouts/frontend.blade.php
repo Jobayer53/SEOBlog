@@ -23,6 +23,7 @@
             href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
         />
         <link rel="stylesheet" src="../../css/app.css">
+        
     </head>
     <body>
         <header class="shadow-md fixed z-50 w-full text-black">

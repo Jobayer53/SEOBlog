@@ -1,6 +1,22 @@
 @extends('layouts.frontend')
 @section('style')
 <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" />
+<style>
+    #social-links{
+        font-size: x-large;
+    color: lightslategrey;
+    }
+    #social-links ul {
+        display: flex;
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    #social-links ul li {
+        margin-right: 10px; /* Adjust spacing between items */
+    }
+</style>
 @endsection
 @section('main')
 <main>
@@ -93,7 +109,7 @@
                     @if ($data->video_link)
                     <iframe width="560" height="315" src="{{ $data->video_link }}" frameborder="0" allowfullscreen></iframe>
                     @endif
-                    
+
 
                 </div>
 
@@ -107,34 +123,17 @@
     @endforeach
 
     <section>
-        <div class="container mx-auto xl:px-10 px-2 mb-10">
-            <div class="border-t-2 mx-auto pt-10 max-w-[300px]"></div>
+        <div class="container mx-auto xl:px-10 px-2 mb-10 ">
+            <div class="border-t-2 mx-auto pt-10 max-w-[300px] "></div>
 
             <div class="mt-7 flex gap-x-4 justify-center">
-                <a class="cursor-pointer">
-                    <i
-                        class="fa-brands fa-facebook text-4xl text-[#316FF6]"
-                    >
-                    </i>
-                </a>
-                <a class="cursor-pointer">
-                    <img class="w-8" src="{{asset('frontend_asset/assets/x-twitter.svg')}}" />
-                </a>
-                <a class="cursor-pointer"
-                    ><i
-                        class="fa-brands fa-linkedin text-4xl text-[#0077B5]"
-                    ></i
-                ></a>
-                <a class="cursor-pointer"
-                    ><i
-                        class="fa-brands fa-pinterest text-4xl text-[#E60023]"
-                    ></i
-                ></a>
-                <a class="cursor-pointer"
-                    ><i
-                        class="fa-brands fa-reddit-alien text-4xl text-[#FF5700]"
-                    ></i
-                ></a>
+                {{-- <div class="" style="color: lightslategrey;
+                font-size: x-large;display:inline-block;"> --}}
+
+                    {!! $shareComponent !!}
+
+
+
             </div>
         </div>
     </section>

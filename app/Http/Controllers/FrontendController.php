@@ -65,7 +65,17 @@ class FrontendController extends Controller
     }
     //read blogs
     public function readblog($slugs){
+        $shareComponent = \Share::page(
+            'http://127.0.0.1:8000/readblog/'.$slugs,
+            Blog::where('slugs','=',$slugs)->get()->first()->title,
 
+        )
+        ->facebook()
+        ->twitter()
+        ->linkedin()
+        ->telegram()
+        ->whatsapp()
+        ->reddit();
         $id = Blog::where('slugs','=',$slugs)->get()->first()->id;
         $blog = Blog::find($id);
         $blogContents = null;
@@ -77,6 +87,7 @@ class FrontendController extends Controller
         if($blog->blogContentData()){
             if(BlogContent::where('blog_id', $id)->where('status','=','1')->count() == !0){
                 $blogContents = $blog->blogContentData()->where('blog_id', $id)->where('status','=','1')->get();
+
                 //seo
                 SEOMeta::setTitle($blog->title); //web title
                 // SEOMeta::addMeta('title','rg;eishdyzug');
@@ -87,7 +98,7 @@ class FrontendController extends Controller
                 //seo end here
             }
         }
-        return view('frontend.readblog',compact('blogContents','blogs'));
+        return view('frontend.readblog',compact('blogContents','blogs','shareComponent'));
     }
     //category blogs
     public function categoryBlogs($category, $slug){
@@ -110,6 +121,7 @@ class FrontendController extends Controller
     }
     //read news
     public function readnews($slugs){
+
         $id = News::where('slugs','=',$slugs)->get()->first()->id;
         $check = News::find($id);
         $news= null;
@@ -131,7 +143,7 @@ class FrontendController extends Controller
             SEOMeta::setCanonical('https://planetandpower.com' . request()->getPathInfo());
             //seo end here
         }
-        return view('frontend.readnews',compact('news','news10'));
+        return view('frontend.readnews',compact('news','news10','shareComponent'));
     }
     //about
     public function about(){
