@@ -87,8 +87,8 @@ class FrontendController extends Controller
                 ->get();
 
         if($blog->blogContentData()){
-            if(BlogContent::where('blog_id', $id)->where('status','=','1')->count() == !0){
-                $blogContents = $blog->blogContentData()->where('blog_id', $id)->where('status','=','1')->get();
+            if(BlogContent::where('blog_id', $id)->where('status',1)->count() == !0){
+                $blogContents = $blog->blogContentData()->where('blog_id', $id)->where('status',1)->orderBy('id','asc')->get();
 
                 //seo
                 SEOMeta::setTitle($blog->title); //web title
