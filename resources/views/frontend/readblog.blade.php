@@ -59,7 +59,7 @@
                 @if (!empty($category))
                         @foreach ($category->breadcrumbs() as $index=> $crumb)
 
-                            <a class="hover:underline inline-block cursor-pointer hover:text-LIGHTBLUE" >
+                            <a class="hover:underline inline-block cursor-pointer hover:text-LIGHTBLUE text-lg" >
                              {{ $crumb->name }}
                             </a>
                             @if ($index < count($category->breadcrumbs()) - 1)
