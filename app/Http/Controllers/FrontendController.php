@@ -67,7 +67,7 @@ class FrontendController extends Controller
     public function readblog($slugs){
         
         $shareComponent = \Share::page(
-            'http://127.0.0.1:8000/readblog/'.$slugs,
+            'https://planetandpower.com/readblog/'.$slugs,
           
 
         )
@@ -129,7 +129,7 @@ class FrontendController extends Controller
     //read news
     public function readnews($slugs){
         $shareComponent = \Share::page(
-            'http://127.0.0.1:8000/readnews/'.$slugs,
+            'https://planetandpower.com/readnews/'.$slugs,
           
 
         )
