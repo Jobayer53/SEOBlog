@@ -20,6 +20,8 @@
                         <i class="fa-brands fa-telegram fa-2x  icons" style="cursor: pointer;  margin-right: 20px;" @click="selectedIcon = 'fa-brands fa-telegram'; $wire.set('icon', 'fa-brands fa-telegram');" data-icon="fa-brands fa-telegram"></i>
                         <i class="fa-brands fa-instagram fa-2x  icons" style="cursor: pointer;  margin-right: 20px;" @click="selectedIcon = 'fa-brands fa-instagram'; $wire.set('icon', 'fa-brands fa-instagram');" data-icon="fa-brands fa-instagram"></i>
                         <i class="fa-brands fa-pinterest fa-2x  icons" style="cursor: pointer;  margin-right: 20px;" @click="selectedIcon = 'fa-brands fa-pinterest'; $wire.set('icon', 'fa-brands fa-pinterest');" data-icon="fa-brands fa-pinterest"></i>
+                        <i class="fa-brands fa-linkedin fa-2x  icons" style="cursor: pointer;  margin-right: 20px;" @click="selectedIcon = 'fa-brands fa-linkedin'; $wire.set('icon', 'fa-brands fa-linkedin');" data-icon="fa-brands fa-linkedin"></i>
+                        <i class="fa-brands fa-reddit fa-2x  icons" style="cursor: pointer;  margin-right: 20px;" @click="selectedIcon = 'fa-brands fa-reddit'; $wire.set('icon', 'fa-brands fa-reddit');" data-icon="fa-brands fa-reddit"></i>
                     </div>
                 </div>
 

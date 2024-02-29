@@ -18,7 +18,7 @@
                 </p>
             </div>
             <aside class="md:w-[25%]">
-                <p class="text-2xl font-bold mb-8 mt-8 md:mt-0">Latest News</p>
+                <p class="text-2xl font-bold mb-8 mt-8 md:mt-0">Latest News</p> {!! $shareComponent !!}
                     @foreach ($news10 as $data )
                     <div class="mb-8">
                         <a  href="{{route('readNews',$data->slugs)}}"

@@ -138,7 +138,7 @@ class BlogContentController extends Controller
         $blogContent->title           =$request->contentTitle;
         $blogContent->content         =$request->content;
         $blogContent->video           =$videoName;
-        $blogContent->video_link      =$request->video_link;
+        $blogContent->video_link      =$request->videoLink;
         $blogContent->save();
       return redirect(route('blog.content',$request->blog_id))->with('updated' ,'Updated Successfully');
 

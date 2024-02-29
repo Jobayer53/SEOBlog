@@ -1,19 +1,20 @@
 <?php
 
-use App\Http\Controllers\Backend\Category;
-use App\Http\Controllers\BlogContentController;
-use App\Http\Controllers\BlogController;
-use App\Http\Controllers\CategoryController;
-use App\Http\Controllers\ConfigController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\SEOController;
+use App\Http\Controllers\BlogController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\NewsController;
+use App\Http\Controllers\Backend\Category;
+use App\Http\Controllers\ConfigController;
+use App\Http\Controllers\ContactController;
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\FrontendController;
 use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\NewsController;
 use App\Http\Controllers\SocialLinkController;
-use App\Http\Controllers\ContactController;
-use App\Http\Controllers\SEOController;
+use App\Http\Controllers\BlogContentController;
+use App\Http\Controllers\SocialShareController;
 
 
 
@@ -35,6 +36,7 @@ use App\Http\Controllers\SEOController;
 Auth::routes();
 //sitemap
 Route::get('/sitemap',[SEOController::class, 'sitemap'])->name('sitemap');
+
 // Frontend View
 Route::get('/',[FrontendController::class, 'index'])->name('index');
 Route::get('/news',[FrontendController::class, 'newsShow'])->name('news_show');
