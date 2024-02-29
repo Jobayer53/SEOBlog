@@ -39,3 +39,5 @@ Disallow: /administrator
 Allow: /
 User-agent: *
 Disallow: /
+
+Sitemap: https://planetandpower.com/sitemap_index.xml 
