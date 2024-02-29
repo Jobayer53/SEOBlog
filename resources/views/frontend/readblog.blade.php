@@ -92,7 +92,8 @@
             <div
                 class="w-full mx-auto h-[80px] relative bg-LIGHTYELLOW flex  justify-center items-center border_shape font-semibold xl:text-3xl md:text-2xl sm:text-xl text-lg text-black shadow-md"
             >
-
+            <div class="border_shape_left hidden xl:block"></div>
+            <div class="border_shape_right hidden xl:block"></div>
                 <h2 class="bg-transparent font-semibold mx-3 my-3 md:mx-6" style="text-align:initial;" >
                    {{$data->title}}
                 </h2>
