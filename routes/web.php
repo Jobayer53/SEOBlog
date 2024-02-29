@@ -71,6 +71,8 @@ Route::middleware('auth')->prefix('sd_admin')->group(function (){
     Route::post('/blog/contents/delete',[BlogContentController::class, 'delete'])->name('blog.content.delete');
     Route::get('/blog/contents/status/{id}',[BlogContentController::class, 'status'])->name('blog.content.status');
     Route::get('/contact/message',[ContactController::class, 'index'])->name('contact.message');
+    Route::get('/profile',[DashboardController::class, 'index'])->name('profile');
+    Route::post('/profile/update',[DashboardController::class, 'profile_update'])->name('profile_update');
 });
 
 

@@ -1,0 +1,12 @@
+
+@media (max-width: 640px) {
+    table {
+        display: block !important;
+        overflow-x: scroll !important;
+    }
+
+    iframe {
+        width: 100% !important;
+    }
+    
+}

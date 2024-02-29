@@ -65,9 +65,10 @@ class FrontendController extends Controller
     }
     //read blogs
     public function readblog($slugs){
+        
         $shareComponent = \Share::page(
             'http://127.0.0.1:8000/readblog/'.$slugs,
-            Blog::where('slugs','=',$slugs)->get()->first()->title,
+          
 
         )
         ->facebook()
@@ -76,6 +77,7 @@ class FrontendController extends Controller
         ->telegram()
         ->whatsapp()
         ->reddit();
+
         $id = Blog::where('slugs','=',$slugs)->get()->first()->id;
         $blog = Blog::find($id);
         $blogContents = null;
@@ -98,7 +100,12 @@ class FrontendController extends Controller
                 //seo end here
             }
         }
-        return view('frontend.readblog',compact('blogContents','blogs','shareComponent'));
+        return view('frontend.readblog',[
+            'blogs' => $blogs,
+            'blogContents' => $blogContents,
+            'shareComponent' => $shareComponent,
+            
+        ]);
     }
     //category blogs
     public function categoryBlogs($category, $slug){
@@ -121,6 +128,17 @@ class FrontendController extends Controller
     }
     //read news
     public function readnews($slugs){
+        $shareComponent = \Share::page(
+            'http://127.0.0.1:8000/readnews/'.$slugs,
+          
+
+        )
+        ->facebook()
+        ->twitter()
+        ->linkedin()
+        ->telegram()
+        ->whatsapp()
+        ->reddit();
 
         $id = News::where('slugs','=',$slugs)->get()->first()->id;
         $check = News::find($id);

@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         {!! SEO::generate() !!}
         @yield('style')
-        <link href="{{asset('frontend_asset/assets/css/output.css')}}" rel="stylesheet" />
+        {{-- <link href="{{asset('frontend_asset/assets/css/output.css')}}" rel="stylesheet" /> --}}
         <link href="{{asset('frontend_asset/assets/css/style.css')}}" rel="stylesheet" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -22,8 +22,8 @@
             rel="stylesheet"
             href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
         />
-        <link rel="stylesheet" src="../../css/app.css">
-        
+        <link rel="stylesheet" href="{{asset('css/app.css')}}">
+
     </head>
     <body>
         <header class="shadow-md fixed z-50 w-full text-black">
@@ -237,7 +237,7 @@
                             <li>
                                 <a href="{{route('about')}}" >About Us</a>
                             </li>
-                            <li class="ml-24">
+                            <li class="">
                                 <a href="{{route('contact')}}">Contact</a>
                             </li>
                             <li>
@@ -268,12 +268,24 @@
         </footer>
 
 
+
+
+
         <script>
             let navClick = document.querySelector(".navClick");
             let navBar = document.querySelector(".navBar");
+            let toTop = document.querySelector(".to-top");
 
             navClick.addEventListener("click", function () {
                 navBar.classList.toggle("hidden");
+            });
+
+            window.addEventListener("scroll", () => {
+                if (window.pageYOffset > 100) {
+                    toTop.classList.add("active");
+                } else {
+                    toTop.classList.remove("active");
+                }
             });
         </script>
     </body>

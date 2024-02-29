@@ -1,6 +1,23 @@
 @extends('layouts.frontend')
 @section('style')
+<link rel="stylesheet" href="{{asset('frontend_asset/assets/css/summerChodna.css')}}">
 <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" />
+<style>
+    #social-links{
+        font-size: x-large;
+    color: lightslategrey;
+    }
+    #social-links ul {
+        display: flex;
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    #social-links ul li {
+        margin-right: 10px; /* Adjust spacing between items */
+    }
+</style>
 @endsection
 @section('main')
 <main>
@@ -13,12 +30,12 @@
                 </h2>
                 <img style="width:100%;" src="{{asset('upload/news')}}/{{$news->image}}" alt="">
 
-                <p >
+                <p class="summerCustom">
                 {!!$news->content!!}
                 </p>
             </div>
             <aside class="md:w-[25%]">
-                <p class="text-2xl font-bold mb-8 mt-8 md:mt-0">Latest News</p> {!! $shareComponent !!}
+                <p class="text-2xl font-bold mb-8 mt-8 md:mt-0">Latest News</p> 
                     @foreach ($news10 as $data )
                     <div class="mb-8">
                         <a  href="{{route('readNews',$data->slugs)}}"
@@ -45,6 +62,21 @@
                     </div>
             @endif
         </div>
+        <section>
+            <div class="container mx-auto xl:px-10 px-2 mb-10 ">
+                <div class="border-t-2 mx-auto pt-10 max-w-[300px] "></div>
+    
+                <div class="mt-7 flex gap-x-4 justify-center">
+                    {{-- <div class="" style="color: lightslategrey;
+                    font-size: x-large;display:inline-block;"> --}}
+    
+                        {!! $shareComponent !!}
+    
+    
+    
+                </div>
+            </div>
+        </section>
         <section>
             <div class="container mx-auto xl:px-10 px-2 pb-16">
                 {{-- <h6

@@ -1,6 +1,7 @@
 @extends('layouts.frontend')
 @section('style')
 <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" />
+<link rel="stylesheet" href="{{asset('frontend_asset/assets/css/summerChodna.css')}}">
 <style>
     #social-links{
         font-size: x-large;
@@ -16,6 +17,7 @@
     #social-links ul li {
         margin-right: 10px; /* Adjust spacing between items */
     }
+
 </style>
 @endsection
 @section('main')
@@ -60,8 +62,6 @@
                             <a class="hover:underline inline-block cursor-pointer hover:text-LIGHTBLUE" >
                              {{ $crumb->name }}
                             </a>
-
-
                             @if ($index < count($category->breadcrumbs()) - 1)
                             <span>.</span>
                         @endif
@@ -75,7 +75,7 @@
 
             <div class="text-LIGHTBLUE font-medium text-lg text-center">
                 @foreach ($blogContents as $data)
-                <a href="#{{$data->id}}" class="underline hover:text-[#2c7da9]"
+                <a href="#{{$data->id}}" class="underline hover:text-[#2c7da9]  "
                     > {{$data->title}}
                 </a>
                 <br />
@@ -90,11 +90,10 @@
     <section id="{{$data->id}}">
         <div class="container mx-auto pt-[76px] text-justify  pb-16 shadow-md  ">
             <div
-                class="w-full mx-auto h-[80px] relative bg-LIGHTYELLOW flex justify-center items-center border_shape font-semibold xl:text-3xl md:text-2xl sm:text-xl text-lg text-black shadow-md"
+                class="w-full mx-auto h-[80px] relative bg-LIGHTYELLOW flex  justify-center items-center border_shape font-semibold xl:text-3xl md:text-2xl sm:text-xl text-lg text-black shadow-md"
             >
-                <div class="border_shape_left hidden xl:block"></div>
-                <div class="border_shape_right hidden xl:block"></div>
-                <h2 class="bg-transparent font-semibold mx-5">
+
+                <h2 class="bg-transparent font-semibold mx-3 my-3 md:mx-6" style="text-align:initial;" >
                    {{$data->title}}
                 </h2>
             </div>
@@ -114,7 +113,8 @@
                 </div>
 
                     <p class="text-lg  ">
-                    {!! $data->content !!}
+                    {!!$data->content !!}
+                    {{-- {{$data->content }} --}}
                 </p>
 
             </div>
@@ -174,5 +174,8 @@
     </section>
     @endif
 </main>
+<a href="#" class="to-top shadow-md">
+    <i class="fas fa-chevron-up text-LIGHTBLUE"></i>
+</a>
 @endsection
 

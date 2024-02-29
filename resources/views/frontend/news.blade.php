@@ -1,4 +1,5 @@
 @extends('layouts.frontend')
+
 @section('main')
 <main>
     <section>

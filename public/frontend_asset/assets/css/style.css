@@ -159,7 +159,7 @@ body::-webkit-scrollbar-thumb:hover {
     align-items: center;
 }
 @media (max-width: 640px) {
-    .customcss {
+    .custom {
       display: flex;
       flex-direction: column;
       align-items: center;
