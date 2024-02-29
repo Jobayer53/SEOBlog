@@ -15,7 +15,7 @@
     }
 
     #social-links ul li {
-        margin-right: 10px; /* Adjust spacing between items */
+        margin-right: 20px; /* Adjust spacing between items */
     }
 
 </style>
@@ -73,9 +73,9 @@
                 Table Of Contents
             </h2>
 
-            <div class="text-LIGHTBLUE font-medium text-lg text-center">
+            <div class="text-LIGHTBLUE font-medium text-lg text-center  ">
                 @foreach ($blogContents as $data)
-                <a href="#{{$data->id}}" class="underline hover:text-[#2c7da9]  "
+                <a href="#{{$data->id}}" class="underline hover:text-[#2c7da9] taptargets  "
                     > {{$data->title}}
                 </a>
                 <br />
