@@ -15,7 +15,7 @@
         <link rel="shortcut icon" href="{{asset('frontend_asset/assets/SiteIconWhite.png')}}" type="image/x-icon">
 
         <link
-            href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700;800;900&display=swap"
+            href="{{asset('frontend_asset/assets/css/googleapis.css')}}"
             rel="stylesheet"
         />
         <link
@@ -30,8 +30,8 @@
             <div class="container px-2 mx-auto flex justify-between py-3">
                 <div class="lg:w-[30%]">
                     <a href="{{route('index')}}">
-                        <img
-                        class="w-[300px]"
+                        <img alt="Green Thoughts, Clean Energ.png"
+                        class="w-[300px] h-[55px]"
                         src="{{asset('frontend_asset/assets/Green Thoughts, Clean Energ.png')}}"
                     />
                     </a>
@@ -166,8 +166,8 @@
             >
                 <div class="md:w-[40%] smd:max-md:w-full lg:pr-8 ">
                     <div >
-                        <img
-                            class="w-[300px]"
+                        <img alt="Green Thoughts, Clean Energ.png"
+                            class="w-[300px] h-[55px]"
                             src="{{asset('frontend_asset/assets/Green Thoughts, Clean Energ.png')}}"
                         />
                     </div>
@@ -229,9 +229,7 @@
                 </div> --}}
                 <div class="w-[20%] smd:max-md:w-[30%]   " style="margin-top: 59px;">
 
-                    <h6 class="font-semibold text-xl lg:text-3xl">
 
-                    </h6>
                     <div class="mt-7">
                         <ul class="flex flex-col gap-y-3">
                             <li>

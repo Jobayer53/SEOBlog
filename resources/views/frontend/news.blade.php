@@ -26,7 +26,7 @@
                                 {{$data->title}}
                             </a>
                         </h2>
-                        <time> 2nd February 2024 </time>
+                        <time> {{$data->created_at->format('jS F Y')}} </time>
                     </div>
                 </div>
                 @endforeach

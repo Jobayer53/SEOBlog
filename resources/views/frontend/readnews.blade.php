@@ -15,14 +15,14 @@
     }
 
     #social-links ul li {
-        margin-right: 10px; /* Adjust spacing between items */
+        margin-right: 20px; /* Adjust spacing between items */
     }
 </style>
 @endsection
 @section('main')
 <main>
     <section class="pt-32">
-        <div class="container mx-auto px-2 md:flex gap-x-10 text-justify ">
+        <div class="container mx-auto px-2 md:flex gap-x-10 ">
             @if ($news)
             <div class="md:w-[75%]">
                 <h2 class="lg:text-4xl md:text-2xl text-xl font-bold mb-16 uppercase">
@@ -30,7 +30,7 @@
                 </h2>
                 <img style="width:100%;" src="{{asset('upload/news')}}/{{$news->image}}" alt="">
 
-                <p class="summerCustom">
+                <p class="summerCustom text-justify">
                 {!!$news->content!!}
                 </p>
             </div>

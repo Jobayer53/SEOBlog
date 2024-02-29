@@ -16,7 +16,7 @@
                 class="container bg-transparent px-2 mx-auto absolute flex flex-col justify-center items-start w-full h-full top-10"
             >
                 <h1
-                    class="lg:text-4xl md:text-3xl text-2xl bg-transparent font-bold text-white md:leading-[50px] sm:w-[60%]"
+                    class="lg:text-3xl md:text-3xl text-2xl bg-transparent font-bold text-white md:leading-[50px] sm:w-[60%]"
                 >
                     <span
                         class="Lg:text-5xl md:text-4xl text-3xl bg-transparent text-LIGHTBLUE font-[900]"
@@ -76,7 +76,7 @@
                     }
                 @endphp
                  @if ($latestBlog)
-                   <img
+                   <img alt="{{$latestBlog->title}}"
                     class="w-full h-[227px] my-5 rounded-lg shadow-md"
                     src="{{asset('upload/blog')}}/{{$latestBlog->features_image}}"
                     />
@@ -115,7 +115,7 @@
                 <div class="sm:flex justify-between mt-8">
                     @if($newsAll->last()->status == '1')
                         <div class="sm:w-[48%] mb-5 sm:mb-0">
-                            <img
+                            <img alt="{{$newsAll->last()->title}}"
                                 class="rounded-lg w-full h-[341px]"
                                 src="{{asset('upload/news')}}/{{$newsAll->last()->image}}"
                             />

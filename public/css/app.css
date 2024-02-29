@@ -877,6 +877,10 @@ video {
   height: 341px;
 }
 
+.h-\[55px\] {
+  height: 55px;
+}
+
 .h-\[80px\] {
   height: 80px;
 }
@@ -1124,7 +1128,9 @@ video {
 
 .bg-LIGHTBLUE {
   --tw-bg-opacity: 1;
-  background-color: rgb(64 162 216 / var(--tw-bg-opacity));
+  /* background-color: rgb(64 162 216 / var(--tw-bg-opacity)); */
+  background-color: rgb(19 140 207 / var(--tw-bg-opacity));
+
 }
 
 .bg-LIGHTYELLOW {
@@ -1397,7 +1403,9 @@ video {
 
 .text-LIGHTBLUE {
   --tw-text-opacity: 1;
-  color: rgb(64 162 216 / var(--tw-text-opacity));
+  /* color: rgb(64 162 216 / var(--tw-text-opacity)); */
+  color: rgb(19 140 207 / var(--tw-text-opacity));
+
 }
 
 .text-\[\#303030\] {

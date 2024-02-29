@@ -75,7 +75,7 @@
 
             <div class="text-LIGHTBLUE font-medium text-lg text-center  ">
                 @foreach ($blogContents as $data)
-                <a href="#{{$data->id}}" class="underline hover:text-[#2c7da9] taptargets  "
+                <a href="#{{$data->id}}" class=" hover:text-[#2c7da9] taptargets  "
                     > {{$data->title}}
                 </a>
                 <br />
