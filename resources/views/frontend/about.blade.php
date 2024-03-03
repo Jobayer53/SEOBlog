@@ -8,7 +8,7 @@
             >
                 About Planet and Power
             </h2>
-            <img
+            <img alt="About Author featured image"
                 width="100%"
                 src="{{asset('frontend_asset/assets/About Author featured image.png')}}"
             />

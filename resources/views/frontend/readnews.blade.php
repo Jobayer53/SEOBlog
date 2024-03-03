@@ -25,17 +25,17 @@
         <div class="container mx-auto px-2 md:flex gap-x-10 ">
             @if ($news)
             <div class="md:w-[75%]">
-                <h2 class="lg:text-4xl md:text-2xl text-xl font-bold mb-16 uppercase">
+                <h1 class="lg:text-4xl md:text-2xl text-xl font-bold mb-16 uppercase">
                     {{$news->title}}
-                </h2>
-                <img style="width:100%;" src="{{asset('upload/news')}}/{{$news->image}}" alt="">
+                </h1>
+                <img alt="{{$news->title}}" style="width:100%;" src="{{asset('upload/news')}}/{{$news->image}}" alt="">
 
                 <p class="summerCustom text-justify">
                 {!!$news->content!!}
                 </p>
             </div>
             <aside class="md:w-[25%]">
-                <p class="text-2xl font-bold mb-8 mt-8 md:mt-0">Latest News</p> 
+                <p class="text-2xl font-bold mb-8 mt-8 md:mt-0">Latest News</p>
                     @foreach ($news10 as $data )
                     <div class="mb-8">
                         <a  href="{{route('readNews',$data->slugs)}}"
@@ -65,15 +65,15 @@
         <section>
             <div class="container mx-auto xl:px-10 px-2 mb-10 ">
                 <div class="border-t-2 mx-auto pt-10 max-w-[300px] "></div>
-    
+
                 <div class="mt-7 flex gap-x-4 justify-center">
                     {{-- <div class="" style="color: lightslategrey;
                     font-size: x-large;display:inline-block;"> --}}
-    
+
                         {!! $shareComponent !!}
-    
-    
-    
+
+
+
                 </div>
             </div>
         </section>

@@ -10,7 +10,9 @@ use App\Models\News;
 use Artesaos\SEOTools\Facades\SEOMeta;
 use Artesaos\SEOTools\Facades\SEOTools;
 use Artesaos\SEOTools\Facades\OpenGraph;
+use Artesaos\SEOTools\Facades\JsonLd;
 use Illuminate\Http\Request;
+
 
 class FrontendController extends Controller
 {
@@ -65,11 +67,9 @@ class FrontendController extends Controller
     }
     //read blogs
     public function readblog($slugs){
-        
+
         $shareComponent = \Share::page(
             'https://planetandpower.com/readblog/'.$slugs,
-          
-
         )
         ->facebook()
         ->twitter()
@@ -89,6 +89,7 @@ class FrontendController extends Controller
         if($blog->blogContentData()){
             if(BlogContent::where('blog_id', $id)->where('status',1)->count() == !0){
                 $blogContents = $blog->blogContentData()->where('blog_id', $id)->where('status',1)->orderBy('id','asc')->get();
+                $image_url = asset('upload/blog'.$blog->features_image);
 
                 //seo
                 SEOMeta::setTitle($blog->title); //web title
@@ -97,6 +98,12 @@ class FrontendController extends Controller
                 SEOMeta::addKeyword($blog->seo_tags);
                 OpenGraph::setTitle($blog->seo_title);
                 SEOMeta::setCanonical('https://planetandpower.com' . request()->getPathInfo());
+
+                // JsonLd::setTitle($blog->seo_title);
+                // JsonLd::setDescription($blog->seo_description);
+                // JsonLd::setType('BlogPosting');
+                // JsonLd::addImage($image_url);
+
                 //seo end here
             }
         }
@@ -104,14 +111,19 @@ class FrontendController extends Controller
             'blogs' => $blogs,
             'blogContents' => $blogContents,
             'shareComponent' => $shareComponent,
-            
+
         ]);
     }
     //category blogs
-    public function categoryBlogs($category, $slug){
+    public function categoryBlogs($slug){
         $category = null;
         $check = Category::where('slugs',$slug)->get()->first();
         if($check->status == 1){
+            //seo
+            SEOMeta::setTitle('Category'); //web title
+            SEOMeta::addMeta('title','Category');
+            SEOMeta::setCanonical('https://planetandpower.com' . request()->getPathInfo());
+            //seo ends here
             $category = $check;
         }
         return view('frontend.categoryblog', compact('category'));
@@ -130,7 +142,7 @@ class FrontendController extends Controller
     public function readnews($slugs){
         $shareComponent = \Share::page(
             'https://planetandpower.com/news/readnews/'.$slugs,
-          
+
 
         )
         ->facebook()

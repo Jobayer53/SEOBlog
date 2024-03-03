@@ -31,7 +31,7 @@ class NewsController extends Controller
         $news->title            = $request->title;
         $news->content          = $request->content;
         $news->image            = Photo::$name;
-        $news->slugs            = Str::slug($request->title, '-');    //Str::slug($request->title, '_');
+        $news->slugs            = Str::slug($request->title);    //Str::slug($request->title, '_');
         $news->seo_title        = $request->seo_title;
         $news->seo_description  = $request->seo_description;
         $news->seo_tags         = $request->seo_tags;
@@ -63,7 +63,7 @@ class NewsController extends Controller
         }
         $news->title            = $request->title;
         $news->content          = $request->content;
-        $news->slugs           = Str::slug($request->title, '_');
+        $news->slugs           = Str::slug($request->title);
         $news->seo_title        = $request->seo_title;
         $news->seo_description  = $request->seo_description;
         $news->seo_tags         = $request->seo_tags;

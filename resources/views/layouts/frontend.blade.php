@@ -63,7 +63,7 @@
                                 <ul class="flex flex-col gap-y-4 text-sm">
                                     @foreach (App\Models\Category::where('status','=','1')->orderBy('id', 'desc')->take(5)->get() as $data )
 
-                                    <a href="{{route('category.blog',['category' =>$data->name, 'slug' => $data->slugs])}}">
+                                    <a href="{{route('category.blog',['slug' => $data->slugs])}}">
                                         <li
                                         style=" word-wrap:break-word;"
                                         class="hover:bg-[#d7d7d7] px-1 py-2 rounded cursor-pointer"
@@ -125,7 +125,7 @@
                                 <ul class="flex flex-col gap-y-4 text-sm">
                                     @foreach (App\Models\Category::where('status','=','1')->orderBy('id', 'desc')->take(5)->get() as $data )
 
-                                    <a href="{{route('category.blog',['category' =>$data->name, 'slug' => $data->slugs])}}">
+                                    <a href="{{route('category.blog',['slug' => $data->slugs])}}">
                                         <li
                                         style=" word-wrap:break-word;"
                                         class="hover:bg-[#d7d7d7] px-1 py-2 rounded cursor-pointer"

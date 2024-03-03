@@ -86,7 +86,7 @@
     </section>
 
 
-    @foreach ($blogContents as $data )
+    @foreach ($blogContents as $key=> $data )
     <section id="{{$data->id}}">
         <div class="container mx-auto pt-[76px] text-justify  pb-16 shadow-md px-0  ">
             <div
@@ -94,9 +94,19 @@
             >
             <div class="border_shape_left hidden xl:block"></div>
             <div class="border_shape_right hidden xl:block"></div>
-                <h2 class="bg-transparent font-semibold mx-3 my-3 md:mx-6" style="text-align:initial;" >
+               @if($key == 0)
+                <h1 class="bg-transparent font-semibold mx-3 my-3 md:mx-6" style="text-align:initial;" >
+                   {{$data->title}}
+                </h1>
+                @elseif($key >0 && $key < 7)
+                 <h2 class="bg-transparent font-semibold mx-3 my-3 md:mx-6" style="text-align:initial;" >
                    {{$data->title}}
                 </h2>
+                @else
+                 <h3 class="bg-transparent font-semibold mx-3 my-3 md:mx-6" style="text-align:initial;" >
+                   {{$data->title}}
+                </h3>
+                @endif
             </div>
             <div class="mt-16 xl:px-10   ">
                 <div class="w-full flex flex-col items-center content-center">
@@ -104,7 +114,7 @@
                         <video style="width:600px;; "  src="{{asset('upload/blog-content')}}/{{$data->video}}" controls></video> <br>
                     @endif
                     @if ($data->image)
-                        <img style="width:600px;; "  src="{{asset('upload/blog-content')}}/{{$data->image}}" > <br>
+                        <img alt="{{$data->title}}" style="width:600px;; "  src="{{asset('upload/blog-content')}}/{{$data->image}}" > <br>
                     @endif
                     @if ($data->video_link)
                     <iframe width="560" height="315" src="{{ $data->video_link }}" frameborder="0" allowfullscreen></iframe>
@@ -157,7 +167,7 @@
                     ->get() as $data )
                     <div class="lg:w-[48%] shadow-md flex" id="hover_img">
                         <figure>
-                            <img
+                            <img alt="{{$data->title}}"
                                 style="width:100%; height:150px; "
                                 class=" object-cover"
                                 src="{{asset('upload/blog')}}/{{$data->features_image}}"

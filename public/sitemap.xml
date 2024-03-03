@@ -2,121 +2,121 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9">
     <url>
         <loc>http://127.0.0.1:8000</loc>
-        <lastmod>2024-02-27T12:07:31+00:00</lastmod>
+        <lastmod>2024-03-03T10:12:57+00:00</lastmod>
         <changefreq>yearly</changefreq>
         <priority>0.1</priority>
             </url>
     <url>
         <loc>http://127.0.0.1:8000/about</loc>
-        <lastmod>2024-02-27T12:07:31+00:00</lastmod>
+        <lastmod>2024-03-03T10:12:57+00:00</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.1</priority>
             </url>
     <url>
         <loc>http://127.0.0.1:8000/contact</loc>
-        <lastmod>2024-02-27T12:07:31+00:00</lastmod>
+        <lastmod>2024-03-03T10:12:57+00:00</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.1</priority>
             </url>
     <url>
         <loc>http://127.0.0.1:8000/privacypolicy</loc>
-        <lastmod>2024-02-27T12:07:31+00:00</lastmod>
+        <lastmod>2024-03-03T10:12:57+00:00</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.1</priority>
             </url>
     <url>
         <loc>http://127.0.0.1:8000/category/asdfasdfsadf/blogs/asdfasdfsadf</loc>
-        <lastmod>2024-02-27T12:07:31+00:00</lastmod>
+        <lastmod>2024-03-03T10:12:57+00:00</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.1</priority>
             </url>
     <url>
         <loc>http://127.0.0.1:8000/category/hey 3/blogs/hey-3</loc>
-        <lastmod>2024-02-27T12:07:31+00:00</lastmod>
+        <lastmod>2024-03-03T10:12:57+00:00</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.1</priority>
             </url>
     <url>
         <loc>http://127.0.0.1:8000/category/hey 5/blogs/hey-5</loc>
-        <lastmod>2024-02-27T12:07:31+00:00</lastmod>
+        <lastmod>2024-03-03T10:12:57+00:00</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.1</priority>
             </url>
     <url>
         <loc>http://127.0.0.1:8000/category/Malik Thomas/blogs/malik-thomas</loc>
-        <lastmod>2024-02-27T12:07:31+00:00</lastmod>
+        <lastmod>2024-03-03T10:12:57+00:00</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.1</priority>
             </url>
     <url>
         <loc>http://127.0.0.1:8000/category/Paula Maynard/blogs/paula-maynard</loc>
-        <lastmod>2024-02-27T12:07:31+00:00</lastmod>
+        <lastmod>2024-03-03T10:12:57+00:00</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.1</priority>
             </url>
     <url>
         <loc>http://127.0.0.1:8000/category/Brent Washington/blogs/brent-washington</loc>
-        <lastmod>2024-02-27T12:07:31+00:00</lastmod>
+        <lastmod>2024-03-03T10:12:57+00:00</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.1</priority>
             </url>
     <url>
         <loc>http://127.0.0.1:8000/category/Tatyana Small/blogs/tatyana-small</loc>
-        <lastmod>2024-02-27T12:07:31+00:00</lastmod>
+        <lastmod>2024-03-03T10:12:57+00:00</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.1</priority>
             </url>
     <url>
         <loc>http://127.0.0.1:8000/readblog/asdfasdf</loc>
-        <lastmod>2024-02-27T12:07:31+00:00</lastmod>
+        <lastmod>2024-03-03T10:12:57+00:00</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.1</priority>
             </url>
     <url>
         <loc>http://127.0.0.1:8000/readblog/asdfasdfsadf</loc>
-        <lastmod>2024-02-27T12:07:31+00:00</lastmod>
+        <lastmod>2024-03-03T10:12:57+00:00</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.1</priority>
             </url>
     <url>
         <loc>http://127.0.0.1:8000/readblog/suscipit-voluptatem</loc>
-        <lastmod>2024-02-27T12:07:31+00:00</lastmod>
+        <lastmod>2024-03-03T10:12:57+00:00</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.1</priority>
             </url>
     <url>
         <loc>http://127.0.0.1:8000/readblog/reiciendis-at-aliqui</loc>
-        <lastmod>2024-02-27T12:07:31+00:00</lastmod>
+        <lastmod>2024-03-03T10:12:57+00:00</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.1</priority>
             </url>
     <url>
         <loc>http://127.0.0.1:8000/readblog/culpa-possimus-volu</loc>
-        <lastmod>2024-02-27T12:07:31+00:00</lastmod>
+        <lastmod>2024-03-03T10:12:57+00:00</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.1</priority>
             </url>
     <url>
-        <loc>http://127.0.0.1:8000/readblog/fasdf</loc>
-        <lastmod>2024-02-27T12:07:31+00:00</lastmod>
+        <loc>http://127.0.0.1:8000/readblog/test-blog-lorem-1000-asjjjjjjasfbkjsafkhsakfkjhasflasf</loc>
+        <lastmod>2024-03-03T10:12:57+00:00</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.1</priority>
             </url>
     <url>
-        <loc>http://127.0.0.1:8000/news/readnews/pakistane_nareer_posake_arbi_lekha_blasfemir_ovizoge_uttejit_jntavf</loc>
-        <lastmod>2024-02-27T12:07:31+00:00</lastmod>
+        <loc>http://127.0.0.1:8000/news/readnews/asdfasdfdasf</loc>
+        <lastmod>2024-03-03T10:12:57+00:00</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.1</priority>
             </url>
     <url>
-        <loc>http://127.0.0.1:8000/news/readnews/dfdasf</loc>
-        <lastmod>2024-02-27T12:07:31+00:00</lastmod>
+        <loc>http://127.0.0.1:8000/news/readnews/switzerland_wants_to_set_up_the_first_un_group_of_experts_on_solar_geoengineering</loc>
+        <lastmod>2024-03-03T10:12:57+00:00</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.1</priority>
             </url>
     <url>
-        <loc>http://127.0.0.1:8000/news/readnews/yvgyvgy</loc>
-        <lastmod>2024-02-27T12:07:31+00:00</lastmod>
+        <loc>http://127.0.0.1:8000/news/readnews/this-is-news-title</loc>
+        <lastmod>2024-03-03T10:12:57+00:00</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.1</priority>
             </url>

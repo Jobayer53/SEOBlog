@@ -64,10 +64,10 @@ class SEOController extends Controller
         }
 
 
-        $sitemap->writeToFile(public_path('sitemap.xml'));
+        $sitemap->writeToFile(public_path('sitemap_index.xml'));
 
-        File::copy(public_path('sitemap.xml'), base_path('sitemap.xml'));
+        File::copy(public_path('sitemap_index.xml'), base_path('sitemap_index.xml'));
 
-        return response()->download(public_path('sitemap.xml'), 'sitemap.xml');
+        return response()->download(public_path('sitemap_index.xml'), 'sitemap_index.xml');
     }
 }

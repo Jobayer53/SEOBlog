@@ -80,7 +80,7 @@
         </div>
         <div class="py-16 relative">
             <div class="absolute w-full flex justify-center top-5">
-                <img
+                <img alt="Green Thoughts, Clean Energ"
                     class="w-72"
                     src="{{asset('frontend_asset/assets/Green Thoughts, Clean Energ.png')}}"
                 />

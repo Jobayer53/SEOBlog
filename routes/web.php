@@ -41,7 +41,7 @@ Route::get('/sitemap',[SEOController::class, 'sitemap'])->name('sitemap');
 Route::get('/',[FrontendController::class, 'index'])->name('index');
 Route::get('/news',[FrontendController::class, 'newsShow'])->name('news_show');
 Route::get('/news/readnews/{id}',[FrontendController::class, 'readnews'])->name('readNews');
-Route::get('/category/{category}/blogs/{slug}',[FrontendController::class, 'categoryBlogs'])->name('category.blog');
+Route::get('/category/{slug}/blogs/',[FrontendController::class, 'categoryBlogs'])->name('category.blog');
 Route::get('/blogs',[FrontendController::class, 'blog'])->name('blog');
 Route::get('/about',[FrontendController::class, 'about'])->name('about');
 Route::get('/contact',[FrontendController::class, 'contact'])->name('contact');

@@ -11,7 +11,7 @@
                 <div class="sm:flex justify-between shadow p-3 rounded-md">
                     <div class="sm:w-[40%]" id="hover_img">
                         <figure>
-                            <img
+                            <img alt="{{$data->title}}"
                                style=" width:100%;"
                                 src="{{asset('upload/news')}}/{{$data->image}}"
                             />

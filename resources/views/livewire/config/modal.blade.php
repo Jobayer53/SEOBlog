@@ -20,7 +20,7 @@
                             <option value="home" >HOME</option>
                             <option value="about" >ABOUT</option>
                             <option value="contact" >CONTACT</option>
-                            <option value="privacy" >PRIVACY</option>   
+                            <option value="privacy" >PRIVACY</option>
                         </select>
                     </div>
                     @error('name')
@@ -37,12 +37,12 @@
                     <label for="" class="form-label">Seo Title</label>
                     <input type="text" class="form-control input-default " id="seo_title" name="seo_title"  wire:model="seo_title" >
                 </div>
-               
+
                 <div class="form-group">
                     <label for="" class="form-label">Seo Description</label>
                    <textarea id="seo_description" name="seo_description" class="form-control" cols="30" rows="10" wire:model="seo_description"></textarea>
                 </div>
-               
+
                 <div class="form-group">
                     <label for="" class="form-label">Seo Tags</label>
                     <input type="text" class="form-control input-default " id="seo_tags" name="seo_tags" wire:model="seo_tags" >
@@ -79,7 +79,7 @@
                             <option value="home" >HOME</option>
                             <option value="about" >ABOUT</option>
                             <option value="contact" >CONTACT</option>
-                            <option value="privacy" >PRIVACY</option>   
+                            <option value="privacy" >PRIVACY</option>
                         </select>
                     </div>
                     @error('name')
@@ -97,12 +97,12 @@
                     <input type="text" class="form-control input-default " id="seo_title" name="seo_title"  wire:model="seo_title" >
                     <input type="hidden"  wire:model="config_id" >
                 </div>
-               
+
                 <div class="form-group">
                     <label for="" class="form-label">Seo Description</label>
                    <textarea id="seo_description" name="seo_description" class="form-control" cols="30" rows="10" wire:model="seo_description"></textarea>
                 </div>
-               
+
                 <div class="form-group">
                     <label for="" class="form-label">Seo Tags</label>
                     <input type="text" class="form-control input-default " id="seo_tags" name="seo_tags" wire:model="seo_tags" >
