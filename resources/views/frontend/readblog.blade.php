@@ -24,7 +24,7 @@
 <main>
     @if($blogContents == null)
     <section style="height:80vh; y" class=" flex flex-col justify-center items-center">
-        <div class="container mx-auto pt-[76px] text-justify px-2 pb-16 ">
+        <div class="container mx-auto pt-[76px] text-justify shadow-md px-0 pb-16 ">
             <div
                 class="w-full mx-auto h-[80px] relative bg-LIGHTYELLOW flex justify-center items-center border_shape font-semibold xl:text-3xl md:text-2xl sm:text-xl text-lg text-black"
             >
