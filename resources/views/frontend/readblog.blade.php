@@ -88,7 +88,7 @@
 
     @foreach ($blogContents as $data )
     <section id="{{$data->id}}">
-        <div class="container mx-auto pt-[76px] text-justify  pb-16 shadow-md  ">
+        <div class="container mx-auto pt-[76px] text-justify  pb-16 shadow-md px-0  ">
             <div
                 class="w-full mx-auto h-[80px] relative bg-LIGHTYELLOW flex  justify-center items-center border_shape font-semibold xl:text-3xl md:text-2xl sm:text-xl text-lg text-black shadow-md"
             >
