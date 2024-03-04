@@ -4,7 +4,15 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        {!! SEO::generate() !!}
+            
+        {!! SEOMeta::generate() !!}
+        {!! OpenGraph::generate() !!}
+        {!! Twitter::generate() !!}
+        {!! JsonLd::generate() !!}
+
+    
+
+
         @yield('style')
         {{-- <link href="{{asset('frontend_asset/assets/css/output.css')}}" rel="stylesheet" /> --}}
         <link href="{{asset('frontend_asset/assets/css/style.css')}}" rel="stylesheet" />
@@ -30,9 +38,9 @@
             <div class="container px-2 mx-auto flex justify-between py-3">
                 <div class="lg:w-[30%]">
                     <a href="{{route('index')}}">
-                        <img alt="Green Thoughts, Clean Energ.png"
+                        <img alt="Green-Thoughts-Clean-Energe"
                         class="w-[300px] h-[55px]"
-                        src="{{asset('frontend_asset/assets/Green Thoughts, Clean Energ.png')}}"
+                        src="{{asset('frontend_asset/assets/Green-Thoughts-Clean-Energ.png')}}"
                     />
                     </a>
                 </div>
@@ -166,9 +174,9 @@
             >
                 <div class="md:w-[40%] smd:max-md:w-full lg:pr-8 ">
                     <div >
-                        <img alt="Green Thoughts, Clean Energ.png"
+                        <img alt="Green-Thoughts-Clean-Energ"
                             class="w-[300px] h-[55px]"
-                            src="{{asset('frontend_asset/assets/Green Thoughts, Clean Energ.png')}}"
+                            src="{{asset('frontend_asset/assets/Green-Thoughts-Clean-Energ.png')}}"
                         />
                     </div>
                     <p class="my-7 text-justify">

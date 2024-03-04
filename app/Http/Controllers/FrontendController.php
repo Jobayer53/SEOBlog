@@ -11,6 +11,7 @@ use Artesaos\SEOTools\Facades\SEOMeta;
 use Artesaos\SEOTools\Facades\SEOTools;
 use Artesaos\SEOTools\Facades\OpenGraph;
 use Artesaos\SEOTools\Facades\JsonLd;
+
 use Illuminate\Http\Request;
 
 
@@ -89,7 +90,7 @@ class FrontendController extends Controller
         if($blog->blogContentData()){
             if(BlogContent::where('blog_id', $id)->where('status',1)->count() == !0){
                 $blogContents = $blog->blogContentData()->where('blog_id', $id)->where('status',1)->orderBy('id','asc')->get();
-                $image_url = asset('upload/blog'.$blog->features_image);
+                $image_url = asset('upload/blog/'.$blog->features_image);
 
                 //seo
                 SEOMeta::setTitle($blog->title); //web title
@@ -99,11 +100,26 @@ class FrontendController extends Controller
                 OpenGraph::setTitle($blog->seo_title);
                 SEOMeta::setCanonical('https://planetandpower.com' . request()->getPathInfo());
 
-                // JsonLd::setTitle($blog->seo_title);
-                // JsonLd::setDescription($blog->seo_description);
-                // JsonLd::setType('BlogPosting');
-                // JsonLd::addImage($image_url);
+                JsonLd::setTitle($blog->seo_title);
+                JsonLd::setDescription($blog->seo_description);
+                JsonLd::setType('BlogPosting');
+                JsonLd::addImage($image_url);
 
+                JsonLd::addValue('@context', 'http://schema.org');                             
+                JsonLd::addValue('datePublished', $blog->created_at->format('d-m-Y'));
+                JsonLd::addValue('articleBody', $blog->title);
+                JsonLd::addValue('publisher', [
+                    '@type' => 'Organization',
+                    'name' => 'Planet And Power',
+                    'logo' => [
+                        '@type' => 'ImageObject',
+                        'url' => 'https://planetandpower.com/frontend_asset/assets/Green-Thoughts-Clean-Energ.png'
+                    ]
+                ]);
+                JsonLd::addValue('author', [
+                    '@type' => 'Person',
+                    'name' => 'Planet And Power',
+                ]);
                 //seo end here
             }
         }
@@ -123,6 +139,7 @@ class FrontendController extends Controller
             SEOMeta::setTitle('Category'); //web title
             SEOMeta::addMeta('title','Category');
             SEOMeta::setCanonical('https://planetandpower.com' . request()->getPathInfo());
+         
             //seo ends here
             $category = $check;
         }
@@ -164,6 +181,7 @@ class FrontendController extends Controller
             ->orderBy('id', 'desc')
             ->take(10)
             ->get();
+            $image_url = ($news->image ? (asset('upload/news/'.$news->image)): '');
             //seo
             SEOMeta::setTitle($news->title); //web title
             // SEOMeta::addMeta('title','rg;eishdyzug');
@@ -171,6 +189,27 @@ class FrontendController extends Controller
             SEOMeta::addKeyword($news->seo_tags);
             OpenGraph::setTitle($news->seo_title);
             SEOMeta::setCanonical('https://planetandpower.com' . request()->getPathInfo());
+
+            JsonLd::setTitle($news->seo_title);
+            JsonLd::setDescription($news->seo_description);
+            JsonLd::setType('NewsArticle');
+            JsonLd::addImage($image_url);
+
+            JsonLd::addValue('@context', 'http://schema.org');                             
+            JsonLd::addValue('datePublished', $news->created_at->format('d-m-Y'));
+            JsonLd::addValue('articleBody', $news->title);
+            JsonLd::addValue('publisher', [
+                '@type' => 'Organization',
+                'name' => 'Planet And Power',
+                'logo' => [
+                    '@type' => 'ImageObject',
+                    'url' => 'https://planetandpower.com/frontend_asset/assets/Green-Thoughts-Clean-Energ.png'
+                ]
+            ]);
+            JsonLd::addValue('author', [
+                '@type' => 'Person',
+                'name' => 'Planet And Power',
+            ]);
             //seo end here
         }
         return view('frontend.readnews',compact('news','news10','shareComponent'));

@@ -1,5 +1,6 @@
 @extends('layouts.frontend')
 @section('style')
+  <meta name='robots' content='index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:1' />
 <link rel="stylesheet" href="{{asset('frontend_asset/assets/css/summerChodna.css')}}">
 <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" />
 <style>

@@ -65,6 +65,15 @@ return [
             'url'         => 'https://planetandpower.com', // Set to null or 'full' to use Url::full(), set to 'current' to use Url::current(), set false to total remove
             'type'        => 'WebSite',
             'images'      => [],
+            'publisher'   => [
+                '@type' => 'Organization',
+                'name' => 'Planet And Power',
+                'logo' => [
+                    '@type' => 'ImageObject',
+                    'url' => 'https://planetandpower.com/frontend_asset/assets/Green-Thoughts-Clean-Energ.png'
+                ]
+            ]
+            
         ],
     ],
 ];
