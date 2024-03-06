@@ -11,8 +11,8 @@ use Laravel\Ui\Presets\React;
 
 class BlogContentController extends Controller
 {
-    public function index($id)
-    {
+    public function index($slugs)
+    {   $id = Blog::where('slugs',$slugs)->get()->first()->id;
         $blogs =  Blog::find($id);
         $blogContents = BlogContent::where('blog_id',$id)->orderBy('id','desc')->get();
         return view('backend.blog-content.blogContent',compact('blogContents','blogs'));
@@ -21,9 +21,9 @@ class BlogContentController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create($id)
+    public function create($slugs)
     {
-         $blogs = Blog::find($id);
+         $blogs = Blog::where('slugs',$slugs)->get()->first();
         return view('backend.blog-content.create',compact('blogs'));
     }
 
@@ -60,7 +60,8 @@ class BlogContentController extends Controller
         $blogContent->video_link      =$request->videoLink;
         $blogContent->status          ='1';
         $blogContent->save();
-        return redirect(route('blog.content',$request->blog_id))->with('added', 'Added Successfully');
+        $blog_slugs = Blog::where('id',$request->blog_id)->get()->first()->slugs;
+        return redirect(route('blog.content',$blog_slugs))->with('added', 'Added Successfully');
 
 
 
@@ -140,7 +141,8 @@ class BlogContentController extends Controller
         $blogContent->video           =$videoName;
         $blogContent->video_link      =$request->videoLink;
         $blogContent->save();
-      return redirect(route('blog.content',$request->blog_id))->with('updated' ,'Updated Successfully');
+        $blog_slugs = Blog::where('id',$request->blog_id)->get()->first()->slugs;
+      return redirect(route('blog.content',$blog_slugs))->with('updated' ,'Updated Successfully');
 
     }
 
@@ -161,6 +163,7 @@ class BlogContentController extends Controller
     public function delete(Request $request)
     {
         $blogContent =  BlogContent::find($request->delete_id);
+
         if($blogContent->video){
             $file_path = public_path('upload/blog-content/'.$blogContent->video);
             unlink($file_path);

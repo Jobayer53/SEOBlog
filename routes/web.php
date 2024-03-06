@@ -64,9 +64,11 @@ Route::middleware('auth')->prefix('sd_admin')->group(function (){
     Route::post('/news/update', [NewsController::class, 'update'])->name('news.update');
     Route::get('/social/link', [SocialLinkController::class, 'index'])->name('social.link');
     Route::get('/blogs', [BlogController::class, 'index'])->name('blogs');
-    Route::resource('/blog_content', BlogContentController::class, );
-    Route::get('/blog/contents/{id}',[BlogContentController::class, 'index'])->name('blog.content');
-    Route::get('/blog/contents/create/{id}',[BlogContentController::class, 'create'])->name('blog.content.create');
+    // Route::resource('/blog_content', BlogContentController::class, );
+    Route::get('/blog/contents/{slugs}',[BlogContentController::class, 'index'])->name('blog.content');
+    Route::get('/blog/contents/edit/{id}',[BlogContentController::class, 'edit'])->name('blog.content.edit');
+    Route::get('/blog/contents/create/{slugs}',[BlogContentController::class, 'create'])->name('blog.content.create');
+    Route::post('/blog/contents/store',[BlogContentController::class, 'store'])->name('blog.content.store');
     Route::post('/blog/contents/update',[BlogContentController::class, 'update'])->name('blog.content.update');
     Route::post('/blog/contents/delete',[BlogContentController::class, 'delete'])->name('blog.content.delete');
     Route::get('/blog/contents/status/{id}',[BlogContentController::class, 'status'])->name('blog.content.status');

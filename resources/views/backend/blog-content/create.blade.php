@@ -14,7 +14,7 @@
             <li style="margin:0px 5px 0px 2px!important">/</li>
             <li class=""><a href="{{route('blogs')}}"> Blogs</a></li>
             <li style="margin:0px 5px 0px 2px!important">/</li>
-            <li class=""><a href="{{route('blog.content',$blogs->id)}}"> Blog Content</a></li>
+            <li class=""><a href="{{route('blog.content',$blogs->slugs)}}"> Blog Content</a></li>
             <li style="margin:0px 5px 0px 2px!important">/</li>
             <li class="active"><a href="#">Create Blog Content</a></li>
         </ol>
@@ -28,7 +28,7 @@
                 </div>
                 <div class="card-body">
                     <div class="basic-form">
-                        <form action="{{route('blog_content.store')}}" method="POST" enctype="multipart/form-data" >
+                        <form action="{{route('blog.content.store')}}" method="POST" enctype="multipart/form-data" >
                             @csrf
 
 

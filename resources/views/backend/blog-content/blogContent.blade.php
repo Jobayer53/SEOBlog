@@ -79,7 +79,7 @@
             </div>
         </div> --}}
         <div class="col-lg-12">
-            <a href="{{route('blog.content.create',$blogs->id)}}">
+            <a href="{{route('blog.content.create',$blogs->slugs)}}">
                 <button  type="button" class="btn btn-rounded btn-info mb-3">
                     <span class="btn-icon-left text-info ">
                         <i class="fa fa-plus color-info"></i>
@@ -119,8 +119,9 @@
 
                                     <td>
                                         <div class="d-flex">
-                                            <a href="{{ route('blog_content.edit',$data->id) }}" class="btn btn-primary shadow btn-xs sharp me-1" ><i class="fa fa-pencil"></i></a>
-                                            <button value="{{$data->id}}"  class="btn btn-danger shadow btn-xs sharp deleteBtn " data-bs-toggle="modal" data-bs-target="#deleteModal"  ><i class="fa fa-trash"></i> </button>
+                                            <a href="{{ route('blog.content.edit',$data->id) }}" class="btn btn-primary shadow btn-xs sharp me-1" ><i class="fa fa-pencil"></i></a>
+
+                                            <button value="{{$data->id}}"  class="btn btn-danger shadow btn-xs sharp deleteBtn me-1 " data-bs-toggle="modal" data-bs-target="#deleteModal"  ><i class="fa fa-trash"></i> </button>
                                             <a href="{{route('blog.content.status',$data->id)}}"  class="btn btn-{{$data->status == 0? 'dark':'success   '}} shadow btn-xs sharp me-1" ><i class="fa fa-toggle-{{$data->status == 0? 'off':'on'}}" style='font-size:18px'></i></a>
                                         </div>
                                     </td>
@@ -186,13 +187,17 @@
 
 
 
+@section('script')
 <script>
     $('.deleteBtn').click(function(){
         let id = $(this).val();
         $('#delete_id').val(id);
 
+
     })
 </script>
+
+@endsection
 <div  class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModal" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered role="document">
       <div class="modal-content">
